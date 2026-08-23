@@ -1,0 +1,119 @@
+schema_version = "nucpred.mayr-n-publication-site-config.v1"
+campaign_id = "mayr-n-publication-20260805-v1"
+experiment_id = "mayr-n-publication-automatic-site-20260805-v1"
+output_directory = "artifacts/campaigns/mayr-n-publication-20260805-v1/modeling/automatic_site"
+device = "cuda:0"
+outer_fold_count = 5
+inner_fold_count = 4
+initialization_seeds = [2026072601, 2026072602, 2026072603]
+inner_conditional_n_ensemble_size = 1
+outer_conditional_n_ensemble_size = 3
+unknown_is_negative = false
+candidate_softmax_used = false
+no_site_class_used = false
+outer_test_used_for_selection = false
+endpoint_noncanonical_semantics = "not_the_reported_canonical_endpoint_in_this_exact_molecule_solvent_context_not_universal_non_nucleophile"
+
+[dataset]
+directory = "data/processed/mayr_site_n/mayr-site-n-20260805-v2"
+manifest_path = "data/processed/mayr_site_n/mayr-site-n-20260805-v2/dataset_manifest.json"
+manifest_sha256 = "936ef1222f0be9ec3c71590724c976a909f9f3b9f17efa0044de00cb3592778c"
+candidate_path = "data/processed/mayr_site_n/mayr-site-n-20260805-v2/candidate_sites.parquet"
+candidate_sha256 = "ac02230e4cbe1eaf8bbfbcf8b81346cd6fcb95382af0e90bfae58e19a4411737"
+outer_membership_path = "data/processed/mayr_site_n/mayr-site-n-20260805-v2/outer_fold_membership.csv"
+outer_membership_sha256 = "8eed41340703a55c78377757e711f235cb6be587192b49be5ac54f90559dffcb"
+nested_membership_path = "data/processed/mayr_site_n/mayr-site-n-20260805-v2/nested_split_membership.csv"
+nested_membership_sha256 = "890117d05e2e2b009db4da5a9c8e70f6fe0b0225de0cae36caff48ac947bedee"
+
+[lineage]
+conditional_n_config_path = "configs/mayr_n_publication_experiment_v1.toml"
+conditional_n_config_sha256 = "5fea43db14f6f6fdf77d0ef28746afe7da80f8c6458369fa2a26488939888a43"
+historical_v6_config_path = "configs/mayr_nextgen_site_identification_v6.toml"
+historical_v6_config_sha256 = "c4ee3b40792798eae7548f914237e3dd00d4baa1a969a48a8660e15eaef81184"
+historical_v7_config_path = "configs/mayr_nextgen_site_identification_v7.toml"
+historical_v7_config_sha256 = "7f18ea4d04d0ca8f0b07fea5c8c24aa42ac6dacff1ada91a31e0245fb00c05e5"
+candidate_policy_source_path = "src/nucpred/datasets/mayr_site_candidate_policy.py"
+candidate_policy_source_sha256 = "b993e6d9ec946cd7073c575105ac5d90c4c4d2f015f5e56c481a495716ca3709"
+inner_conditional_checkpoint_root = "artifacts/campaigns/mayr-n-publication-20260805-v1/modeling/nested_inner"
+outer_conditional_checkpoint_root = "artifacts/campaigns/mayr-n-publication-20260805-v1/modeling/outer_refit"
+base_ranker_arm = "hierarchical_exact"
+region_residual_lineage = "v7_region_structural_residual"
+
+[ranker]
+candidate_types = ["atom", "atom_group", "bond", "delocalized_region", "transferable_h_group"]
+feature_reduction = "ensemble_mean_plus_block_rms_disagreement.v1"
+block_dim = 128
+hidden_dim = 96
+router_hidden_dim = 64
+type_embedding_dim = 16
+router_logit_weight = 1.0
+learning_rate = 0.0015
+weight_decay = 0.002
+maximum_epochs = 160
+minimum_epochs = 30
+evaluation_interval = 2
+early_stopping_patience_evaluations = 15
+gradient_clip_norm = 5.0
+training_seed_offset = 2026080600
+hard_global_negative_count = 16
+hard_wrong_type_negative_count_per_type = 8
+include_all_true_type_candidates = true
+include_all_overlapping_or_nested_candidates = true
+canonical_bce_weight = 0.25
+endpoint_pairwise_weight = 1.0
+membership_pairwise_weight = 0.50
+router_bce_weight = 1.0
+compatible_auxiliary_weight = 0.0
+pairwise_margin = 0.75
+hard_negative_pair_multiplier = 1.5
+cross_type_pair_multiplier = 1.5
+overlap_or_nested_pair_multiplier = 2.0
+outer_epoch_rule = "upper_median_of_four_inner_best_epochs"
+
+[region_residual]
+target_site_type = "delocalized_region"
+minimum_samples_leaf_grid = [2, 4, 8]
+estimator_count_per_seed = 256
+maximum_features = 0.7
+training_seed_offset = 2026080700
+ensemble_seed_offsets = [0, 1, 2]
+residual_weight_grid = [0.1, 0.2, 0.3, 0.5, 0.75, 1.0, 1.5, 2.0]
+include_ungated = true
+low_margin_top_k_threshold = 2.0
+low_margin_top_k = 5
+low_margin_top_k_weight_grid = [0.5, 1.0, 2.0]
+candidate_set_conditioned = true
+type_level_maximum_preserved = true
+unknown_as_negative = false
+candidate_softmax_used = false
+outer_selection_rule = "maximum_four_inner_macro_exact_top1_then_mrr_then_top3"
+
+[calibration]
+method = "positive_slope_global_platt_plus_site_type_intercepts"
+weighting = "equal_context_mass_uniform_candidate_within_context"
+l2_type_offset = 0.05
+l2_log_slope = 0.01
+maximum_iterations = 200
+
+[abstention]
+method = "top1_minus_top2_canonical_logit_margin"
+threshold_grid = [0.0, 0.25, 0.5, 0.75, 1.0, 1.5, 2.0, 2.5, 3.0, 4.0, 5.0]
+minimum_development_precision = 0.95
+minimum_accepted_count = 35
+
+[evaluation]
+primary_population = "single_target_outer_test_contexts"
+multi_target_population_reported_separately = true
+exact_top_k = [1, 3, 5]
+bootstrap_unit = "connectivity_id"
+bootstrap_replicates = 5000
+bootstrap_seed = 2026080502
+scores_frozen_before_labels = true
+
+[phase_separation]
+inner_ranker_may_read_outer_test_targets = false
+outer_ranker_refit_may_read_outer_test_targets = false
+outer_test_scoring_reads_target_or_site_labels = false
+outer_test_metrics_after_score_freeze_only = true
+final_refit_after_outer_evaluation = true
+external_search_after_final_registry_freeze_only = true

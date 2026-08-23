@@ -1,0 +1,84 @@
+[project]
+name = "mayr-nucpred"
+version = "1.0.0"
+description = "Joint nucleophilic-site ranking and conditional Mayr N prediction"
+authors = [
+    { name = "Shangkun Shi", email = "ssk23@mails.tsinghua.edu.cn" },
+    { name = "Junliang He" },
+    { name = "Zikang Dong" },
+    { name = "Shaoguang Zhang" },
+]
+maintainers = [
+    { name = "Shangkun Shi", email = "ssk23@mails.tsinghua.edu.cn" },
+]
+readme = "README.md"
+requires-python = ">=3.13,<3.14"
+
+dependencies = [
+    "joblib>=1.4.2",
+    "jsonschema>=4.0.0",
+    "numpy>=2.3.3",
+    "pandas>=2.3.3",
+    "pyarrow>=24.0.0",
+    "rdkit>=2025.9.1",
+    "scikit-learn>=1.7.2",
+    "scipy>=1.16.0",
+]
+
+[project.optional-dependencies]
+train-gpu = [
+    "torch==2.8.0",
+    "torch-geometric==2.7.0",
+    "pyg_lib==0.5.0+pt28cu129",
+    "torch_scatter==2.1.2+pt28cu129",
+    "torch_sparse==0.6.18+pt28cu129",
+    "torch_cluster==1.6.3+pt28cu129",
+    "torch_spline_conv==1.2.2+pt28cu129",
+]
+dev = [
+    "pytest>=9.0.0",
+    "ruff>=0.12.0",
+]
+
+[project.urls]
+Repository = "https://github.com/Grtresy/mayr-nucpred"
+Issues = "https://github.com/Grtresy/mayr-nucpred/issues"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch" },
+]
+
+[[tool.uv.index]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cu129"
+explicit = true
+
+[tool.pytest.ini_options]
+pythonpath = [
+    ".",
+]
+testpaths = [
+    "tests",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"src/nucpred/publication/mayr_site_evaluation.py" = ["F401", "E731"]
+
+[tool.uv]
+environments = [
+    "sys_platform == 'linux' and platform_machine == 'x86_64'",
+]
+find-links = [
+    "https://data.pyg.org/whl/torch-2.8.0+cu129.html"
+]

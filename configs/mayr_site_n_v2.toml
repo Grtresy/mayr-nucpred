@@ -1,0 +1,49 @@
+schema_version = "nucpred.mayr-site-n-v2-config.v1"
+dataset_id = "mayr-site-n-20260805-v2"
+output_directory = "data/processed/mayr_site_n/mayr-site-n-20260805-v2"
+publication_config_path = "configs/mayr_n_publication_v1.toml"
+publication_config_sha256 = "88700723ab16efbdaec0a3ada81dbf6b37634b1c3c4e0b0db8479e0eff4ca629"
+
+[parent]
+dataset_id = "mayr-site-n-20260726-v1"
+directory = "data/processed/mayr_site_n/mayr-site-n-20260726-v1"
+manifest_sha256 = "e509e06a3514a41ce16627846615fb07dd3b1b40fb6824e572c6043f8333c4dd"
+species_sha256 = "06720edbb870f425560309c6cff8df778ae85346b557a8c55c54a4674fbc6e0a"
+contexts_sha256 = "11f111251c7fe4436a7f997c050df9aba24348ff794f716c3ddd643f80b0a0f6"
+sites_sha256 = "eb594e299dd0e5aa2bc985cb5155237742e9ddaab9b9e2be8fb78889d462fc32"
+measurements_sha256 = "6df5e1dd3b46f4d6ffb7c44d362f416701515f4f09f424c0db9ffbf079840017"
+targets_sha256 = "607d72818e7cb393bb0dbe435a520d57f40198b1e8405c64a7827f46e29e86fe"
+candidate_sites_sha256 = "c2969e79a582bdef03550904260e5acfff0c2d0b42af2cb0d978b61b625651a0"
+context_feature_audit_sha256 = "7927183be440469b2c837195fe63ea880c83dc1767b5f3af3ca7df08c226ce07"
+pretraining_overlap_audit_sha256 = "d7404f81f4e2c33edbd85cfe0998549b163ca68082b600737fe87600eaa92bd6"
+
+[evidence]
+stage_b_target_projections_path = "artifacts/campaigns/mayr-nextgen-stage-b-20260727-v1/literature_review/pass_b_frozen/target_projections.parquet"
+stage_b_target_projections_sha256 = "14aa843844688a65777ba965081a5d2bcc9607d6ea940e7b60de14937e59a715"
+exact_current_expected = 298
+exact_reprojected_expected = 69
+unresolved_expected = 70
+formal_positive_expected = 367
+stage_e_a_site_only_changes_n_target = false
+
+[policy]
+parent_dataset_is_immutable = true
+retain_all_raw_measurements = true
+exact_reprojection_preserves_n_value = true
+unresolved_enters_n_supervision = false
+unresolved_enters_site_supervision = false
+unknown_is_negative = false
+candidate_enumeration_reads_labels = false
+expected_parent_measurements = 1136
+expected_parent_targets = 1108
+expected_v2_targets = 1038
+
+[splits]
+schema_version = "nucpred.mayr-site-n-nested-splits.v1"
+outer_folds = 5
+inner_folds = 4
+random_seed = 2026080501
+group_identity = "standard_inchi_key_connectivity_block"
+stratification_target = "site_type"
+compatibility_validation_inner_fold = 0
+each_target_exactly_one_outer_test = true

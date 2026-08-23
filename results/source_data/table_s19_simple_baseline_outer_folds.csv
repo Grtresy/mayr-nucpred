@@ -1,0 +1,46 @@
+model_name,display_name,feature_tier,feature_tier_short,outer_fold,context_count,connectivity_count,top1_accuracy,top3_accuracy,mean_reciprocal_rank,automatic_site_mae,known_site_mae
+random_uniform,Uniform random ranking,analytic reference,Analytic,0,193,174,0.0128418822971,0.0385256468913,0.0593725348787,,
+random_uniform,Uniform random ranking,analytic reference,Analytic,1,208,173,0.024822836392,0.0552377399452,0.0747467528242,,
+random_uniform,Uniform random ranking,analytic reference,Analytic,2,197,172,0.0126885910676,0.0380657732028,0.0583849752611,,
+random_uniform,Uniform random ranking,analytic reference,Analytic,3,219,175,0.0378402253041,0.0678585754555,0.0850048869885,,
+random_uniform,Uniform random ranking,analytic reference,Analytic,4,209,172,0.0160200552155,0.0480601656464,0.0682554414612,,
+site_type_prior_mean,Site-type prior + development mean,standard public inputs,Public,0,193,174,0.0621761658031,0.134715025907,0.147243566587,6.43845828487,6.43845828487
+site_type_prior_mean,Site-type prior + development mean,standard public inputs,Public,1,208,173,0.0384615384615,0.110576923077,0.136567875419,5.88985498558,5.88985498558
+site_type_prior_mean,Site-type prior + development mean,standard public inputs,Public,2,197,172,0.0507614213198,0.116751269036,0.134185733703,5.73687548858,5.73687548858
+site_type_prior_mean,Site-type prior + development mean,standard public inputs,Public,3,219,175,0.100456621005,0.164383561644,0.184930466628,5.83930444984,5.83930444984
+site_type_prior_mean,Site-type prior + development mean,standard public inputs,Public,4,209,172,0.0478468899522,0.114832535885,0.132523690985,5.74430989011,5.74430989011
+morgan_1nn,Morgan/Tanimoto 1NN,standard public inputs,Public,0,193,174,0.471502590674,0.652849740933,0.594710638491,5.43131260794,2.45711571675
+morgan_1nn,Morgan/Tanimoto 1NN,standard public inputs,Public,1,208,173,0.514423076923,0.682692307692,0.620941453893,5.99634615385,3.30975961538
+morgan_1nn,Morgan/Tanimoto 1NN,standard public inputs,Public,2,197,172,0.477157360406,0.695431472081,0.605251089912,5.62343485618,2.34648054146
+morgan_1nn,Morgan/Tanimoto 1NN,standard public inputs,Public,3,219,175,0.497716894977,0.712328767123,0.621316226364,4.29636225266,2.58371385084
+morgan_1nn,Morgan/Tanimoto 1NN,standard public inputs,Public,4,209,172,0.497607655502,0.66985645933,0.610089200977,5.5428708134,2.78669856459
+linear,Logistic regression + ridge,standard public inputs,Public,0,193,174,0.554404145078,0.860103626943,0.71086222749,3.34651512617,1.85824720518
+linear,Logistic regression + ridge,standard public inputs,Public,1,208,173,0.649038461538,0.850961538462,0.764233542899,3.97281987612,2.12795738486
+linear,Logistic regression + ridge,standard public inputs,Public,2,197,172,0.532994923858,0.852791878173,0.694233121644,3.35269452723,1.79894968146
+linear,Logistic regression + ridge,standard public inputs,Public,3,219,175,0.534246575342,0.794520547945,0.688999365255,3.17576305267,1.68788269775
+linear,Logistic regression + ridge,standard public inputs,Public,4,209,172,0.578947368421,0.894736842105,0.73240256085,3.27758096868,2.15714641726
+random_forest_standard,Random forest,standard public inputs,Public,0,193,174,0.854922279793,0.937823834197,0.900379585872,2.21998967495,2.11745946706
+random_forest_standard,Random forest,standard public inputs,Public,1,208,173,0.889423076923,0.947115384615,0.926014957265,2.14556108758,2.09069977221
+random_forest_standard,Random forest,standard public inputs,Public,2,197,172,0.827411167513,0.913705583756,0.876910388614,2.1942069155,2.03238644898
+random_forest_standard,Random forest,standard public inputs,Public,3,219,175,0.881278538813,0.954337899543,0.916537347936,1.92511220374,1.86473376989
+random_forest_standard,Random forest,standard public inputs,Public,4,209,172,0.909090909091,0.961722488038,0.940566550674,2.16104518163,2.0138651642
+hist_gradient_boosting_standard,Histogram gradient boosting,standard public inputs,Public,0,193,174,0.79274611399,0.932642487047,0.866558963827,1.90988770569,1.80900409693
+hist_gradient_boosting_standard,Histogram gradient boosting,standard public inputs,Public,1,208,173,0.836538461538,0.932692307692,0.893446657509,2.22262316211,1.96892182102
+hist_gradient_boosting_standard,Histogram gradient boosting,standard public inputs,Public,2,197,172,0.796954314721,0.928934010152,0.864852664497,1.99251513405,1.75950079504
+hist_gradient_boosting_standard,Histogram gradient boosting,standard public inputs,Public,3,219,175,0.853881278539,0.940639269406,0.899788162117,1.60663367569,1.4995296714
+hist_gradient_boosting_standard,Histogram gradient boosting,standard public inputs,Public,4,209,172,0.894736842105,0.956937799043,0.931240689135,1.94934098932,1.82436060425
+random_forest_matched_inputs,Random forest + matched nonlearned inputs,feature-matched nonlearned inputs,Matched,0,193,174,0.870466321244,0.943005181347,0.911369071343,2.03932326282,1.91137288575
+random_forest_matched_inputs,Random forest + matched nonlearned inputs,feature-matched nonlearned inputs,Matched,1,208,173,0.913461538462,0.966346153846,0.944053342491,1.83058385588,1.81506993984
+random_forest_matched_inputs,Random forest + matched nonlearned inputs,feature-matched nonlearned inputs,Matched,2,197,172,0.883248730964,0.964467005076,0.922344787193,2.01772676453,1.79377142229
+random_forest_matched_inputs,Random forest + matched nonlearned inputs,feature-matched nonlearned inputs,Matched,3,219,175,0.926940639269,0.972602739726,0.95181561209,1.73736665634,1.68813563869
+random_forest_matched_inputs,Random forest + matched nonlearned inputs,feature-matched nonlearned inputs,Matched,4,209,172,0.928229665072,0.976076555024,0.953309409888,1.9470682765,1.77082375256
+hist_gradient_boosting_matched_inputs,Histogram gradient boosting + matched nonlearned inputs,feature-matched nonlearned inputs,Matched,0,193,174,0.865284974093,0.932642487047,0.904551285604,1.82515629027,1.58056425557
+hist_gradient_boosting_matched_inputs,Histogram gradient boosting + matched nonlearned inputs,feature-matched nonlearned inputs,Matched,1,208,173,0.865384615385,0.942307692308,0.909225688841,2.00592035524,1.87149925008
+hist_gradient_boosting_matched_inputs,Histogram gradient boosting + matched nonlearned inputs,feature-matched nonlearned inputs,Matched,2,197,172,0.847715736041,0.959390862944,0.902536148285,1.994410821,1.60927033403
+hist_gradient_boosting_matched_inputs,Histogram gradient boosting + matched nonlearned inputs,feature-matched nonlearned inputs,Matched,3,219,175,0.881278538813,0.990867579909,0.934287554151,1.67002281747,1.56839390219
+hist_gradient_boosting_matched_inputs,Histogram gradient boosting + matched nonlearned inputs,feature-matched nonlearned inputs,Matched,4,209,172,0.894736842105,0.966507177033,0.931100478469,1.88502357211,1.59807145098
+joint_model,Joint model (proposed),proposed learned representation,Proposed,0,193,174,0.943005181347,0.974093264249,0.959885681388,1.12384131226,1.11803820081
+joint_model,Joint model (proposed),proposed learned representation,Proposed,1,208,173,0.927884615385,0.985576923077,0.955787797061,1.31905713512,1.26785680985
+joint_model,Joint model (proposed),proposed learned representation,Proposed,2,197,172,0.918781725888,0.969543147208,0.948003044837,1.34583271262,1.14377233783
+joint_model,Joint model (proposed),proposed learned representation,Proposed,3,219,175,0.931506849315,0.990867579909,0.96131405378,1.08024664848,1.06252156605
+joint_model,Joint model (proposed),proposed learned representation,Proposed,4,209,172,0.933014354067,0.980861244019,0.95886928064,1.23804599096,1.16275928482

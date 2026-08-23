@@ -1,0 +1,170 @@
+schema_version = "nucpred.mayr-nextgen-stage-e-b-config.v1"
+campaign_id = "mayr-nextgen-stage-e-b-20260728-v1"
+goal_thread_id = "019f9253-3f58-73c3-9d1c-6f6523828c4e"
+anchor_commit = "7cebff17db3e698a5a1f75db741953460764b54c"
+output_root = "artifacts/campaigns/mayr-nextgen-stage-e-b-20260728-v1"
+formal_feature_scope = "strict_no_dft_rdkit_xtb"
+deployment_population = "mayr_like_molecules_not_arbitrary_molecules"
+maximum_parallel_gpu_processes = 3
+test_labels_examples_or_predictions_permitted = false
+formal_calibration_permitted = false
+absolute_probability_publication_permitted = false
+final_refit_permitted = false
+d_n4_combination_permitted = false
+dft_or_cdft_computation_permitted = false
+automatic_continuation_permitted = false
+status_after_completion = "awaiting_stage_e_b_results_gate"
+
+[authorization]
+path = "artifacts/campaigns/mayr-nextgen-stage-e-b-20260728-v1/authorization/decision.json"
+sha256 = "f2f420ed6d9ddad09bfb6e185ad8312da894b41986a0d9771f197af3393fead8"
+
+[parents]
+stage_e_a_run_id = "mayr-nextgen-stage-e-a-canonical-20260728-v1"
+stage_e_a_catalog_path = "artifacts/catalog/runs/mayr-nextgen-stage-e-a-canonical-20260728-v1.json"
+stage_e_a_catalog_sha256 = "8dc31bc950399e23266d784a9a7cbb7ab7a71d178056035c10c199cc7bc46c52"
+stage_e_a_config_path = "configs/mayr_nextgen_stage_e_a.toml"
+stage_e_a_config_sha256 = "5ba3ac3101e5fc9e1dc7a07be208a96f90401ce127f537eae86344e69d173262"
+stage_e_a_results_manifest_path = "artifacts/campaigns/mayr-nextgen-stage-e-a-20260728-v1/gate_e_a_results/run_manifest.json"
+stage_e_a_results_manifest_sha256 = "e79ebf86bc3168bd2bfbb2d7aea8baaca79ff4cb06e013faaf7266a1d001281c"
+stage_e_a_results_summary_path = "artifacts/campaigns/mayr-nextgen-stage-e-a-20260728-v1/gate_e_a_results/summary.json"
+stage_e_a_results_summary_sha256 = "69597bf06930e9980e140f4b342e75c316aabdb06fcdec92e848fa8e66d23f0b"
+stage_e_a_r2_manifest_path = "artifacts/campaigns/mayr-nextgen-stage-e-a-20260728-v1/r2_validation/run_manifest.json"
+stage_e_a_r2_manifest_sha256 = "682db5389156afb82e27b1d127767d89931f9a848360f60823f796e63269f97e"
+stage_e_a_evidence_pass_a_manifest_path = "artifacts/campaigns/mayr-nextgen-stage-e-a-20260728-v1/positive_evidence_expansion/pass_a_frozen/run_manifest.json"
+stage_e_a_evidence_pass_a_manifest_sha256 = "96df0215b76e319ce18742145a4faaa207dfd883d630d44231cf7cb7c4d28067"
+stage_e_a_evidence_pass_b_manifest_path = "artifacts/campaigns/mayr-nextgen-stage-e-a-20260728-v1/positive_evidence_expansion/pass_b_frozen/run_manifest.json"
+stage_e_a_evidence_pass_b_manifest_sha256 = "e07bb91eb2c7a9277a551393277cf91d6f017ba7318ad9901fdc2210b9acf5e2"
+stage_c_config_path = "configs/mayr_nextgen_stage_c.toml"
+stage_c_config_sha256 = "2ee0555783dc093cea9f469994d62479ebae5ac188dd9d5f5c1737eb5993c1b9"
+stage_c_r2_manifest_path = "artifacts/campaigns/mayr-nextgen-stage-c-20260727-v1/r2_validation/run_manifest.json"
+stage_c_r2_manifest_sha256 = "4e8fb7a1cd4d0d98029a144a52d2656b884094c1af693edd7e5c6a9820997bea"
+
+[dataset]
+dataset_id = "mayr-site-n-20260726-v1"
+directory = "data/processed/mayr_site_n/mayr-site-n-20260726-v1"
+manifest_path = "data/processed/mayr_site_n/mayr-site-n-20260726-v1/dataset_manifest.json"
+manifest_sha256 = "e509e06a3514a41ce16627846615fb07dd3b1b40fb6824e572c6043f8333c4dd"
+split_manifest_path = "data/processed/mayr_site_n/mayr-site-n-20260726-v1/split_manifest.json"
+split_manifest_sha256 = "f88efb3e4028ee36cb00ed27b1e6fc7edbd6727de2e602e249ba75c297de8a9b"
+
+[r2]
+output_directory = "artifacts/campaigns/mayr-nextgen-stage-e-b-20260728-v1/r2_validation"
+frozen_c2_checkpoint_root = "artifacts/campaigns/mayr-nextgen-stage-c-20260727-v1/r2_validation"
+frozen_c2_arm = "c2_h2_high_n_weighting"
+frozen_c2_checkpoint_schema = "nucpred.mayr-nextgen-stage-c-r2-checkpoint.v1"
+split_seeds = [20241220, 20241221, 20241222, 20241223, 20241224]
+initialization_seeds = [2026072601, 2026072602, 2026072603]
+arms = [
+  "e_b_n1_bond_region_masked_solvent_residual",
+  "e_b_n2_structural_family_residual",
+]
+selection_metric = "rmse"
+selection_roles = ["train", "validation"]
+epoch_zero_frozen_c2_is_eligible = true
+test_examples_permitted = false
+test_predictions_permitted = false
+final_refit_permitted = false
+dft_or_cdft_permitted = false
+target_weighting = "frozen_c2_train_only_N_ge_15_mean_one_cap_three"
+residual_shrinkage_weight = 0.01
+
+[r2.e_b_n1]
+active_site_types = ["bond", "delocalized_region"]
+inactive_site_types = ["atom", "atom_group", "transferable_h_group"]
+residual_features = [
+  "site_times_continuous_solvent",
+  "global_xtb_times_continuous_solvent",
+  "continuous_solvent",
+  "solvent_embedding",
+]
+pair_definition = "train_only_same_connectivity_same_site_different_solvent"
+pair_aware_batching = true
+paired_solvent_weight = 0.10
+center_penalty_weight = 1.0
+
+[r2.e_b_n2]
+family_feature_source = "target_independent_explicit_graph_and_query_membership_only"
+family_channels = [
+  "phenolate_like",
+  "nho_like",
+  "hydride_parent_carbon",
+  "hydride_parent_boron",
+  "hydride_parent_silicon_germanium_tin",
+  "hydride_parent_phosphorus",
+  "allyl_main_group_like",
+  "neutral_amine_like",
+  "oxygen_anion_nonphenolate",
+]
+mayr_class_labels_as_model_input = false
+target_or_n_value_as_family_input = false
+pair_aware_batching = false
+paired_solvent_weight = 0.0
+center_penalty_weight = 0.0
+
+[r2.optimization]
+maximum_epochs = 220
+minimum_epochs = 30
+early_stopping_patience = 25
+minimum_validation_metric_delta = 0.0001
+batch_size_contexts = 64
+learning_rate = 0.0005
+weight_decay = 0.0001
+ranking_weight = 0.10
+gradient_clip_norm = 5.0
+maximum_target_weight = 3.0
+
+[r2.gate]
+minimum_macro_r2 = 0.95
+mae_must_not_worsen_vs_frozen_c2 = true
+rmse_must_not_worsen_vs_frozen_c2 = true
+paired_connectivity_bootstrap_r2_ci_must_exclude_zero = true
+paired_connectivity_bootstrap_replicates = 5000
+paired_connectivity_bootstrap_seed = 2026072802
+single_split_success_is_insufficient = true
+formal_test_claim_permitted = false
+
+[evidence]
+output_directory = "artifacts/campaigns/mayr-nextgen-stage-e-b-20260728-v1/atom_group_lineage"
+review_mode = "single_operator_two_mechanical_isolated_passes_reusing_frozen_adjudications"
+original_gate_a_site_type = "atom_group"
+pass_a_candidate_members_visible = false
+pass_a_model_scores_visible = false
+pass_a_split_roles_visible = false
+pass_b_requires_frozen_pass_a_manifest = true
+pass_b_model_scores_visible = false
+pass_b_split_roles_visible = false
+endpoint_family_relation = "exact_same_members_only"
+strict_containment_label_propagation = false
+partial_overlap_label_propagation = false
+new_binary_negative_labels_permitted = false
+unknown_is_negative = false
+gate_a_preflight_manifest_path = "artifacts/campaigns/mayr-nextgen-gate-a-20260727-v1/preflight/run_manifest.json"
+gate_a_preflight_manifest_sha256 = "4cc87869dcfdab3a80482a9f4e703bc3c24ea85554981c2480f2f1a15e6aedbb"
+gate_a_candidate_policy_path = "artifacts/campaigns/mayr-nextgen-gate-a-20260727-v1/preflight/candidate_policy.parquet"
+gate_a_candidate_policy_sha256 = "0843657204dc82fde414d09285b2389c889d2dcdf605579f5765a3e6ba0914cf"
+gate_a_review_queue_path = "artifacts/campaigns/mayr-nextgen-gate-a-20260727-v1/preflight/positive_evidence_review_queue.csv"
+gate_a_review_queue_sha256 = "6fa5b0dba42dbd4edc2b4accc440ee4d840fd0b06b2b61e6c12325013e1ef95d"
+stage_b_pass_a_manifest_path = "artifacts/campaigns/mayr-nextgen-stage-b-20260727-v1/literature_review/pass_a_frozen/run_manifest.json"
+stage_b_pass_a_manifest_sha256 = "50ccdd0eb0630442aed384fbc868c68bfbf0097b820110c3bc4ab9eae77994ef"
+stage_b_target_reviews_path = "artifacts/campaigns/mayr-nextgen-stage-b-20260727-v1/literature_review/pass_a_frozen/target_reviews.parquet"
+stage_b_target_reviews_sha256 = "0cbc7b5de5fb6e512b63a6f6a4e675c64fb0ffc469f05acf6ba99cbdf4dc48e0"
+stage_b_pass_b_manifest_path = "artifacts/campaigns/mayr-nextgen-stage-b-20260727-v1/literature_review/pass_b_frozen/run_manifest.json"
+stage_b_pass_b_manifest_sha256 = "981c405d57784d7bc7fd20a945cba776a169462e7182ad9b67f675e5869e8239"
+stage_b_projections_path = "artifacts/campaigns/mayr-nextgen-stage-b-20260727-v1/literature_review/pass_b_frozen/target_projections.parquet"
+stage_b_projections_sha256 = "14aa843844688a65777ba965081a5d2bcc9607d6ea940e7b60de14937e59a715"
+stage_d_e3_pass_a_manifest_path = "artifacts/campaigns/mayr-nextgen-stage-d-20260727-v1/e3_review/pass_a_frozen/run_manifest.json"
+stage_d_e3_pass_a_manifest_sha256 = "00229bf29f3cce330ee29c91c9a90459d2bb689e73ce92ec97195b67975ca7f5"
+stage_d_reference_review_path = "artifacts/campaigns/mayr-nextgen-stage-d-20260727-v1/e3_review/pass_a_frozen/reference_endpoint_review.parquet"
+stage_d_reference_review_sha256 = "b3091e9bfbadae1a37acab9496921784ebc96aa3cb4ded800464a789d8cf573a"
+stage_e_a_pass_b_manifest_path = "artifacts/campaigns/mayr-nextgen-stage-e-a-20260728-v1/positive_evidence_expansion/pass_b_frozen/run_manifest.json"
+stage_e_a_pass_b_manifest_sha256 = "e07bb91eb2c7a9277a551393277cf91d6f017ba7318ad9901fdc2210b9acf5e2"
+stage_e_a_positive_expansion_path = "artifacts/campaigns/mayr-nextgen-stage-e-a-20260728-v1/positive_evidence_expansion/pass_b_frozen/positive_evidence_expansion.parquet"
+stage_e_a_positive_expansion_sha256 = "db2668495d592a877b988f7b724c0cf47e64161da8ca3765ba681bbada2966c4"
+inference_contract_path = "docs/protocols/mayr-nextgen-inference-contract.md"
+inference_contract_sha256 = "96f49746a88853d565a56bef5ff4bc50b752b6714df9b63fc4e646141acfbeb9"
+
+[reporting]
+output_directory = "artifacts/campaigns/mayr-nextgen-stage-e-b-20260728-v1/gate_e_b_results"
+tracked_report_path = "docs/reports/mayr-nextgen-stage-e-b-20260728.md"
+managed_run_id = "mayr-nextgen-stage-e-b-canonical-20260728-v1"

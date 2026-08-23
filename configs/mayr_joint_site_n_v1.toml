@@ -1,0 +1,199 @@
+schema_version = "nucpred.mayr-joint-site-n-prototype-config.v1"
+experiment_id = "mayr-joint-site-n-prototype-20260810-v1"
+output_directory = "artifacts/campaigns/mayr-joint-site-n-prototype-20260810-v1"
+device = "auto"
+outer_fold_count = 5
+inner_fold_count = 4
+initialization_seeds = [2026081001, 2026081002, 2026081003]
+conditional_teacher_seeds = [2026072601, 2026072602, 2026072603]
+unknown_is_negative = false
+candidate_softmax_used = false
+outer_test_used_for_selection = false
+v3_review_permitted_before_prototype_gate = false
+
+[dataset]
+dataset_id = "mayr-site-n-20260805-v2"
+directory = "data/processed/mayr_site_n/mayr-site-n-20260805-v2"
+manifest_path = "data/processed/mayr_site_n/mayr-site-n-20260805-v2/dataset_manifest.json"
+manifest_sha256 = "936ef1222f0be9ec3c71590724c976a909f9f3b9f17efa0044de00cb3592778c"
+contexts_path = "data/processed/mayr_site_n/mayr-site-n-20260805-v2/contexts.parquet"
+contexts_sha256 = "0476829816725d919c45d1ee1ec5b814501f9c17740db91e53113b12d90bff5b"
+targets_path = "data/processed/mayr_site_n/mayr-site-n-20260805-v2/targets.parquet"
+targets_sha256 = "e6f76b8ce8ab92d7f8914ba91d8d420d9c8e57682cee1da67ec3564a628ec563"
+candidates_path = "data/processed/mayr_site_n/mayr-site-n-20260805-v2/candidate_sites.parquet"
+candidates_sha256 = "ac02230e4cbe1eaf8bbfbcf8b81346cd6fcb95382af0e90bfae58e19a4411737"
+species_path = "data/processed/mayr_site_n/mayr-site-n-20260805-v2/species.parquet"
+species_sha256 = "39fbfbb4123efc4a2d09c963b0aec101e29537d21c6535045c38176cb0c10873"
+outer_membership_path = "data/processed/mayr_site_n/mayr-site-n-20260805-v2/outer_fold_membership.csv"
+outer_membership_sha256 = "8eed41340703a55c78377757e711f235cb6be587192b49be5ac54f90559dffcb"
+nested_membership_path = "data/processed/mayr_site_n/mayr-site-n-20260805-v2/nested_split_membership.csv"
+nested_membership_sha256 = "890117d05e2e2b009db4da5a9c8e70f6fe0b0225de0cae36caff48ac947bedee"
+
+[prototype_evidence]
+path = "artifacts/campaigns/mayr-nextgen-site-identification-20260731-v7/preflight/combined_reviewed_evidence.parquet"
+sha256 = "59e8ca0ab2063c85faed3365868ea1d714b40de2b0c63b68d38dd1d4e220cc60"
+role = "prototype_train_and_diagnostic_only"
+may_enter_v3_formal_calibration_or_test = false
+required_negative_count = 3538
+required_positive_count = 541
+unknown_loss_weight = 0.0
+ontology_out_of_scope_loss_weight = 0.0
+
+[baseline]
+publication_protocol_path = "configs/mayr_n_publication_v1.toml"
+publication_protocol_sha256 = "88700723ab16efbdaec0a3ada81dbf6b37634b1c3c4e0b0db8479e0eff4ca629"
+automatic_site_config_path = "configs/mayr_n_publication_site_v1.toml"
+automatic_site_config_sha256 = "abd0c35505cb5ba2ab5c5b274b4eb01df11ba24372f435b8942b05a3812059b3"
+runtime_registry_path = "artifacts/campaigns/mayr-n-publication-20260805-v1/modeling/automatic_site/deployment/runtime_registry.json"
+runtime_registry_sha256 = "52c5d606523b8a4a544b03f9fc8b1588cbe370b71b2f90e25e2517690a2d94aa"
+evaluation_summary_path = "artifacts/campaigns/mayr-n-publication-20260805-v1/modeling/automatic_site/outer_evaluation/summary.json"
+evaluation_summary_sha256 = "d0821ef77c8608ca0243579b08e425805931639f8a53050e4168c9d3a407ce69"
+single_target_evaluation_path = "artifacts/campaigns/mayr-n-publication-20260805-v1/modeling/automatic_site/outer_evaluation/single_target_evaluation.parquet"
+single_target_evaluation_sha256 = "d1ef6a952f6ca1d5f8e9841fd5da96a6cdd1fb0d0f93da38146236d860926a74"
+site_type_metrics_path = "artifacts/campaigns/mayr-n-publication-20260805-v1/modeling/automatic_site/outer_evaluation/site_type_metrics.csv"
+site_type_metrics_sha256 = "a08c087ff69b068b2214ffa8e2767198c202c2a261e74ee5484e748da4219a26"
+outer_fold_metrics_path = "artifacts/campaigns/mayr-n-publication-20260805-v1/modeling/automatic_site/outer_evaluation/outer_fold_metrics.csv"
+outer_fold_metrics_sha256 = "6c9c72e679c93239c03c12e1f65acec61706c49b17f579c2220dc03b04eb90fb"
+paired_comparisons_path = "artifacts/campaigns/mayr-n-publication-20260805-v1/modeling/automatic_site/outer_evaluation/paired_comparisons.csv"
+paired_comparisons_sha256 = "6c10f29fce320376e8112b5101ff637eeb4b23df5804c9ba9b55435f7b38c0e9"
+inner_checkpoint_root = "artifacts/campaigns/mayr-n-publication-20260805-v1/modeling/nested_inner"
+outer_checkpoint_root = "artifacts/campaigns/mayr-n-publication-20260805-v1/modeling/outer_refit"
+inner_site_ranker_root = "artifacts/campaigns/mayr-n-publication-20260805-v1/modeling/automatic_site/nested_inner"
+outer_site_ranker_root = "artifacts/campaigns/mayr-n-publication-20260805-v1/modeling/automatic_site/outer_refit"
+outer_development_oof_root = "artifacts/campaigns/mayr-n-publication-20260805-v1/modeling/automatic_site/outer_refit"
+outer_development_oof_sha256 = [
+  "cd6072a0570c9e2d31a9739bb77cfccdf630f13ea5d5cc2f9aac94f4e3a347b9",
+  "5c50eccb7033a978bd9549b6a432555c053630ac9d6a0bf1649f7611775e8c0d",
+  "df86826c5ca2ba57e9a0ca85d034a802b0837824a6c9912158ca259e5dd10008",
+  "4b882a200bd92973882e9385901ceed293682fe799506d9c5fb64e495f099913",
+  "9702f45128aedf1f6bd79060a09d8f1c898608fffe973a91546b42f5bca4c64b",
+]
+outer_development_summary_sha256 = [
+  "4dad049ec8aed49ed3387b1e0b73873e367ea5becff2f202b0223268f0b67dac",
+  "c535c2b4cc8bd2978d76c7f28812b763425628a2bc9c201936f3da8ee0201ee4",
+  "52631c39087b59d0984c9bccd7141c471152875b0175314688854f7c82eff8c9",
+  "e3897ed7e955cac16bfbec71f44735bb6ef1b4e4e62c966d7cce49c2a553ce2b",
+  "5e0cd0eea42da077d697fa40e9f6cba08e0507c863c0525754333de409a3160f",
+]
+outer_score_freeze_root = "artifacts/campaigns/mayr-n-publication-20260805-v1/modeling/automatic_site/outer_score_freeze"
+outer_score_candidate_sha256 = [
+  "3409ab26e460124be1702526fe4e3f11b58a7354922a83b271f13312691e1bca",
+  "e6f2770541d6a48abf3c13542fdb982cc9a152ac255268b7eabc2beab1a0fc73",
+  "01e6fc25b7a28fadcc3f8b46c44ce49111aba34a435d3c02798a2d28441bc75f",
+  "0b061abe70713df61d3f80d476e6a29ea430460c1516efc8e675d23091927e97",
+  "d3b48dafd37306a85420bc216fe9490ee85c285a8c86cc568e3d34b1102c4586",
+]
+outer_score_summary_sha256 = [
+  "9d9c3de966bcadc5ce081947e380eed3c2ede772f487892b4209bc2c06a189e7",
+  "2316be1c9b47716ba16105c772f292ee1bf755d5b465afc21349db5eb7f691be",
+  "c138b58c4efd25388b1755d1e71c160127208de944f8ea477969c6b7966785c0",
+  "89090b19e7d55cf898f3d9a6247fb4f45c0fe5c4ccf38292e1419bebea42a6db",
+  "afeb516c2bc2512ce03e79713020816335384cef772c4f68a084f7d3ce2c4f15",
+]
+
+[model]
+conditional_n_lineage = "publication_C2_to_E-B-N1_to_E-C-N3"
+site_types = ["atom", "bond", "delocalized_region", "atom_group", "transferable_h_group"]
+hidden_dim = 128
+message_passing_layers = 4
+node_embedding_dim = 16
+edge_embedding_dim = 16
+solvent_embedding_dim = 16
+type_embedding_dim = 16
+router_hidden_dim = 64
+router_logit_weight = 1.0
+router_base_adapter = "positive_per_type_affine_plus_context_residual_identity_initialized"
+router_candidate_set_context = "typed_fused_mean_max_logmeanexp_count_base_max_topk.v1"
+set_top_k = 3
+dropout = 0.10
+candidate_set_complexity = "O(n)_memory"
+candidate_set_residual_contract = "context_type_internal_reordering_with_frozen_type_maximum"
+direct_outputs = ["canonical_logit", "conditional_N"]
+site_logit_design = "frozen_split_safe_v2_base_plus_trainable_joint_residual"
+inner_base_source = "materialized_split_safe_publication_inner_ranker_plus_region_residual"
+outer_development_base_source = "four_inner_oof_outer_selected_validity_logit"
+outer_test_base_source = "label_blind_frozen_v2_canonical_logit"
+site_ranker_projection = "forbidden_for_outer_three_member_ensemble"
+
+[training]
+batch_size_contexts = 8
+maximum_epochs = 80
+minimum_epochs = 16
+early_stopping_patience = 12
+minimum_validation_top1_delta = 0.0001
+head_learning_rate = 0.00001
+backbone_learning_rate_multiplier = 0.1
+weight_decay = 0.0002
+heads_only_warmup_epochs = 3
+gradient_clip_norm = 5.0
+outer_epoch_rule = "upper_median_of_four_inner_best_epochs"
+site_type_context_balance_exponent = 0.5
+
+[loss]
+listwise_weight = 1.0
+pairwise_weight = 1.0
+evidence_bce_weight = 0.25
+type_router_weight = 0.5
+type_router_loss = "exact_endpoint_type_listwise_plus_balanced_reviewed_bce_pairwise.v1"
+n_regression_weight = 1.0
+pairwise_margin = 0.75
+n_harm_multiplier = 1.0
+n_harm_cap_quantile = 0.95
+
+[type_router]
+enabled = true
+fit_role = "outer_development_inner_oof_only"
+feature_contract = "morgan1024_context_physical_typed_candidate_set_structural.v3"
+excluded_model_derived_features = ["conditional_n_seed_std"]
+feature_range_clipping_contract = "per_feature_training_min_max_before_standardization.v1"
+morgan_radius = 2
+morgan_bits = 1024
+regularization_c_grid = [0.005, 0.01, 0.03, 0.1]
+pre_router_type_max_weight_grid = [0.0, 0.02, 0.05, 0.1, 0.2]
+atom_group_bias_grid = [0.0, 0.25, 0.5, 0.625, 0.75, 0.875, 1.0]
+delocalized_region_bias_grid = [0.0, 0.25, 0.5, 0.625, 0.75]
+weak_type_minimum = 0.75
+canonical_composition = "type_router_plus_weighted_pre_router_type_max_plus_within_type_relative.v1"
+candidate_unknown_used_as_binary_negative = false
+
+[inner_artifact_compatibility]
+legacy_config_path = "configs/mayr_joint_site_n_v1_router_v2_failed.toml"
+legacy_config_sha256 = "0eb1e26cf6839c12a156e69ae01b4df5d22a33acb77beea9da6da3c5d8ec1165"
+reuse_scope = "joint_inner_and_router_independent_outer_epoch_selection_only"
+reason = "router_only_feature_lineage_and_range_clipping_fix"
+
+[ablations]
+required = [
+  "current_baseline",
+  "joint_full",
+  "frozen_backbone",
+  "without_set_pooling",
+  "without_evidence_bce",
+  "without_n_harm",
+  "without_historical_evidence",
+]
+
+[prototype_gate]
+exact_top1_minimum = 0.930
+automatic_n_mae_maximum = 1.23
+atom_group_top1_minimum = 0.75
+delocalized_region_top1_minimum = 0.75
+paired_bootstrap_confidence_level = 0.95
+top1_delta_ci_low_must_exceed = 0.0
+automatic_n_mae_reduction_ci_low_must_exceed = 0.0
+known_site_n_mae_maximum_degradation = 0.02
+candidate_recall_required = 1.0
+unknown_direct_loss_required = 0.0
+
+[bootstrap]
+unit = "connectivity_id"
+replicates = 5000
+seed = 20260810
+
+[phase_separation]
+inner_training_reads_outer_test_targets = false
+outer_training_reads_outer_test_targets = false
+outer_test_used_for_model_selection = false
+outer_test_used_for_calibration = false
+outer_test_scored_only_after_checkpoint_freeze = true
+v3_review_starts_only_after_all_prototype_gates_pass = true

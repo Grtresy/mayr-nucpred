@@ -1,0 +1,47 @@
+schema_version = "nucpred.mayr-n-publication-ablation-config.v1"
+parent_config_path = "configs/mayr_n_publication_experiment_v1.toml"
+parent_config_sha256 = "5fea43db14f6f6fdf77d0ef28746afe7da80f8c6458369fa2a26488939888a43"
+campaign_id = "mayr-n-publication-component-ablations-20260815-v1"
+experiment_id = "mayr-n-publication-no_pretraining-20260815-v1"
+output_directory = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/modeling/conditional/no_pretraining"
+device = "cuda:0"
+
+[lineage_overrides]
+pretraining_config_path = "configs/mayr_n_publication_scratch_initialization_v1.toml"
+pretraining_config_sha256 = "6c09c8020a1d85135f9394f0a72e680c38011043db442f356a19421ab6c69691"
+pretraining_protocol_path = "docs/protocols/mayr-joint-model-component-ablations.md"
+pretraining_protocol_sha256 = "af61293ab7b89372e2821b39a6c71a94e382b756b208bc95738c2c0e361377b8"
+pretraining_aggregate_path = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/pretraining/no_pretraining_v2/aggregate/aggregate_summary.json"
+pretraining_aggregate_sha256 = "d6b9860eb63ee57c3c5416d0b7942ba5427edbd024ae9103a41d09f086a27942"
+pretraining_population = "deterministic_scratch_zero_ESNUEL_optimization_steps"
+
+[ablation]
+name = "no_pretraining"
+interpretation = "the complete transferred backbone starts from deterministic random initialization with zero ESNUEL optimization steps"
+outer_test_used_for_selection = false
+same_architecture_and_optimization = true
+true_metadata_retained_only_for_post_freeze_analysis = true
+matched_pretraining_config_path = "configs/mayr_n_publication_scratch_initialization_v1.toml"
+matched_pretraining_config_sha256 = "6c09c8020a1d85135f9394f0a72e680c38011043db442f356a19421ab6c69691"
+expected_pretraining_tasks = [
+]
+
+[pretraining]
+
+[[pretraining.checkpoints]]
+downstream_initialization_seed = 2026072601
+pretraining_seed = 2026072601
+path = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/pretraining/no_pretraining_v2/seed-2026072601/initialization.pt"
+sha256 = "5b3a394ac6d60cd09fde2cbee7e4497905574e4339017ebfbc72c14dd944a830"
+
+[[pretraining.checkpoints]]
+downstream_initialization_seed = 2026072602
+pretraining_seed = 2026072602
+path = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/pretraining/no_pretraining_v2/seed-2026072602/initialization.pt"
+sha256 = "408404e666093e34e3be0297c90442da334e80ac8f6a3ef0d3af6308846a44cf"
+
+[[pretraining.checkpoints]]
+downstream_initialization_seed = 2026072603
+pretraining_seed = 2026072603
+path = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/pretraining/no_pretraining_v2/seed-2026072603/initialization.pt"
+sha256 = "bc8b388102a9b1fbefa6d2bd8f194c6804d06f167a813680c845271ab2370a90"

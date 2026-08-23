@@ -1,0 +1,7 @@
+display_order,fit_id,display_name,solvent,transfer_setting,literature_N,literature_source,candidate_count,strict_target_rank,automatic_top1_N,automatic_top1_abs_error,target_conditioned_N,target_conditioned_abs_error
+0,morpholine_meoh,Morpholine,MeOH,seen connectivity; new solvent,14.83,doi:10.1007/s11696-022-02483-8,64,1,14.8631862005,0.0331862004598,14.8631862005,0.0331862004598
+1,tris_morpholino_benzene_ch2cl2,"1,3,5-tris(morpholin-4-yl)benzene",dichloromethane,unseen connectivity,10.6,doi:10.1002/ejoc.202100939,258,11,14.546015803,3.94601580302,9.90564543406,0.694354565938
+2,pyrrolidine_dmso,Pyrrolidine,DMSO,seen connectivity; new solvent,18.18,doi:10.1007/s11696-022-02483-8,59,1,18.1131338755,0.066866124471,18.1131338755,0.066866124471
+3,tris_pyrrolidino_benzene_ch2cl2,"1,3,5-tris(pyrrolidin-1-yl)benzene",dichloromethane,unseen connectivity,14.8,doi:10.1002/ejoc.202100939,242,12,16.6718466441,1.87184664408,12.3030963898,2.49690361023
+4,piperidine_meoh,Piperidine,MeOH,seen connectivity; new solvent,15.48,doi:10.1007/s11696-022-02483-8,76,1,16.6966873169,1.21668731689,16.6966873169,1.21668731689
+5,tris_piperidino_benzene_ch2cl2,"1,3,5-tris(piperidin-1-yl)benzene",dichloromethane,unseen connectivity,12.8,doi:10.1002/ejoc.202100939,295,12,16.3513739268,3.5513739268,10.6786554972,2.12134450277

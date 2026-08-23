@@ -1,0 +1,48 @@
+{
+  "component": "no_global_electronic",
+  "conditional_config_path": "configs/mayr_n_publication_ablation_no_global_electronic_v1.toml",
+  "conditional_config_sha256": "64c48901bb455600a45dbb778e67f65762295e1b9868cc5e570ce67a891796e9",
+  "matched_pretraining": {
+    "aggregate_path": "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/pretraining/no_global_electronic/aggregate/aggregate_summary.json",
+    "aggregate_sha256": "8739a5222bf88579144a7d501b547f64358d3050957bede7a8f24c8a403e08ad",
+    "checkpoints": [
+      {
+        "downstream_initialization_seed": 2026072601,
+        "path": "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/pretraining/no_global_electronic/seed-31001/best.pt",
+        "pretraining_seed": 31001,
+        "sha256": "bdeec04648f194cf83972a6112f8bde046d47635134f9d81ff35d4f8da3b5c68"
+      },
+      {
+        "downstream_initialization_seed": 2026072602,
+        "path": "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/pretraining/no_global_electronic/seed-31002/best.pt",
+        "pretraining_seed": 31002,
+        "sha256": "49eeb51265a9551f020167d1f3a87142fe65e3c2797835a2c6fce90ce765feb2"
+      },
+      {
+        "downstream_initialization_seed": 2026072603,
+        "path": "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/pretraining/no_global_electronic/seed-31003/best.pt",
+        "pretraining_seed": 31003,
+        "sha256": "98a2bfc45ccd4a0b1800074cace4299b10213557f13a5545d3cdc7b6a32b2463"
+      }
+    ],
+    "config_path": "configs/mayr_n_publication_pretraining_no_global_electronic_v1.toml",
+    "config_sha256": "9ccb9a08486c4a7f8f646e512c58e359823c0d0e2a7c97dc1d9335a5cf4f6cce",
+    "population": "ESNUEL_47915_without_global_electronic_input_or_objective",
+    "protocol_path": "docs/protocols/mayr-joint-model-component-ablations.md",
+    "protocol_sha256": "af61293ab7b89372e2821b39a6c71a94e382b756b208bc95738c2c0e361377b8",
+    "tasks": [
+      "heavy_atom_gcs_53d",
+      "heavy_atom_mca_scalar",
+      "heavy_atom_mca_soft_site",
+      "heavy_atom_mca_within_molecule_ranking",
+      "masked_edge_categorical_reconstruction",
+      "masked_local4_reconstruction_all_atoms",
+      "masked_node_categorical_reconstruction_all_atoms"
+    ]
+  },
+  "ready_for_upstream_training": true,
+  "schema_version": "nucpred.mayr-n-component-ablation-config-pair.v1",
+  "site_config_path": "configs/mayr_n_publication_site_ablation_no_global_electronic_v1.toml",
+  "site_config_sha256": "3d6cb692794e9bcdcd52aee73080fac28198e06c54556d0c81c7c67f32391d0f",
+  "status": "pass"
+}

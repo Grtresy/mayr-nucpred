@@ -1,0 +1,50 @@
+schema_version = "nucpred.mayr-n-publication-ablation-config.v1"
+parent_config_path = "configs/mayr_n_publication_experiment_v1.toml"
+parent_config_sha256 = "5fea43db14f6f6fdf77d0ef28746afe7da80f8c6458369fa2a26488939888a43"
+campaign_id = "mayr-n-publication-20260805-v1"
+experiment_id = "mayr-n-publication-ablation-without-xtb-20260805-v1"
+output_directory = "artifacts/campaigns/mayr-n-publication-20260805-v1/modeling/ablations/without_xtb"
+device = "cuda:0"
+
+[lineage_overrides]
+pretraining_aggregate_path = "artifacts/campaigns/mayr-n-publication-ablations-20260805-v1/pretraining/without_xtb/aggregate/aggregate_summary.json"
+pretraining_aggregate_sha256 = "65957199c5f1db03c25fdefe4e010aca791ca19e08efc8f6c11f9f4c543cf944"
+pretraining_population = "ESNUEL_47915_without_xtb_inputs_or_objectives"
+
+[ablation]
+name = "without_xtb"
+interpretation = "all local4/global6 xTB values and availability flags are removed in both ESNUEL pretraining and Mayr fine-tuning"
+pretraining_variant = "matched_ESNUEL_without_xtb_inputs_or_objectives"
+outer_test_used_for_selection = false
+same_architecture_and_optimization = true
+true_metadata_retained_only_for_post_freeze_analysis = true
+matched_pretraining_config_path = "configs/mayr_n_publication_no_xtb_pretraining_v1.toml"
+matched_pretraining_config_sha256 = "867332303e774079caa55a3c0bd8366941c1c91982cd150871ac799bb9350f8a"
+expected_pretraining_tasks = [
+  "masked_node_categorical_reconstruction_all_atoms",
+  "masked_edge_categorical_reconstruction",
+  "heavy_atom_mca_scalar",
+  "heavy_atom_gcs_53d",
+  "heavy_atom_mca_soft_site",
+  "heavy_atom_mca_within_molecule_ranking",
+]
+
+[pretraining]
+
+[[pretraining.checkpoints]]
+downstream_initialization_seed = 2026072601
+pretraining_seed = 31001
+path = "artifacts/campaigns/mayr-n-publication-ablations-20260805-v1/pretraining/without_xtb/seed-31001/best.pt"
+sha256 = "cf6b2560c45b792cf70b47230f0b7f2bd4a51364a43e3f5018cc80e50c8b35c4"
+
+[[pretraining.checkpoints]]
+downstream_initialization_seed = 2026072602
+pretraining_seed = 31002
+path = "artifacts/campaigns/mayr-n-publication-ablations-20260805-v1/pretraining/without_xtb/seed-31002/best.pt"
+sha256 = "2d07a232e9ba8a45625c89e447add53c8251ca65a8225314476432ed3fa60ce0"
+
+[[pretraining.checkpoints]]
+downstream_initialization_seed = 2026072603
+pretraining_seed = 31003
+path = "artifacts/campaigns/mayr-n-publication-ablations-20260805-v1/pretraining/without_xtb/seed-31003/best.pt"
+sha256 = "402169aade61a0e3fb07b3491c3a3af37bea78f0d46f1c98e6b85640cf2ccd59"

@@ -1,0 +1,8 @@
+model,component_removed,display_label,context_count,connectivity_count,mae,mse,rmse,r2,mae_delta,mae_delta_ci95_low,mae_delta_ci95_high
+joint model,none,Joint model,1026,866,1.15061174781,2.63303094581,1.62266168557,0.950221420758,,,
+joint model without transferable pretraining,without transferable pretraining,No transferable pretraining,1026,866,1.36466942228,3.67036215614,1.91581892572,0.930610229354,0.214057674476,0.147119465065,0.289536508567
+joint model without local electronic inputs,without local electronic inputs,No local electronic inputs,1026,866,1.19980766078,2.92342328959,1.70980212001,0.944731428961,0.0491959129765,-0.00865759147354,0.111565764163
+joint model without global electronic inputs,without global electronic inputs,No global electronic inputs,1026,866,1.12255783124,2.54182265692,1.59430946084,0.951945752576,-0.028053916568,-0.062908873402,0.0060864809038
+joint model without explicit solvent inputs,without explicit solvent inputs,No explicit solvent inputs,1026,866,1.24299593993,3.12266311668,1.76710585893,0.940964714583,0.0923841921241,0.0414832211418,0.143821925172
+joint model without context-level molecular formal charge,without context-level molecular formal charge,No context-level charge,1026,866,1.14186637918,2.60251903339,1.61323247965,0.950798261548,-0.00874536862535,-0.0314810867653,0.0135905773379
+joint model without xTB-derived electronic inputs,without xTB-derived electronic inputs,No xTB electronic inputs,1026,866,1.31255065155,3.36236122014,1.83367424046,0.936433119139,0.161938903739,0.102030374521,0.22254810358

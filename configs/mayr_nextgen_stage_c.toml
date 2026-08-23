@@ -1,0 +1,161 @@
+schema_version = "nucpred.mayr-nextgen-stage-c-config.v1"
+campaign_id = "mayr-nextgen-stage-c-20260727-v1"
+goal_thread_id = "019f9253-3f58-73c3-9d1c-6f6523828c4e"
+anchor_commit = "7f92849ca8ec1434c111ea2bd3ff3d874ba74ee9"
+output_root = "artifacts/campaigns/mayr-nextgen-stage-c-20260727-v1"
+formal_feature_scope = "strict_no_dft_rdkit_xtb"
+deployment_population = "mayr_like_molecules_not_arbitrary_molecules"
+maximum_parallel_gpu_processes = 3
+test_labels_or_predictions_permitted_for_training_or_selection = false
+formal_calibration_permitted = false
+absolute_probability_publication_permitted = false
+dft_or_cdft_computation_permitted = false
+unknown_is_negative = false
+status_after_completion = "awaiting_user_approval"
+
+[authorization]
+path = "artifacts/campaigns/mayr-nextgen-stage-c-20260727-v1/authorization/decision.json"
+sha256 = "3005cf305aaf241269c5cc701c5647db93315cba284096247b6e112b52f1d195"
+
+[stage_b]
+config_path = "configs/mayr_nextgen_stage_b.toml"
+config_sha256 = "e5776e46f8b588bac9fdc2a81a4041b68ddf4dd57631a0b01e5ca4bf244fc546"
+results_manifest_path = "artifacts/campaigns/mayr-nextgen-stage-b-20260727-v1/stage_b_results/run_manifest.json"
+results_manifest_sha256 = "5f81b0b636e0c8fa1731c4121bc5d24e7c56b9858e668b1e4ea4e1568855a028"
+results_summary_path = "artifacts/campaigns/mayr-nextgen-stage-b-20260727-v1/stage_b_results/summary.json"
+results_summary_sha256 = "af1b4d31bab4674b39a4cfa14862afc0f2ccac38b405288149ace8e8f3da3a89"
+pass_b_directory = "artifacts/campaigns/mayr-nextgen-stage-b-20260727-v1/literature_review/pass_b_frozen"
+pass_b_manifest_sha256 = "981c405d57784d7bc7fd20a945cba776a169462e7182ad9b67f675e5869e8239"
+
+[dataset]
+dataset_id = "mayr-site-n-20260726-v1"
+directory = "data/processed/mayr_site_n/mayr-site-n-20260726-v1"
+manifest_sha256 = "e509e06a3514a41ce16627846615fb07dd3b1b40fb6824e572c6043f8333c4dd"
+formal_config_path = "configs/mayr_site_n_formal.toml"
+formal_config_sha256 = "1e1299d3ebd4d4c856ec5ee90d14fcae664f91aeb982027753997af379518fa1"
+positive_targets_path = "data/processed/mayr_site_confidence/mayr-site-confidence-20260727-v1/positive_targets.parquet"
+candidate_policy_path = "artifacts/campaigns/mayr-nextgen-gate-a-20260727-v1/preflight/candidate_policy.parquet"
+candidate_policy_sha256 = "0843657204dc82fde414d09285b2389c889d2dcdf605579f5765a3e6ba0914cf"
+
+[r2]
+output_directory = "artifacts/campaigns/mayr-nextgen-stage-c-20260727-v1/r2_validation"
+split_seeds = [20241220, 20241221, 20241222, 20241223, 20241224]
+initialization_seeds = [2026072601, 2026072602, 2026072603]
+arms = [
+  "c0_current_source_control",
+  "c1_h1_small_negative_weighting",
+  "c2_h2_high_n_weighting",
+  "c3_explicit_interaction_residual",
+  "c4_combined",
+]
+selection_metric = "rmse"
+test_examples_loaded = false
+test_predictions_written = false
+base_transfer = "frozen_legacy_encoder_for_all_arms"
+weighting_method = "inverse_sqrt_binary_group_frequency_normalized_mean_one_cap_three"
+weighting_applies_to = "training_mse_only"
+h1_definition = "model_all_atom_count_le_10_and_model_formal_charge_lt_0"
+h2_definition = "N_target_ge_15"
+interaction_features = [
+  "site_embedding_times_charge_embedding",
+  "site_embedding_times_continuous_solvent_embedding",
+  "global_xtb_embedding_times_charge_embedding",
+  "global_xtb_embedding_times_continuous_solvent_embedding",
+]
+interaction_residual = "four_h_to_h_silu_dropout_to_zero_initialized_scalar"
+
+[r2.optimization]
+maximum_epochs = 300
+minimum_epochs = 40
+early_stopping_patience = 35
+minimum_validation_metric_delta = 0.001
+batch_size_contexts = 64
+learning_rate = 0.0003
+weight_decay = 0.0001
+ranking_weight = 0.10
+gradient_clip_norm = 5.0
+maximum_target_weight = 3.0
+
+[r2.gate]
+primary_metric = "five_split_three_seed_validation_ensemble_macro_r2"
+minimum_macro_r2 = 0.95
+mae_must_not_worsen_vs_control = true
+rmse_must_not_worsen_vs_control = true
+paired_connectivity_bootstrap_required = true
+bootstrap_replicates = 5000
+bootstrap_seed = 2026072702
+single_split_success_is_insufficient = true
+formal_test_claim_permitted = false
+
+[e2]
+output_directory = "artifacts/campaigns/mayr-nextgen-stage-c-20260727-v1/e2_dataset"
+source_review_directory = "data/processed/mayr_site_confidence_formal/mayr-site-confidence-formal-20260727-v1"
+source_review_manifest_sha256 = "6f1eeffb53905ff98a70ea6d424799ee0cf19abac682577d6a564d9fdf83fe5f"
+source_adjudication_manifest_sha256 = "e7a1743fe05d73b9a0528cd25d778a16e4ba187b1085e17b7ee362b09b8a4e99"
+parent_split_seed = 20241223
+source_context_scope = "150_previously_reviewed_exact_atom_endpoint_contexts"
+review_mode = "single_operator_prior_source_review_plus_isolated_mechanical_semantic_projection"
+independent_second_reviewer_available = false
+pass_a_candidate_members_visible = false
+pass_a_model_scores_visible = false
+pass_b_requires_frozen_pass_a_manifest = true
+role_reveal_requires_frozen_pass_b_manifest = true
+candidate_sampling_scheme = "deterministic_uniform_per_context_and_type_v1"
+maximum_candidates_per_context_type = 2
+sampling_seed = 2026072703
+inclusion_probability_weighted = true
+semantic_relation_basis = "member_indices_with_transferable_h_parent_closure"
+negative_semantics = "not_the_reported_endpoint_for_exact_source_molecule_solvent_context"
+cross_endpoint_propagation = false
+cross_solvent_propagation = false
+cross_molecule_propagation = false
+unreported_candidate_is_universal_non_nucleophile = false
+unknown_is_negative = false
+expected_review_query_count = 1449
+sealed_test_labels_read_by_stage_c_training = false
+
+[validity]
+output_directory = "artifacts/campaigns/mayr-nextgen-stage-c-20260727-v1/validity_validation"
+parent_split_seed = 20241223
+initialization_seeds = [2026072601, 2026072602, 2026072603]
+supported_site_types = [
+  "atom",
+  "bond",
+  "delocalized_region",
+  "atom_group",
+  "transferable_h_group",
+]
+backbone_selection = "validation_macro_rmse_then_arm_order_tie_break"
+backbone_frozen = true
+head = "shared_linear_fused_6h_plus_site_type_intercept_adapter"
+optimizer = "LBFGS"
+maximum_iterations = 500
+history_size = 100
+line_search_fn = "strong_wolfe"
+l2_penalty = 0.0001
+selection_loss = "connectivity_and_class_balanced_weighted_bce"
+negative_population_weight = "candidate_inverse_probability_weight"
+test_labels_or_predictions_read = false
+probability_status = "uncalibrated_validation_diagnostic_only"
+
+[validity.gate]
+report_metrics = [
+  "roc_auc",
+  "average_precision",
+  "brier",
+  "ece",
+  "top_k_recall",
+  "mrr",
+]
+minimum_positive_connectivities_per_type_validation = 5
+minimum_negative_connectivities_per_type_validation = 15
+brier_feasibility_compared_with_prevalence_constant = true
+absolute_probability_claim_permitted = false
+cross_type_comparability_claim_permitted = false
+
+[reporting]
+output_directory = "artifacts/campaigns/mayr-nextgen-stage-c-20260727-v1/gate_c_results"
+tracked_report_path = "docs/reports/mayr-nextgen-stage-c-20260727.md"
+
+[finalization]
+run_id = "mayr-nextgen-stage-c-canonical-20260727-v1"

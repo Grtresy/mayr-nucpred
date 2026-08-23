@@ -1,0 +1,26 @@
+schema_version = "nucpred.mayr-n-publication-site-ablation-config.v1"
+parent_config_path = "configs/mayr_n_publication_site_v1.toml"
+parent_config_sha256 = "abd0c35505cb5ba2ab5c5b274b4eb01df11ba24372f435b8942b05a3812059b3"
+campaign_id = "mayr-n-publication-20260805-v1"
+experiment_id = "mayr-n-publication-automatic-site-ablation-without-solvent-20260805-v1"
+output_directory = "artifacts/campaigns/mayr-n-publication-20260805-v1/modeling/automatic_site_ablations/without_solvent"
+device = "cuda:0"
+
+[lineage_overrides]
+conditional_n_config_path = "configs/mayr_n_publication_ablation_without_solvent_v1.toml"
+conditional_n_config_sha256 = "f69ad15b0a942c10b2c32e63bcca583ac6f8534494f9644a078cf74ecdd96855"
+inner_conditional_checkpoint_root = "artifacts/campaigns/mayr-n-publication-20260805-v1/modeling/ablations/without_solvent/nested_inner"
+outer_conditional_checkpoint_root = "artifacts/campaigns/mayr-n-publication-20260805-v1/modeling/ablations/without_solvent/outer_refit"
+
+[ablation]
+name = "without_solvent"
+interpretation = "all 18 continuous solvent descriptors are zero and the categorical solvent token is constant"
+conditional_n_input_ablation_matched = true
+ranker_architecture_and_optimization_matched = true
+frozen_candidate_universe_and_mining_retained = true
+true_metadata_retained_only_outside_predictor = true
+outer_test_used_for_selection = false
+model_facing_site_type = "frozen_true_metadata"
+type_dependent_region_residual_enabled = true
+type_dependent_calibration_enabled = true
+type_router_supervision = "frozen_true_metadata"

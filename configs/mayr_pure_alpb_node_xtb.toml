@@ -1,0 +1,122 @@
+schema_version = "nucpred.mayr-pure-alpb-node-xtb-config.v1"
+dataset_id = "mayr-pure-alpb-explicit-h-node-xtb-20260725-v1"
+output_directory = "data/processed/mayr_pure_alpb_node_xtb/mayr-pure-alpb-explicit-h-node-xtb-20260725-v1"
+working_directory = "data/interim/mayr_pure_alpb_node_xtb/mayr-pure-alpb-explicit-h-node-xtb-20260725-v1"
+parent_dataset_id = "mayr-full-explicit-h-20260724-v1"
+parent_records_path = "data/processed/mayr_full_explicit_h/mayr-full-explicit-h-20260724-v1/records.parquet"
+parent_records_sha256 = "b53bba8da0961806b971e60b223a67901d3e410535ba8a309bff86aa845547bc"
+parent_split_manifest_path = "data/processed/mayr_full_explicit_h/mayr-full-explicit-h-20260724-v1/split_manifest.json"
+parent_split_manifest_sha256 = "4636609406ea25995670814260550a8af2e028cfdc5c66732a2316d97f664c4a"
+cohort_evidence_path = "artifacts/frozen/pre-migration/mayr/mayr_cheap_feature_campaign_20260717/features.parquet"
+cohort_evidence_sha256 = "45a1de803986bf70d773e1211d2f86cde0bc24a4077843cad1a6143468da0806"
+cohort_selection_column = "xtb_solvent_available"
+cohort_selection_value = 1
+cohort_source_id_sha256 = "ccd0d8cdad46e9ca5d4ccdeb1a752278ccae06e6abd77d67b129b4702fce63f4"
+expected_records = 1136
+expected_site_supervised_records = 1116
+expected_h_group_records = 119
+expected_multifragment_records = 40
+minimum_complete_xtb10_fraction = 0.95
+
+[fragment_policy]
+name = "target_independent_known_spectator_stripping_v1"
+monatomic_spectator_elements = ["Li", "Na", "K"]
+monatomic_spectator_charge = 1
+triflate_smiles = "O=S(=O)([O-])C(F)(F)F"
+require_exactly_one_retained_fragment = true
+selection_may_use_target_fields = false
+single_fragment_sensitivity_expected_records = 1096
+
+[split_policy]
+parent_membership = "filter_parent_source_ids_to_fixed_1136_cohort"
+group_identity = "post_spectator_stripping_model_canonical_smiles"
+overlap_repair = "move_complete_overlapping_group_to_parent_majority_side"
+tie_break = "train"
+repair_may_use_target_fields = false
+
+[geometry]
+name = "G1"
+method = "ETKDGv3"
+conformer_count = 20
+random_seed = 20260724
+prune_rms_threshold_angstrom = 0.25
+enforce_chirality = true
+use_small_ring_torsions = true
+use_macrocycle_torsions = true
+primary_force_field = "MMFF94s"
+fallback_force_field = "UFF"
+allow_force_field_fallback = true
+force_field_max_iterations = 1000
+require_force_field_convergence = true
+coordinate_precision_decimals = 10
+geometry_optimization_with_xtb = false
+unsupported_force_field_policy = "retain_record_and_mask_all_xtb_features"
+
+[xtb]
+archive_path = "reference/Ree2025/xtb-6.7.0-linux-x86_64.tar.xz"
+archive_sha256 = "612c09f6bf85ffccb0e1ee4a62730de9032f64786b799525304eaa77a23d0dfe"
+method = "GFN1-xTB"
+gfn = 1
+solvation_model = "ALPB"
+geometry_optimization = false
+fukui_mode = "vfukui"
+ip_ea_mode = "vipea"
+tce_reference_smiles = "N#CC(=C(C#N)C#N)C#N"
+tce_reference_environment = "gas"
+hartree_to_ev = 27.211386245988
+fukui_minus_sign = -1.0
+
+[features]
+node_local = [
+  "alpb_fukui_minus_density",
+  "alpb_cm5",
+  "alpb_condensed_softness",
+  "alpb_condensed_nucleophilicity_index_ev",
+]
+global = [
+  "alpb_homo_n_hartree",
+  "alpb_softness_hartree_inverse",
+  "alpb_vip_hartree",
+  "alpb_nucleophilicity_index_hartree",
+  "alpb_homo_n_minus_1_hartree",
+  "delta_e_solv_hartree",
+]
+missing_value_policy = "fold_train_median_imputation_plus_availability_masks"
+local_values_enter_before_message_passing = true
+global_values_enter_after_site_pooling = true
+oracle_site_fields_forbidden = true
+
+[execution]
+workers = 12
+timeout_seconds = 600
+preflight_max_records = 96
+
+[quality_control]
+frontier_orbital_min_hartree = -2.0
+frontier_orbital_max_hartree = 1.0
+cation_homo_min_hartree = -2.0
+cation_homo_max_hartree = 1.0
+vip_min_hartree = -2.0
+vip_max_hartree = 2.0
+vea_min_hartree = -2.0
+vea_max_hartree = 2.0
+ip_ea_gap_min_hartree = 0.000001
+max_abs_cm5_charge = 3.0
+cm5_charge_sum_tolerance = 0.05
+max_dipole_debye = 100.0
+fukui_minus_sum_min = -1.1
+fukui_minus_sum_max = -0.9
+max_abs_fukui_atom = 2.0
+max_abs_delta_e_solv_hartree = 2.0
+max_abs_homo_shift_hartree = 1.0
+
+[solvents]
+dichloromethane = "ch2cl2"
+MeCN = "acetonitrile"
+DMSO = "dmso"
+water = "water"
+THF = "thf"
+DMF = "dmf"
+MeOH = "methanol"
+EtOH = "ethanol"
+acetone = "acetone"

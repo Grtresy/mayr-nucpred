@@ -1,0 +1,115 @@
+schema_version = "nucpred.mayr-simple-baselines.v1"
+campaign_id = "mayr-simple-baselines-20260819-v1"
+dataset_id = "mayr-site-n-20260805-v2"
+dataset_directory = "data/processed/mayr_site_n/mayr-site-n-20260805-v2"
+output_directory = "artifacts/campaigns/mayr-simple-baselines-20260819-v1"
+outer_fold_count = 5
+group_identity = "connectivity_id"
+expected_context_count = 1026
+expected_connectivity_count = 866
+selection_uses_outer_test_results = false
+outer_test_labels_may_be_read_before_fold_scores_are_frozen = false
+unknown_candidates_are_universal_negatives = false
+non_selected_candidates_are_endpoint_relative_ranking_negatives = true
+candidate_softmax_used = false
+retrospective_grouped_oof = true
+independent_external_validation = false
+
+[bindings]
+dataset_manifest_path = "data/processed/mayr_site_n/mayr-site-n-20260805-v2/dataset_manifest.json"
+dataset_manifest_sha256 = "936ef1222f0be9ec3c71590724c976a909f9f3b9f17efa0044de00cb3592778c"
+contexts_path = "data/processed/mayr_site_n/mayr-site-n-20260805-v2/contexts.parquet"
+contexts_sha256 = "0476829816725d919c45d1ee1ec5b814501f9c17740db91e53113b12d90bff5b"
+targets_path = "data/processed/mayr_site_n/mayr-site-n-20260805-v2/targets.parquet"
+targets_sha256 = "e6f76b8ce8ab92d7f8914ba91d8d420d9c8e57682cee1da67ec3564a628ec563"
+species_path = "data/processed/mayr_site_n/mayr-site-n-20260805-v2/species.parquet"
+species_sha256 = "39fbfbb4123efc4a2d09c963b0aec101e29537d21c6535045c38176cb0c10873"
+candidate_sites_path = "data/processed/mayr_site_n/mayr-site-n-20260805-v2/candidate_sites.parquet"
+candidate_sites_sha256 = "ac02230e4cbe1eaf8bbfbcf8b81346cd6fcb95382af0e90bfae58e19a4411737"
+outer_membership_path = "data/processed/mayr_site_n/mayr-site-n-20260805-v2/outer_fold_membership.csv"
+outer_membership_sha256 = "8eed41340703a55c78377757e711f235cb6be587192b49be5ac54f90559dffcb"
+candidate_policy_source_path = "src/nucpred/datasets/mayr_site_candidate_policy.py"
+candidate_policy_source_sha256 = "b993e6d9ec946cd7073c575105ac5d90c4c4d2f015f5e56c481a495716ca3709"
+
+[features]
+standard_public_inputs = [
+  "candidate-local radius-2 Morgan fingerprint",
+  "whole-molecule radius-2 Morgan fingerprint",
+  "RDKit 2D descriptors",
+  "typed-site member and local graph summaries",
+  "18 continuous solvent descriptors",
+  "molecular formal charge",
+  "site type",
+]
+matched_nonlearned_additions = [
+  "four candidate-local xTB channels with availability fractions",
+  "six molecule-global xTB channels with availability flags",
+]
+forbidden_inputs = [
+  "learned embeddings",
+  "proposed-model logits",
+  "teacher predictions",
+  "outer-test labels before score freeze",
+  "Mayr N-derived features",
+]
+morgan_radius = 2
+morgan_bits = 2048
+morgan_include_chirality = true
+
+[models.random_uniform]
+family = "analytic_uniform_ranking_expectation"
+requires_training = false
+produces_n_prediction = false
+
+[models.site_type_prior_mean]
+family = "outer_development_site_type_prior_and_mean"
+laplace_alpha = 1.0
+
+[models.morgan_1nn]
+family = "site_type_matched_tanimoto_one_nearest_neighbor"
+similarity = "Tanimoto"
+
+[models.linear]
+site_family = "logistic_regression"
+n_family = "ridge_regression"
+logistic_c = 1.0
+logistic_solver = "liblinear"
+logistic_max_iter = 500
+ridge_alpha = 1.0
+
+[models.random_forest]
+site_family = "random_forest_classifier"
+n_family = "random_forest_regressor"
+n_estimators = 300
+min_samples_leaf = 2
+max_features = "sqrt"
+seed_base = 2026081900
+n_jobs_per_fold = 1
+
+[models.hist_gradient_boosting]
+site_family = "hist_gradient_boosting_classifier"
+n_family = "hist_gradient_boosting_regressor"
+max_iter = 250
+learning_rate = 0.05
+l2_regularization = 0.01
+seed_base = 2026081950
+
+[execution]
+manual_launcher = "scripts/run_mayr_simple_baselines_gpu0_parallel.sh"
+physical_gpu_index = 0
+parallel_outer_folds = 3
+cpu_threads_per_fold = 1
+formal_training_must_be_started_by_user = true
+codex_may_start_formal_training = false
+fold_jobs_are_cpu_only_sklearn = true
+gpu_is_reserved_and_visibility_bound_for_future_gpu_jobs = true
+stop_after_score_freeze = true
+
+[statistics]
+bootstrap_unit = "connectivity_id"
+bootstrap_replicates = 10000
+bootstrap_seed = 2026081991
+report_p_values = false
+primary_endpoint = "automatic_site_N_MAE"
+ranking_endpoints = ["Top-1", "Top-3", "MRR"]
+diagnostic_endpoint = "known_site_N_MAE"

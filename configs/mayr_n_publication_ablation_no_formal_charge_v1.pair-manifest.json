@@ -1,0 +1,11 @@
+{
+  "component": "no_formal_charge",
+  "conditional_config_path": "configs/mayr_n_publication_ablation_no_formal_charge_v1.toml",
+  "conditional_config_sha256": "ef61034ec4351d76896dda47eb0c99b5069bd3dd2493e31e75428638fa7babc6",
+  "matched_pretraining": null,
+  "ready_for_upstream_training": true,
+  "schema_version": "nucpred.mayr-n-component-ablation-config-pair.v1",
+  "site_config_path": "configs/mayr_n_publication_site_ablation_no_formal_charge_v1.toml",
+  "site_config_sha256": "bc23fe020404b7c9e2fce7aa4d000e1207f720c3ba27f940e0cc7ccc0bfd19b8",
+  "status": "pass"
+}

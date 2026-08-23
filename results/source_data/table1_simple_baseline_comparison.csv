@@ -1,0 +1,10 @@
+model_name,display_name,feature_tier,feature_tier_short,top1_accuracy,top3_accuracy,mean_reciprocal_rank,automatic_site_mae,automatic_site_r2,known_site_mae,known_site_r2
+random_uniform,Uniform random ranking,analytic reference,Analytic,0.0212246457844,0.0500287131817,0.0695804302742,,,,
+site_type_prior_mean,Site-type prior + development mean,standard public inputs,Public,0.0604288499025,0.12865497076,0.14761787484,5.92324093448,-0.00033676034453,5.92324093448,-0.00033676034453
+morgan_1nn,Morgan/Tanimoto 1NN,standard public inputs,Public,0.492202729045,0.683235867446,0.610863876149,5.36321962313,-0.158870608545,2.70288823912,0.694564329623
+linear,Logistic regression + ridge,standard public inputs,Public,0.570175438596,0.849902534113,0.718210436648,3.42418255988,0.534827303304,1.92606222798,0.871243075566
+random_forest_standard,Random forest,standard public inputs,Public,0.873294346979,0.943469785575,0.912705463967,2.12500145362,0.833374810513,2.02065289974,0.857283545984
+hist_gradient_boosting_standard,Histogram gradient boosting,standard public inputs,Public,0.836257309942,0.938596491228,0.891950946608,1.9324604952,0.853525384789,1.76898981523,0.886493484605
+random_forest_matched_inputs,Random forest + matched nonlearned inputs,feature-matched nonlearned inputs,Matched,0.905458089669,0.964912280702,0.937279273683,1.90961361782,0.861542877798,1.79298864891,0.890808658322
+hist_gradient_boosting_matched_inputs,Histogram gradient boosting + matched nonlearned inputs,feature-matched nonlearned inputs,Matched,0.87134502924,0.959064327485,0.916867384963,1.87338250804,0.851130028628,1.64602553507,0.899348871832
+joint_model,Joint model (proposed),proposed learned representation,Proposed,0.930799220273,0.980506822612,0.95687120425,1.21999993166,0.937429558769,1.15061174781,0.950221420758

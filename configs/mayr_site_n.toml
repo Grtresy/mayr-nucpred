@@ -1,0 +1,58 @@
+schema_version = "nucpred.mayr-site-n-config.v1"
+dataset_id = "mayr-site-n-20260726-v1"
+output_directory = "data/processed/mayr_site_n/mayr-site-n-20260726-v1"
+expected_source_measurements = 1136
+split_seeds = [20241220, 20241221, 20241222, 20241223, 20241224]
+test_fraction = 0.20
+validation_fraction_of_development = 0.20
+
+[parent]
+dataset_id = "mayr-pure-alpb-explicit-h-node-xtb-20260725-v1"
+records_path = "data/processed/mayr_pure_alpb_node_xtb/mayr-pure-alpb-explicit-h-node-xtb-20260725-v1/records.parquet"
+records_sha256 = "44b811152a29d1104dd8a7c84c6752ae78599bd28afb53a51343622f5a7705ad"
+manifest_path = "data/processed/mayr_pure_alpb_node_xtb/mayr-pure-alpb-explicit-h-node-xtb-20260725-v1/dataset_manifest.json"
+manifest_sha256 = "1fd0b21bbb02ff78aafd057926f36d5365f5d1c608edf6c0065a780d70493e0a"
+
+[identity]
+context_key = "model_canonical_smiles+xtb_alpb_solvent+model_formal_charge"
+counterion_policy = "spectator_stripped_parent_identity"
+same_context_same_site_target = "arithmetic_mean"
+preserve_distinct_charge_states = true
+preserve_distinct_protonation_states = true
+preserve_distinct_tautomers = true
+split_group = "standard_inchi_key_connectivity_block"
+representative_feature_policy = "prefer_complete_xtb10_then_sha256_source_id"
+
+[sites]
+formal_types = [
+  "atom",
+  "bond",
+  "delocalized_region",
+  "atom_group",
+  "transferable_h_group",
+]
+unresolved_type = "unresolved_candidate_set"
+unresolved_enters_formal_supervision = false
+unmeasured_candidates_are_negative = false
+inference_outputs_all_candidates = true
+site_probability_normalization = false
+
+[candidates]
+maximum_shortest_path_atoms = 8
+maximum_group_combinations = 6
+include_all_atoms = true
+include_all_bonds = true
+include_explicit_h_groups = true
+include_symmetry_groups = true
+include_ring_groups = true
+include_conjugated_components = true
+include_heavy_atom_shortest_paths = true
+
+[pretraining_overlap]
+pilot_dataset_id = "esnuel-d-node-xtb-pretraining-20260726-v1-pilot1024"
+pilot_records_path = "data/processed/esnuel_d_node_xtb_pretraining/esnuel-d-node-xtb-pretraining-20260726-v1-pilot1024/records.parquet"
+pilot_records_sha256 = "bf3d9d3b36a930dc292af01a682f797e9418bcb4b8e5c3124435c7a0170df577"
+full_dataset_id = "esnuel-d-node-xtb-pretraining-20260726-v1-full"
+full_records_path = "data/processed/esnuel_d_node_xtb_pretraining/esnuel-d-node-xtb-pretraining-20260726-v1-full/records.parquet"
+full_records_sha256 = "408b8f120b2ae15b51037872836f5a3ce1af148179004f4c2bc1045326c18b62"
+required_connectivity_overlap = 0

@@ -1,0 +1,167 @@
+schema_version = "nucpred.mayr-n-publication-config.v1"
+campaign_id = "mayr-n-publication-20260805-v1"
+target_journal = "JACS Au"
+article_type = "Article"
+protocol_date = "2026-08-05"
+working_head_at_protocol_design = "8660cbddbd6f00c01d979a99e5f1b955d3c00970"
+pre_sn_model_commit = "81098c4340053f9dc8263934a2366a16e44977cd"
+output_directory = "artifacts/campaigns/mayr-n-publication-20260805-v1"
+
+[scope]
+primary_target = "Mayr_N"
+predict_sn = false
+automatic_site_identification = true
+known_site_oracle_is_diagnostic_only = true
+request_fields = ["smiles", "solvent", "formal_charge"]
+deployment_population = "mayr_like_molecules_in_supported_pure_solvents"
+arbitrary_molecule_claim_permitted = false
+mixed_solvent_claim_permitted = false
+no_site_claim_permitted = false
+candidate_softmax_permitted = false
+unknown_as_negative_permitted = false
+
+[model_lineage]
+conditional_n_backbone = "e_c_n3_coordination_region_expert"
+automatic_site_layer = "v7_region_structural_residual"
+publication_action = "retrain_n_only_lineage_on_corrected_v2_then_final_refit"
+current_v7_checkpoint_is_final_publication_model = false
+excluded_path_prefixes = [
+  "configs/mayr_site_sn",
+  "configs/mayr_nextgen_site_sn",
+  "src/nucpred/datasets/mayr_site_sn.py",
+  "src/nucpred/training/mayr_site_sn",
+  "src/nucpred/experiments/mayr/nextgen_site_sn",
+  "tests/test_mayr_site_sn",
+  "tests/test_mayr_nextgen_site_sn",
+  "docs/protocols/mayr-nextgen-site-sn",
+]
+
+[frozen_inputs]
+v7_config_path = "configs/mayr_nextgen_site_identification_v7.toml"
+v7_config_sha256 = "7f18ea4d04d0ca8f0b07fea5c8c24aa42ac6dacff1ada91a31e0245fb00c05e5"
+parent_dataset_directory = "data/processed/mayr_site_n/mayr-site-n-20260726-v1"
+parent_dataset_manifest_path = "data/processed/mayr_site_n/mayr-site-n-20260726-v1/dataset_manifest.json"
+parent_dataset_manifest_sha256 = "e509e06a3514a41ce16627846615fb07dd3b1b40fb6824e572c6043f8333c4dd"
+parent_targets_path = "data/processed/mayr_site_n/mayr-site-n-20260726-v1/targets.parquet"
+parent_targets_sha256 = "607d72818e7cb393bb0dbe435a520d57f40198b1e8405c64a7827f46e29e86fe"
+parent_split_manifest_path = "data/processed/mayr_site_n/mayr-site-n-20260726-v1/split_manifest.json"
+parent_split_manifest_sha256 = "f88efb3e4028ee36cb00ed27b1e6fc7edbd6727de2e602e249ba75c297de8a9b"
+stage_b_target_projections_path = "artifacts/campaigns/mayr-nextgen-stage-b-20260727-v1/literature_review/pass_b_frozen/target_projections.parquet"
+stage_b_target_projections_sha256 = "14aa843844688a65777ba965081a5d2bcc9607d6ea940e7b60de14937e59a715"
+stage_d_typed_evidence_path = "artifacts/campaigns/mayr-nextgen-stage-d-20260727-v1/e3_review/pass_b_frozen/typed_site_evidence.parquet"
+stage_d_typed_evidence_sha256 = "22e3af9cf73761c69fa57d70d72ad6e30874e3abeb771936a29d6dd8fcf1d38f"
+stage_e_a_positive_evidence_path = "artifacts/campaigns/mayr-nextgen-stage-e-a-20260728-v1/positive_evidence_expansion/pass_b_frozen/positive_evidence_expansion.parquet"
+stage_e_a_positive_evidence_sha256 = "db2668495d592a877b988f7b724c0cf47e64161da8ca3765ba681bbada2966c4"
+stage_e_c_atom_group_evidence_path = "artifacts/campaigns/mayr-nextgen-stage-e-c-20260728-v1/atom_group_positive_expansion/pass_b_frozen/positive_evidence_expansion.parquet"
+stage_e_c_atom_group_evidence_sha256 = "73f609877f3289ec32baff2a88576bddeb1a9d43628abdec3c7db0cc1866884d"
+legacy_external_sources_path = "data/manual/external_n_kinetics/external-n-kinetics-20260801-v1/sources.csv"
+legacy_external_sources_sha256 = "d2e4fa3d2a545b7133e96c85e97c6d25f80c9ebc38ee6750dcb59c0ef932e3a3"
+legacy_external_targets_path = "data/manual/external_n_kinetics/external-n-kinetics-20260801-v1/fit_targets.csv"
+legacy_external_targets_sha256 = "59de7789d3a0886396a942d4c2316c7bd03542fd51c97621942fbe5f8c9ed400"
+
+[dataset_v2]
+dataset_id = "mayr-site-n-20260805-v2"
+output_directory = "data/processed/mayr_site_n/mayr-site-n-20260805-v2"
+stage_b_exact_reprojection_is_authoritative = true
+stage_b_unresolved_target_policy = "exclude_from_n_and_site_supervision"
+stage_e_a_site_only_evidence_changes_n_target = false
+retain_raw_measurements = true
+unknown_is_negative = false
+candidate_enumeration_reads_labels = false
+
+[internal_evaluation]
+status = "retrospective_nested_grouped_evaluation_not_pristine_confirmation"
+outer_folds = 5
+inner_folds = 4
+group_identity = "standard_inchi_key_connectivity_block"
+each_eligible_target_appears_in_exactly_one_outer_test_fold = true
+outer_test_used_for_model_selection = false
+historical_v5_v6_v7_results_disclosed = true
+primary_n_metrics = ["MAE", "RMSE"]
+secondary_n_metrics = ["R2", "mean_error", "Spearman_rho"]
+primary_site_metrics = ["exact_top1", "exact_top3", "MRR"]
+uncertainty_metrics = ["interval_coverage", "interval_width", "coverage_error_curve"]
+bootstrap_unit = "connectivity_id"
+bootstrap_replicates = 5000
+random_seed = 2026080501
+
+[baselines]
+required = [
+  "train_mean",
+  "one_nearest_neighbor_morgan",
+  "random_forest_standard_descriptors",
+  "hist_gradient_boosting_standard_descriptors",
+  "known_site_oracle_n",
+  "automatic_site_plus_n",
+]
+
+[ablations]
+required = [
+  "without_xtb",
+  "without_solvent",
+  "without_site_type",
+  "without_region_residual",
+  "without_abstention",
+  "single_seed_vs_ensemble",
+]
+
+[unseen_runtime]
+input_contract = "canonical_smiles_plus_supported_pure_solvent_plus_formal_charge"
+new_connectivity_geometry = "deterministic_G1_ETKDGv3_MMFF94s_then_UFF_fallback"
+electronic_features = "fixed_geometry_GFN1_xTB_gas_and_ALPB"
+candidate_types = [
+  "atom",
+  "atom_group",
+  "bond",
+  "delocalized_region",
+  "transferable_h_group",
+]
+feature_failure_policy = "fail_closed"
+unsupported_solvent_policy = "refuse"
+applicability_policy = "distance_and_ensemble_disagreement_with_development_only_thresholds"
+target_or_site_label_read = false
+
+[external_confirmation]
+design = "prospectively_assembled_after_final_model_freeze"
+allow_previously_published_but_never_previously_inspected_sources = true
+temporal_post_freeze_publication_only = false
+model_or_threshold_update_after_search_begins = false
+exclude_all_internal_connectivities = true
+exclude_all_legacy_external_records = true
+exclude_all_previously_inspected_sources = true
+supported_pure_solvents_only = true
+minimum_reference_electrophiles_per_fit = 3
+fit_both_n_and_sn_for_label_extraction = true
+labels_may_not_be_read_before_candidate_score_freeze = true
+freeze_all_candidate_scores_before_labels = true
+selection_may_not_use_model_predictions = true
+search_stop_rule = "frozen_query_matrix_completed_and_two_consecutive_snowball_rounds_add_no_eligible_source"
+primary_n_metric = "MAE"
+primary_site_metric = "exact_top1"
+headline_r2_minimum_unique_connectivities = 30
+headline_r2_minimum_n_range = 5.0
+all_results_reported_regardless_of_direction = true
+
+[release]
+code_public = true
+code_license = "MIT"
+source_data_public = true
+curated_training_data_public = false
+source_data_rights = "author-generated-results-with-attribution-third-party-fields-retain-source-terms"
+weights_public = true
+weight_license = "Apache-2.0"
+weights_confidential_editor_reviewer_access = false
+public_checkpoint_hashes = true
+public_per_record_predictions = true
+public_training_and_evaluation_scripts = true
+public_environment_lock = true
+preferred_code_repository = "GitHub"
+preferred_data_repository = "Zenodo"
+
+[claim_policy]
+main_claim = "target_blind_automatic_site_and_Mayr_N_prediction_for_unseen_connectivities_within_a_declared_domain"
+internal_results_are_pristine = false
+legacy_external_results_are_pristine = false
+external_confirmation_required_for_unseen_claim = true
+external_absolute_site_probability_claim_requires_external_calibration = true
+unsupported_claims_are_removed_or_weakened = true

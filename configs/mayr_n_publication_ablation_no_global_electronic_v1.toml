@@ -1,0 +1,54 @@
+schema_version = "nucpred.mayr-n-publication-ablation-config.v1"
+parent_config_path = "configs/mayr_n_publication_experiment_v1.toml"
+parent_config_sha256 = "5fea43db14f6f6fdf77d0ef28746afe7da80f8c6458369fa2a26488939888a43"
+campaign_id = "mayr-n-publication-component-ablations-20260815-v1"
+experiment_id = "mayr-n-publication-no_global_electronic-20260815-v1"
+output_directory = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/modeling/conditional/no_global_electronic"
+device = "cuda:0"
+
+[lineage_overrides]
+pretraining_config_path = "configs/mayr_n_publication_pretraining_no_global_electronic_v1.toml"
+pretraining_config_sha256 = "9ccb9a08486c4a7f8f646e512c58e359823c0d0e2a7c97dc1d9335a5cf4f6cce"
+pretraining_protocol_path = "docs/protocols/mayr-joint-model-component-ablations.md"
+pretraining_protocol_sha256 = "af61293ab7b89372e2821b39a6c71a94e382b756b208bc95738c2c0e361377b8"
+pretraining_aggregate_path = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/pretraining/no_global_electronic/aggregate/aggregate_summary.json"
+pretraining_aggregate_sha256 = "8739a5222bf88579144a7d501b547f64358d3050957bede7a8f24c8a403e08ad"
+pretraining_population = "ESNUEL_47915_without_global_electronic_input_or_objective"
+
+[ablation]
+name = "no_global_electronic"
+interpretation = "global6 values and availability are removed in ESNUEL pretraining and all Mayr training and scoring stages"
+outer_test_used_for_selection = false
+same_architecture_and_optimization = true
+true_metadata_retained_only_for_post_freeze_analysis = true
+matched_pretraining_config_path = "configs/mayr_n_publication_pretraining_no_global_electronic_v1.toml"
+matched_pretraining_config_sha256 = "9ccb9a08486c4a7f8f646e512c58e359823c0d0e2a7c97dc1d9335a5cf4f6cce"
+expected_pretraining_tasks = [
+  "heavy_atom_gcs_53d",
+  "heavy_atom_mca_scalar",
+  "heavy_atom_mca_soft_site",
+  "heavy_atom_mca_within_molecule_ranking",
+  "masked_edge_categorical_reconstruction",
+  "masked_local4_reconstruction_all_atoms",
+  "masked_node_categorical_reconstruction_all_atoms",
+]
+
+[pretraining]
+
+[[pretraining.checkpoints]]
+downstream_initialization_seed = 2026072601
+pretraining_seed = 31001
+path = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/pretraining/no_global_electronic/seed-31001/best.pt"
+sha256 = "bdeec04648f194cf83972a6112f8bde046d47635134f9d81ff35d4f8da3b5c68"
+
+[[pretraining.checkpoints]]
+downstream_initialization_seed = 2026072602
+pretraining_seed = 31002
+path = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/pretraining/no_global_electronic/seed-31002/best.pt"
+sha256 = "49eeb51265a9551f020167d1f3a87142fe65e3c2797835a2c6fce90ce765feb2"
+
+[[pretraining.checkpoints]]
+downstream_initialization_seed = 2026072603
+pretraining_seed = 31003
+path = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/pretraining/no_global_electronic/seed-31003/best.pt"
+sha256 = "98a2bfc45ccd4a0b1800074cace4299b10213557f13a5545d3cdc7b6a32b2463"

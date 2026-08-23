@@ -1,0 +1,25 @@
+{
+  "component": "no_pretraining",
+  "config_path": "configs/mayr_joint_model_ablation_no_pretraining_v2.toml",
+  "config_sha256": "7f8e710714556d4a63756cbf2dbc9d11d3ba5a8f183ef1c64dcc01cad2b46150",
+  "dataset_manifest_sha256": "5c626f88560a91b3a56ee27a44ea9f9ddeeb68df04e8825623c4f76fffd53045",
+  "dataset_path": "data/processed/mayr_site_n/mayr-site-n-20260805-v2-ablation-no-pretraining",
+  "matched_upstream": {
+    "automatic_site_config_path": "configs/mayr_n_publication_site_ablation_no_pretraining_v1.toml",
+    "automatic_site_config_sha256": "88ba0e5e118cc44ed6c817b50701cb0efad22b44ba77b8b9dea97afc6bbab8e4",
+    "conditional_config_path": "configs/mayr_n_publication_ablation_no_pretraining_v1.toml",
+    "conditional_config_sha256": "acd9d84fb51a01399a651bd33b49862fa963c96d2376994ecb7cb6de2e70ed84"
+  },
+  "public_label": "without transferable pretraining",
+  "ready_for_diagnostic_training": true,
+  "reporting_model": {
+    "manifest_path": "artifacts/campaigns/mayr-wsp-reporting-baseline-20260811-v1/baseline_freeze/manifest.json",
+    "manifest_sha256": "9b0e43f9533f85438e60602a8c0c1bcf19321cf0aaff7eb99a21cece68e39b87",
+    "summary_path": "artifacts/campaigns/mayr-wsp-reporting-baseline-20260811-v1/baseline_freeze/summary.json",
+    "summary_sha256": "bf61b9074279b78afd698983cfa43b7d4d41b402d85c04d6f44bb9210bff029e",
+    "variant": "without_set_pooling"
+  },
+  "schema_version": "nucpred.mayr-joint-model-component-ablation-preparation.v1",
+  "status": "pass",
+  "verified_joint_input_binding_count": 18
+}

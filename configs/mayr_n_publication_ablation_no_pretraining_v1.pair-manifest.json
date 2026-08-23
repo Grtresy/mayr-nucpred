@@ -1,0 +1,40 @@
+{
+  "component": "no_pretraining",
+  "conditional_config_path": "configs/mayr_n_publication_ablation_no_pretraining_v1.toml",
+  "conditional_config_sha256": "acd9d84fb51a01399a651bd33b49862fa963c96d2376994ecb7cb6de2e70ed84",
+  "matched_pretraining": {
+    "aggregate_path": "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/pretraining/no_pretraining_v2/aggregate/aggregate_summary.json",
+    "aggregate_sha256": "d6b9860eb63ee57c3c5416d0b7942ba5427edbd024ae9103a41d09f086a27942",
+    "checkpoints": [
+      {
+        "downstream_initialization_seed": 2026072601,
+        "path": "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/pretraining/no_pretraining_v2/seed-2026072601/initialization.pt",
+        "pretraining_seed": 2026072601,
+        "sha256": "5b3a394ac6d60cd09fde2cbee7e4497905574e4339017ebfbc72c14dd944a830"
+      },
+      {
+        "downstream_initialization_seed": 2026072602,
+        "path": "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/pretraining/no_pretraining_v2/seed-2026072602/initialization.pt",
+        "pretraining_seed": 2026072602,
+        "sha256": "408404e666093e34e3be0297c90442da334e80ac8f6a3ef0d3af6308846a44cf"
+      },
+      {
+        "downstream_initialization_seed": 2026072603,
+        "path": "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/pretraining/no_pretraining_v2/seed-2026072603/initialization.pt",
+        "pretraining_seed": 2026072603,
+        "sha256": "bc8b388102a9b1fbefa6d2bd8f194c6804d06f167a813680c845271ab2370a90"
+      }
+    ],
+    "config_path": "configs/mayr_n_publication_scratch_initialization_v1.toml",
+    "config_sha256": "6c09c8020a1d85135f9394f0a72e680c38011043db442f356a19421ab6c69691",
+    "population": "deterministic_scratch_zero_ESNUEL_optimization_steps",
+    "protocol_path": "docs/protocols/mayr-joint-model-component-ablations.md",
+    "protocol_sha256": "af61293ab7b89372e2821b39a6c71a94e382b756b208bc95738c2c0e361377b8",
+    "tasks": []
+  },
+  "ready_for_upstream_training": true,
+  "schema_version": "nucpred.mayr-n-component-ablation-config-pair.v1",
+  "site_config_path": "configs/mayr_n_publication_site_ablation_no_pretraining_v1.toml",
+  "site_config_sha256": "88ba0e5e118cc44ed6c817b50701cb0efad22b44ba77b8b9dea97afc6bbab8e4",
+  "status": "pass"
+}

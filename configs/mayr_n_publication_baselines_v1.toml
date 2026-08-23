@@ -1,0 +1,65 @@
+schema_version = "nucpred.mayr-n-publication-baselines.v1"
+campaign_id = "mayr-n-publication-20260805-v1"
+dataset_directory = "data/processed/mayr_site_n/mayr-site-n-20260805-v2"
+output_directory = "artifacts/campaigns/mayr-n-publication-20260805-v1/modeling/baselines"
+outer_fold_count = 5
+group_identity = "connectivity_id"
+bootstrap_replicates = 5000
+bootstrap_seed = 2026080503
+implementation_status = "post_protocol_fixed_implementation_before_baseline_execution"
+selection_uses_outer_test_results = false
+outer_test_labels_may_be_read_before_all_scores_frozen = false
+
+[models.train_mean]
+family = "outer_development_mean"
+
+[models.one_nearest_neighbor_morgan]
+family = "one_nearest_neighbor"
+radius = 2
+n_bits = 2048
+include_chirality = true
+site_type_matched = true
+similarity = "Tanimoto"
+
+[models.random_forest_standard_descriptors]
+family = "random_forest"
+n_estimators = 300
+min_samples_leaf = 2
+max_features = 1.0
+n_jobs = -1
+seed_base = 2026080510
+
+[models.hist_gradient_boosting_standard_descriptors]
+family = "hist_gradient_boosting"
+max_iter = 250
+learning_rate = 0.05
+l2_regularization = 0.01
+seed_base = 2026080520
+
+[features]
+molecular = "all RDKit Descriptors._descList values computed from model_canonical_smiles"
+solvent = "18 continuous solvent descriptors"
+formal_charge = true
+site_type_one_hot = true
+site_member_summary = [
+  "member_atom_count",
+  "member_internal_bond_count",
+  "member_atomic_number_mean",
+  "member_atomic_number_min",
+  "member_atomic_number_max",
+  "member_H_count",
+  "member_C_count",
+  "member_N_count",
+  "member_O_count",
+  "member_P_count",
+  "member_S_count",
+  "member_halogen_count",
+]
+xtb_features = false
+target_value_derived_features = false
+
+[scope]
+all_new_models_are_known_site_oracle_baselines = true
+automatic_site_plus_n_is_bound_to_existing_nested_outer_evaluation = true
+known_site_oracle_n_is_bound_to_existing_nested_outer_evaluation = true
+sn_imported_or_predicted = false

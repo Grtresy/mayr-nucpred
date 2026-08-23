@@ -1,0 +1,26 @@
+schema_version = "nucpred.mayr-n-publication-site-ablation-config.v1"
+parent_config_path = "configs/mayr_n_publication_site_v1.toml"
+parent_config_sha256 = "abd0c35505cb5ba2ab5c5b274b4eb01df11ba24372f435b8942b05a3812059b3"
+campaign_id = "mayr-n-publication-component-ablations-20260815-v1"
+experiment_id = "mayr-n-publication-automatic-site-no_local_electronic-20260815-v1"
+output_directory = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/modeling/automatic_site/no_local_electronic"
+device = "cuda:0"
+
+[lineage_overrides]
+conditional_n_config_path = "configs/mayr_n_publication_ablation_no_local_electronic_v1.toml"
+conditional_n_config_sha256 = "95a57ec0ef954ef4583aca207ec529d3727d7e82d8e3f1e51635bfaa7ea26703"
+inner_conditional_checkpoint_root = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/modeling/conditional/no_local_electronic/nested_inner"
+outer_conditional_checkpoint_root = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/modeling/conditional/no_local_electronic/outer_refit"
+
+[ablation]
+name = "no_local_electronic"
+interpretation = "local4 values and availability are removed in ESNUEL pretraining and all Mayr training and scoring stages"
+conditional_n_component_contract_matched = true
+ranker_architecture_and_optimization_matched = true
+frozen_candidate_universe_and_mining_retained = true
+true_metadata_retained_only_outside_predictor = true
+outer_test_used_for_selection = false
+model_facing_site_type = "frozen_true_metadata"
+type_dependent_region_residual_enabled = true
+type_dependent_calibration_enabled = true
+type_router_supervision = "frozen_true_metadata"

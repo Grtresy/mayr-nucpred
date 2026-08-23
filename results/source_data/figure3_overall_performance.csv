@@ -1,0 +1,11 @@
+metric_family,metric,display_label,axis_group,display_order,context_count,connectivity_count,estimate,ci95_low,ci95_high,bootstrap_replicates,bootstrap_seed,bootstrap_unit
+site ranking,top-1 accuracy,Top-1,ranking,0,1026,866,0.930799220273,0.91369047619,0.947013646978,10000,20260815,connectivity
+site ranking,top-3 accuracy,Top-3,ranking,1,1026,866,0.980506822612,0.971484712361,0.988439306358,10000,20260815,connectivity
+site ranking,top-5 accuracy,Top-5,ranking,2,1026,866,0.987329434698,0.980150923685,0.993390457366,10000,20260815,connectivity
+site ranking,mean reciprocal rank,MRR,ranking,3,1026,866,0.95687120425,0.946084983025,0.967076336131,10000,20260815,connectivity
+automatic-site N,MAE,automatic site,error,4,1026,866,1.21999993166,1.12897851033,1.31474495292,10000,20260815,connectivity
+automatic-site N,RMSE,automatic site,error,5,1026,866,1.81924563655,1.6400804657,2.00586100971,10000,20260815,connectivity
+automatic-site N,R2,automatic site,r2,6,1026,866,0.937429558769,0.922888682506,0.94942667264,10000,20260815,connectivity
+known-site N,MAE,known site,error,7,1026,866,1.15061174781,1.07458206747,1.22960672455,10000,20260815,connectivity
+known-site N,RMSE,known site,error,8,1026,866,1.62266168557,1.49906412879,1.75125481823,10000,20260815,connectivity
+known-site N,R2,known site,r2,9,1026,866,0.950221420758,0.941131772406,0.958020189815,10000,20260815,connectivity

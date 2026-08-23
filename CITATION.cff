@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: >-
+  Please cite the archived software release and the associated article.
+  Shangkun Shi is the lead developer and primary contributor.
+title: mayr-nucpred
+type: software
+version: 1.0.0
+doi: 10.5281/zenodo.22059011
+authors:
+  - family-names: Shi
+    given-names: Shangkun
+    email: ssk23@mails.tsinghua.edu.cn
+    affiliation: Tanwei College, Tsinghua University, Beijing 100084, P. R. China
+  - family-names: He
+    given-names: Junliang
+    affiliation: Tanwei College, Tsinghua University, Beijing 100084, P. R. China
+  - family-names: Dong
+    given-names: Zikang
+    affiliation: Tanwei College, Tsinghua University, Beijing 100084, P. R. China
+  - family-names: Zhang
+    given-names: Shaoguang
+    email: sgzhang@tsinghua.edu.cn
+    affiliation: >-
+      Key Laboratory of Bioorganic Phosphorus Chemistry and Chemical Biology
+      (Ministry of Education), Department of Chemistry, Tsinghua University,
+      Beijing 100084, China
+repository-code: https://github.com/Grtresy/mayr-nucpred
+url: https://github.com/Grtresy/mayr-nucpred
+license: MIT
+keywords:
+  - Mayr nucleophilicity
+  - site ranking
+  - graph neural network
+  - chemical machine learning
+  - out-of-fold evaluation
+abstract: >-
+  Code, final figure and table Source Data, and frozen model artifacts for
+  joint nucleophilic-site ranking and conditional Mayr N prediction.

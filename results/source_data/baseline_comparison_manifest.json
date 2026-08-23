@@ -1,0 +1,41 @@
+{
+  "evaluation_role": "retrospective matched connectivity-grouped out-of-fold baseline comparison",
+  "file_count": 6,
+  "files": {
+    "table1_simple_baseline_comparison.csv": {
+      "bytes": 1810,
+      "path": "results/source_data/table1_simple_baseline_comparison.csv",
+      "sha256": "c51edf5e1843e7521d21edd2aba034990a419f74039828b074c9a9ba096847d8"
+    },
+    "table_s16_simple_baseline_ranking.csv": {
+      "bytes": 2687,
+      "path": "results/source_data/table_s16_simple_baseline_ranking.csv",
+      "sha256": "e7e468a6d511268341e428911bd0644cba9effc0368233a32cc4feb07fef31c3"
+    },
+    "table_s17_simple_baseline_n_performance.csv": {
+      "bytes": 2200,
+      "path": "results/source_data/table_s17_simple_baseline_n_performance.csv",
+      "sha256": "34367c9f541d8f79ff2f8b2e20524914ce11a6068881631f616e88a7786e5581"
+    },
+    "table_s18_simple_baseline_paired_deltas.csv": {
+      "bytes": 8529,
+      "path": "results/source_data/table_s18_simple_baseline_paired_deltas.csv",
+      "sha256": "07c93f200873aeb31b0112d0f4a1420ad2f8d55a7fce4987e86ceebedde19026"
+    },
+    "table_s19_simple_baseline_outer_folds.csv": {
+      "bytes": 7592,
+      "path": "results/source_data/table_s19_simple_baseline_outer_folds.csv",
+      "sha256": "b5be00bb5248a50aaf40fdce276fd9bb83f78abd1d41d62c8ea15e4485827bd2"
+    },
+    "table_s20_internal_historical_reference.csv": {
+      "bytes": 433,
+      "path": "results/source_data/table_s20_internal_historical_reference.csv",
+      "sha256": "9abbbc2d54505cfa704af53d376c4927c35a5882726557be2e5150ea45c46601"
+    }
+  },
+  "independent_confirmation": false,
+  "manifest_payload_sha256": "de00eea081556725aca0a30321089c32428ba39f9db905001e4ded95781ed963",
+  "release_version": "1.0.0",
+  "schema_version": "mayr-nucpred.source-data-manifest.v1",
+  "source_manifest_schema": "nucpred.mayr-simple-baseline-manuscript-tables.v1"
+}

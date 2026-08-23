@@ -1,0 +1,76 @@
+subgroup_family,subgroup,context_count,connectivity_count,display_metric,estimate,ci95_low,ci95_high,bootstrap_replicates,bootstrap_seed,bootstrap_unit,placement
+nucleophile class,C nucleophiles,469,427,Top-1 exact-site accuracy,0.936034115139,0.912765957447,0.957539404081,5000,2225963210,connectivity,main text
+nucleophile class,C nucleophiles,469,427,automatic-site N R2,0.957590432143,0.946501994052,0.966245732044,5000,2225963210,connectivity,main text
+nucleophile class,C nucleophiles,469,427,automatic-site N MAE,1.14020681551,1.04452822783,1.24452166682,5000,2225963210,connectivity,main text
+nucleophile class,C nucleophiles,469,427,known-site N R2,0.963584779985,0.955311743948,0.970214179245,5000,2225963210,connectivity,main text
+nucleophile class,C nucleophiles,469,427,known-site N MAE,1.09401889219,1.00698704333,1.18502035734,5000,2225963210,connectivity,main text
+nucleophile class,N nucleophiles,291,222,Top-1 exact-site accuracy,0.931271477663,0.894915254237,0.964412811388,5000,2581450042,connectivity,main text
+nucleophile class,N nucleophiles,291,222,automatic-site N R2,0.738539501735,0.634114741832,0.816541834054,5000,2581450042,connectivity,main text
+nucleophile class,N nucleophiles,291,222,automatic-site N MAE,1.03580076843,0.887275662836,1.20262155281,5000,2581450042,connectivity,main text
+nucleophile class,N nucleophiles,291,222,known-site N R2,0.804697730843,0.746172642403,0.850282258949,5000,2581450042,connectivity,main text
+nucleophile class,N nucleophiles,291,222,known-site N MAE,0.955892690787,0.841460255514,1.076490695,5000,2581450042,connectivity,main text
+nucleophile class,H nucleophiles,137,130,Top-1 exact-site accuracy,0.890510948905,0.833333333333,0.942028985507,5000,1937825839,connectivity,main text
+nucleophile class,H nucleophiles,137,130,automatic-site N R2,0.868601487829,0.79511877041,0.916380550319,5000,1937825839,connectivity,main text
+nucleophile class,H nucleophiles,137,130,automatic-site N MAE,1.50138536699,1.20938861511,1.78740378527,5000,1937825839,connectivity,main text
+nucleophile class,H nucleophiles,137,130,known-site N R2,0.906521772101,0.869335564408,0.932646311553,5000,1937825839,connectivity,main text
+nucleophile class,H nucleophiles,137,130,known-site N MAE,1.35061116481,1.12476541253,1.58547418241,5000,1937825839,connectivity,main text
+nucleophile class,O nucleophiles,77,47,Top-1 exact-site accuracy,0.961038961039,0.909090909091,1.0,5000,1149552917,connectivity,main text
+nucleophile class,O nucleophiles,77,47,automatic-site N R2,0.768676212972,0.541356496308,0.884444250366,5000,1149552917,connectivity,main text
+nucleophile class,O nucleophiles,77,47,automatic-site N MAE,1.47783343195,1.05519927255,1.98301224101,5000,1149552917,connectivity,main text
+nucleophile class,O nucleophiles,77,47,known-site N R2,0.799574955141,0.577320849809,0.902887611187,5000,1149552917,connectivity,main text
+nucleophile class,O nucleophiles,77,47,known-site N MAE,1.41407581453,1.02394118903,1.88288001327,5000,1149552917,connectivity,main text
+nucleophile class,S/Se nucleophiles,27,25,Top-1 exact-site accuracy,0.962962962963,0.884615384615,1.0,5000,1132194474,connectivity,main text
+nucleophile class,S/Se nucleophiles,27,25,automatic-site N R2,0.915420526302,0.783168750904,0.956743938726,5000,1132194474,connectivity,main text
+nucleophile class,S/Se nucleophiles,27,25,automatic-site N MAE,1.06217605873,0.815424454546,1.35477988169,5000,1132194474,connectivity,main text
+nucleophile class,S/Se nucleophiles,27,25,known-site N R2,0.907416369537,0.763571263083,0.954816457058,5000,1132194474,connectivity,main text
+nucleophile class,S/Se nucleophiles,27,25,known-site N MAE,1.0960975242,0.822255171941,1.41152670354,5000,1132194474,connectivity,main text
+solvent,dichloromethane,368,365,Top-1 exact-site accuracy,0.926630434783,0.897574123989,0.953424657534,5000,952241113,connectivity,main text
+solvent,dichloromethane,368,365,automatic-site N R2,0.901511239949,0.854897469575,0.935212448356,5000,952241113,connectivity,main text
+solvent,dichloromethane,368,365,automatic-site N MAE,1.17942097237,1.03460359583,1.33921679582,5000,952241113,connectivity,main text
+solvent,dichloromethane,368,365,known-site N R2,0.934061542846,0.912636056395,0.951130283473,5000,952241113,connectivity,main text
+solvent,dichloromethane,368,365,known-site N MAE,1.06043335972,0.949688740717,1.17446050283,5000,952241113,connectivity,main text
+solvent,MeCN,292,291,Top-1 exact-site accuracy,0.904109589041,0.86941580756,0.934931506849,5000,808586454,connectivity,main text
+solvent,MeCN,292,291,automatic-site N R2,0.90781284281,0.878059858547,0.931373109222,5000,808586454,connectivity,main text
+solvent,MeCN,292,291,automatic-site N MAE,1.37278801417,1.21939897807,1.53613073474,5000,808586454,connectivity,main text
+solvent,MeCN,292,291,known-site N R2,0.91962002586,0.894794618768,0.939024775927,5000,808586454,connectivity,main text
+solvent,MeCN,292,291,known-site N MAE,1.32362954717,1.18580629528,1.46553339604,5000,808586454,connectivity,main text
+solvent,DMSO,203,203,Top-1 exact-site accuracy,0.970443349754,0.945812807882,0.990147783251,5000,1103507168,connectivity,main text
+solvent,DMSO,203,203,automatic-site N R2,0.870910957846,0.821815398562,0.906187946745,5000,1103507168,connectivity,main text
+solvent,DMSO,203,203,automatic-site N MAE,1.11327143902,0.97705343557,1.26081702165,5000,1103507168,connectivity,main text
+solvent,DMSO,203,203,known-site N R2,0.881151951592,0.836749896303,0.913496627402,5000,1103507168,connectivity,main text
+solvent,DMSO,203,203,known-site N MAE,1.08260891731,0.953464050905,1.22308363789,5000,1103507168,connectivity,main text
+solvent,water,114,113,Top-1 exact-site accuracy,0.921052631579,0.867256637168,0.965217391304,5000,1384203650,connectivity,main text
+solvent,water,114,113,automatic-site N R2,0.681947675598,0.542444656688,0.79560340044,5000,1384203650,connectivity,main text
+solvent,water,114,113,automatic-site N MAE,1.05667593794,0.817431290857,1.3441953376,5000,1384203650,connectivity,main text
+solvent,water,114,113,known-site N R2,0.768273045139,0.575295441435,0.871199782688,5000,1384203650,connectivity,main text
+solvent,water,114,113,known-site N MAE,0.986684509802,0.789432448305,1.2167016813,5000,1384203650,connectivity,main text
+solvent,THF,25,25,Top-1 exact-site accuracy,0.96,0.88,1.0,5000,459210303,connectivity,main text
+solvent,THF,25,25,automatic-site N R2,0.830502032014,0.543947623936,0.932896645014,5000,459210303,connectivity,main text
+solvent,THF,25,25,automatic-site N MAE,1.37887742615,0.912335174332,1.91175143182,5000,459210303,connectivity,main text
+solvent,THF,25,25,known-site N R2,0.825761792514,0.53782102652,0.928835264147,5000,459210303,connectivity,main text
+solvent,THF,25,25,known-site N MAE,1.42499550222,0.95546240701,1.96103747021,5000,459210303,connectivity,main text
+site type,atom,630,502,Top-1 exact-site accuracy,0.942857142857,0.921172661136,0.962324867251,5000,1948163867,connectivity,main text
+site type,atom,630,502,automatic-site N R2,0.870352183595,0.8290616295,0.902184632826,5000,1948163867,connectivity,main text
+site type,atom,630,502,automatic-site N MAE,1.24447239997,1.13120580084,1.3724591442,5000,1948163867,connectivity,main text
+site type,atom,630,502,known-site N R2,0.897378364331,0.871565740411,0.917957490877,5000,1948163867,connectivity,main text
+site type,atom,630,502,known-site N MAE,1.17505064927,1.07923115838,1.27958119833,5000,1948163867,connectivity,main text
+site type,bond,159,144,Top-1 exact-site accuracy,0.962264150943,0.929925077576,0.98773006135,5000,3462873188,connectivity,main text
+site type,bond,159,144,automatic-site N R2,0.933155580591,0.906353781307,0.952690414328,5000,3462873188,connectivity,main text
+site type,bond,159,144,automatic-site N MAE,0.898410934512,0.778945213527,1.02403390006,5000,3462873188,connectivity,main text
+site type,bond,159,144,known-site N R2,0.94243100255,0.922544383695,0.957428390912,5000,3462873188,connectivity,main text
+site type,bond,159,144,known-site N MAE,0.871018500298,0.76249656085,0.980208164979,5000,3462873188,connectivity,main text
+site type,transferable H,137,130,Top-1 exact-site accuracy,0.890510948905,0.830882352941,0.941605839416,5000,274860744,connectivity,main text
+site type,transferable H,137,130,automatic-site N R2,0.868601487829,0.797337584606,0.914284472643,5000,274860744,connectivity,main text
+site type,transferable H,137,130,automatic-site N MAE,1.50138536699,1.22435209801,1.79793318024,5000,274860744,connectivity,main text
+site type,transferable H,137,130,known-site N R2,0.906521772101,0.870259652345,0.932185503265,5000,274860744,connectivity,main text
+site type,transferable H,137,130,known-site N MAE,1.35061116481,1.12802110185,1.58916519826,5000,274860744,connectivity,main text
+site type,delocalized region,61,61,Top-1 exact-site accuracy,0.852459016393,0.754098360656,0.934426229508,5000,1086826913,connectivity,main text
+site type,delocalized region,61,61,automatic-site N R2,0.766275920309,0.563220289835,0.870858671736,5000,1086826913,connectivity,main text
+site type,delocalized region,61,61,automatic-site N MAE,1.3758163548,1.06034295338,1.71127933827,5000,1086826913,connectivity,main text
+site type,delocalized region,61,61,known-site N R2,0.762003765436,0.544927840929,0.875804460527,5000,1086826913,connectivity,main text
+site type,delocalized region,61,61,known-site N MAE,1.36554409934,1.04815530946,1.70419079387,5000,1086826913,connectivity,main text
+site type,atom group,39,33,Top-1 exact-site accuracy,0.871794871795,0.75,0.972972972973,5000,66864378,connectivity,main text
+site type,atom group,39,33,automatic-site N R2,0.921636464896,0.843484144894,0.965394658844,5000,66864378,connectivity,main text
+site type,atom group,39,33,automatic-site N MAE,0.903599651206,0.58848628242,1.28716626891,5000,66864378,connectivity,main text
+site type,atom group,39,33,known-site N R2,0.933127010353,0.859887097455,0.968521449587,5000,66864378,connectivity,main text
+site type,atom group,39,33,known-site N MAE,0.856971359579,0.568925152287,1.20532365645,5000,66864378,connectivity,main text

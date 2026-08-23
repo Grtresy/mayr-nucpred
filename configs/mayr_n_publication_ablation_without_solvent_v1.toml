@@ -1,0 +1,15 @@
+schema_version = "nucpred.mayr-n-publication-ablation-config.v1"
+parent_config_path = "configs/mayr_n_publication_experiment_v1.toml"
+parent_config_sha256 = "5fea43db14f6f6fdf77d0ef28746afe7da80f8c6458369fa2a26488939888a43"
+campaign_id = "mayr-n-publication-20260805-v1"
+experiment_id = "mayr-n-publication-ablation-without-solvent-20260805-v1"
+output_directory = "artifacts/campaigns/mayr-n-publication-20260805-v1/modeling/ablations/without_solvent"
+device = "cuda:0"
+
+[ablation]
+name = "without_solvent"
+interpretation = "all 18 continuous solvent descriptors are zero and the categorical solvent token is constant"
+pretraining_variant = "unchanged_ESNUEL_pretraining_has_no_solvent_objective_or_transferred_solvent_parameter"
+outer_test_used_for_selection = false
+same_architecture_and_optimization = true
+true_metadata_retained_only_for_post_freeze_analysis = true

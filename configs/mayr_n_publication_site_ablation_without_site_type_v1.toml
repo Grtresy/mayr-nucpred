@@ -1,0 +1,26 @@
+schema_version = "nucpred.mayr-n-publication-site-ablation-config.v1"
+parent_config_path = "configs/mayr_n_publication_site_v1.toml"
+parent_config_sha256 = "abd0c35505cb5ba2ab5c5b274b4eb01df11ba24372f435b8942b05a3812059b3"
+campaign_id = "mayr-n-publication-20260805-v1"
+experiment_id = "mayr-n-publication-automatic-site-ablation-without-site-type-20260805-v1"
+output_directory = "artifacts/campaigns/mayr-n-publication-20260805-v1/modeling/automatic_site_ablations/without_site_type"
+device = "cuda:0"
+
+[lineage_overrides]
+conditional_n_config_path = "configs/mayr_n_publication_ablation_without_site_type_v1.toml"
+conditional_n_config_sha256 = "3ef3f1f4f9ee0d16e4fc21eda335e7a635f6095f2580dfb46a345259f0b150f4"
+inner_conditional_checkpoint_root = "artifacts/campaigns/mayr-n-publication-20260805-v1/modeling/ablations/without_site_type/nested_inner"
+outer_conditional_checkpoint_root = "artifacts/campaigns/mayr-n-publication-20260805-v1/modeling/ablations/without_site_type/outer_refit"
+
+[ablation]
+name = "without_site_type"
+interpretation = "every model-facing site type is mapped to the single atom token while exact member sets are retained"
+conditional_n_input_ablation_matched = true
+ranker_architecture_and_optimization_matched = true
+frozen_candidate_universe_and_mining_retained = true
+true_metadata_retained_only_outside_predictor = true
+outer_test_used_for_selection = false
+model_facing_site_type = "constant_atom"
+type_dependent_region_residual_enabled = false
+type_dependent_calibration_enabled = false
+type_router_supervision = "constant_atom"

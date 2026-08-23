@@ -1,0 +1,239 @@
+schema_version = "nucpred.esnuel-d-node-xtb-pretraining-config.v1"
+dataset_id_prefix = "esnuel-d-node-xtb-pretraining-20260726-v1"
+working_directory = "data/interim/esnuel_d_node_xtb_pretraining/esnuel-d-node-xtb-pretraining-20260726-v1"
+output_root = "data/processed/esnuel_d_node_xtb_pretraining"
+minimum_complete_xtb10_fraction = 0.95
+
+[parents.m7_esnuel]
+dataset_id = "m7-explicit-h-continuation-full-20260724-v1"
+records_path = "data/processed/m7_explicit_h_continuation/m7-explicit-h-continuation-full-20260724-v1/esnuel_records.parquet"
+records_sha256 = "f6d2337ba8bc4de2efbf5159c84de4bc78c374fbae7f33be832b49d79bc69dc1"
+manifest_path = "data/processed/m7_explicit_h_continuation/m7-explicit-h-continuation-full-20260724-v1/dataset_manifest.json"
+manifest_sha256 = "50b2963096313d3b2b1b4ca04a7ddaac5c28aec3a87677ee5d54f7f21265bbfe"
+expected_records = 47921
+expected_train = 33479
+expected_validation = 8245
+expected_audit_test = 6197
+required_corpus = "esnuel_mca_gcs"
+forbid_mayr_branch = true
+
+[parents.mayr_target]
+dataset_id = "mayr-pure-alpb-explicit-h-node-xtb-20260725-v1"
+records_path = "data/processed/mayr_pure_alpb_node_xtb/mayr-pure-alpb-explicit-h-node-xtb-20260725-v1/records.parquet"
+records_sha256 = "44b811152a29d1104dd8a7c84c6752ae78599bd28afb53a51343622f5a7705ad"
+manifest_path = "data/processed/mayr_pure_alpb_node_xtb/mayr-pure-alpb-explicit-h-node-xtb-20260725-v1/dataset_manifest.json"
+manifest_sha256 = "1fd0b21bbb02ff78aafd057926f36d5365f5d1c608edf6c0065a780d70493e0a"
+expected_records = 1136
+connectivity_smiles_columns = [
+  "canonical_smiles",
+  "curated_canonical_smiles",
+  "model_canonical_smiles",
+]
+
+[overlap]
+identity = "inchi_key_first_block"
+stereochemistry_ignored = true
+charge_and_protonation_layer_ignored = true
+dative_failure_policy = "identity_only_dative_to_single_then_hard_fail"
+expected_excluded_esnuel_records = 6
+excluded_source_id_sha256 = "6b4f9ca78b4934934677cd3077ae1bf6635dc28087ecdeaf3789b5ae9cbbc067"
+expected_eligible_esnuel_records = 47915
+eligible_source_id_sha256 = "d2b2ed3af9de365bbbd4d468fcd36e06fc6f4e285b04f316113ee937d5dd29e6"
+
+[selection]
+default_scope = "pilot1024"
+allowed_scopes = ["pilot1024", "pilot4096", "full"]
+hash_namespace = "esnuel-d-node-xtb-pretraining-pilot-20260726-v1"
+stratification = "native_esnuel_split_then_sha256_rank"
+native_split_column = "native_continuation_split"
+full_expansion_requires_passing_scope = "pilot1024"
+
+[selection.mandatory_strata]
+required_elements = ["C", "H", "N", "O", "F", "P", "S", "Cl", "Br", "I"]
+high_atom_count_quantile = 0.99
+representative_ranking = "sha256"
+
+[selection.pilot1024]
+total_records = 1024
+train_records = 715
+validation_records = 176
+audit_test_records = 133
+source_id_sha256 = "244298225fb47b495bec52beb0db709c111d898efd10ac62f2c31addd40b2609"
+
+[selection.pilot4096]
+total_records = 4096
+train_records = 2861
+validation_records = 705
+audit_test_records = 530
+source_id_sha256 = "84449162ba65bf47b88e6d0b41a664a7b0edb8a97b6867627d64079a45d34503"
+
+[selection.full]
+total_records = 47915
+train_records = 33475
+validation_records = 8243
+audit_test_records = 6197
+source_id_sha256 = "d2b2ed3af9de365bbbd4d468fcd36e06fc6f4e285b04f316113ee937d5dd29e6"
+
+[geometry]
+name = "G1"
+method = "ETKDGv3"
+conformer_count = 20
+random_seed_namespace = "esnuel-d-node-xtb-g1-20260726-v1"
+prune_rms_threshold_angstrom = 0.25
+enforce_chirality = true
+use_small_ring_torsions = true
+use_macrocycle_torsions = true
+primary_force_field = "MMFF94s"
+fallback_force_field = "UFF"
+allow_force_field_fallback = true
+force_field_max_iterations = 1000
+require_force_field_convergence = true
+coordinate_precision_decimals = 10
+geometry_optimization_with_xtb = false
+unsupported_force_field_policy = "retain_record_and_mask_all_xtb_features"
+
+[xtb]
+archive_path = "reference/Ree2025/xtb-6.7.0-linux-x86_64.tar.xz"
+archive_sha256 = "612c09f6bf85ffccb0e1ee4a62730de9032f64786b799525304eaa77a23d0dfe"
+method = "GFN1-xTB"
+gfn = 1
+gas_environment = "gas"
+solvation_model = "ALPB"
+solvent = "dmso"
+geometry_optimization = false
+fukui_mode = "vfukui"
+ip_ea_mode = "vipea"
+tce_reference_smiles = "N#CC(=C(C#N)C#N)C#N"
+tce_reference_environment = "gas"
+hartree_to_ev = 27.211386245988
+fukui_minus_sign = -1.0
+
+[features]
+node_local = [
+  "alpb_fukui_minus_density",
+  "alpb_cm5",
+  "alpb_condensed_softness",
+  "alpb_condensed_nucleophilicity_index_ev",
+]
+global = [
+  "alpb_homo_n_hartree",
+  "alpb_softness_hartree_inverse",
+  "alpb_vip_hartree",
+  "alpb_nucleophilicity_index_hartree",
+  "alpb_homo_n_minus_1_hartree",
+  "delta_e_solv_hartree",
+]
+missing_value_policy = "training_fold_median_imputation_plus_availability_masks"
+local_values_enter_before_message_passing = true
+global_values_enter_after_site_pooling = true
+
+[execution]
+workers = 12
+timeout_seconds = 600
+
+[quality_control]
+frontier_orbital_min_hartree = -2.0
+frontier_orbital_max_hartree = 1.0
+cation_homo_min_hartree = -2.0
+cation_homo_max_hartree = 1.0
+vip_min_hartree = -2.0
+vip_max_hartree = 2.0
+vea_min_hartree = -2.0
+vea_max_hartree = 2.0
+ip_ea_gap_min_hartree = 0.000001
+max_abs_cm5_charge = 3.0
+cm5_charge_sum_tolerance = 0.05
+max_dipole_debye = 100.0
+fukui_minus_sum_min = -1.1
+fukui_minus_sum_max = -0.9
+max_abs_fukui_atom = 2.0
+max_abs_delta_e_solv_hartree = 2.0
+max_abs_homo_shift_hartree = 1.0
+
+[pretraining]
+pilot_run_id = "mayr-explicit-h-node-xtb-pretraining-pilot-20260726-v1"
+full_run_id = "mayr-explicit-h-node-xtb-pretraining-full-20260726-v1"
+pilot_output_root = "artifacts/campaigns/mayr-explicit-h-node-xtb-pretraining-20260726-v1/pilot1024"
+full_output_root = "artifacts/campaigns/mayr-explicit-h-node-xtb-pretraining-20260726-v1/full"
+initialization_seeds = [31001, 31002, 31003]
+downstream_initialization_seeds = [2026072501, 2026072502, 2026072503]
+seed_bindings = [
+  "31001:2026072501",
+  "31002:2026072502",
+  "31003:2026072503",
+]
+maximum_parallel_gpu_processes = 3
+device = "cuda:0"
+hidden_dim = 128
+message_layers = 4
+node_embedding_dim = 16
+edge_embedding_dim = 16
+solvent_embedding_dim = 16
+num_solvents = 10
+dropout = 0.10
+
+[pretraining.masking]
+node_categorical_probability = 0.15
+edge_categorical_probability = 0.15
+local_probability = 0.15
+global_probability = 0.15
+
+[pretraining.loss]
+node_categorical_weight = 1.0
+edge_categorical_weight = 1.0
+local_weight = 1.0
+global_weight = 1.0
+mca_weight = 1.0
+gcs_weight = 1.0
+site_weight = 0.5
+ranking_weight = 0.25
+site_temperature = 0.5
+ranking_margin = 0.0
+
+[pretraining.pilot]
+dataset_scope = "pilot1024"
+epochs = 20
+minimum_epochs = 5
+early_stopping_patience = 5
+minimum_validation_delta = 0.0001
+batch_size = 64
+learning_rate = 0.0003
+weight_decay = 0.0001
+minimum_improved_seeds = 2
+minimum_relative_best_vs_epoch1_improvement = 0.01
+require_all_gradient_paths = true
+require_finite_audit_test_metrics = true
+require_strict_transfer_audit = true
+
+[pretraining.full]
+dataset_scope = "full"
+epochs = 60
+minimum_epochs = 10
+early_stopping_patience = 8
+minimum_validation_delta = 0.0001
+batch_size = 128
+learning_rate = 0.0003
+weight_decay = 0.0001
+audit_test_used_for_selection = false
+
+[downstream_pilot]
+run_id = "mayr-explicit-h-node-xtb-pretrained-pilot-20260726-v1"
+output_root = "artifacts/campaigns/mayr-explicit-h-node-xtb-pretrained-transfer-20260725-v1"
+split_seed = 20241220
+initialization_seeds = [2026072501, 2026072502, 2026072503]
+arms = ["D-scratch", "D-pretrained"]
+transferred_parameter_learning_rate = 0.00005
+new_parameter_learning_rate = 0.0003
+all_parameters_unfrozen_from_epoch_one = true
+minimum_improved_initializations = 2
+maximum_mean_pretrained_minus_scratch_mae = 0.05
+outer_test_used_for_gate = false
+
+[downstream_formal]
+run_id = "mayr-explicit-h-node-xtb-pretrained-canonical-20260726-v1"
+split_seeds = [20241220, 20241221, 20241222, 20241223, 20241224]
+initialization_seeds = [2026072501, 2026072502, 2026072503]
+arms = ["D-scratch", "D-pretrained"]
+reference_arm = "C"
+reference_run_id = "mayr-explicit-h-node-xtb-scratch-abcd-canonical-20260725-v1"
+requires_passing_downstream_pilot = true

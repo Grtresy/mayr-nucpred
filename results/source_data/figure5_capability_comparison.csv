@@ -1,0 +1,7 @@
+capability,Nie et al. 2022,joint model,evidence
+Evaluated population,894 data points; 4 solvents,"1,026 OOF contexts; 9 solvents",Nie PDF p. 4320 and released data; frozen OOF manifest
+Site information at inference,nucleophilic atom index supplied,no site supplied; label-blind candidates,Nie PDF eqs. 7 and 10 plus released nuc_index; candidate audit
+Physical endpoint scope,one atom readout,"atom, bond, region, atom group, or H group",Nie model readout; five-type frozen ontology
+Direct prediction outputs,N at the supplied atom,site logit and conditional N for every candidate,Nie PDF methodology; joint score manifest
+Multiple-site analysis,alternate atom readouts for 4 selected molecules,"exact-site rank for all 1,026 eligible contexts",Nie PDF Figure 4 discussion; grouped OOF evaluation
+Reported resampling unit,10 x stratified 10-fold data-point CV,5 connectivity-disjoint outer folds; 3 seeds,Nie main.py and paper; frozen outer-fold manifest

@@ -1,0 +1,6 @@
+site_type,count,example_smiles,example_name
+atom,642,CN,methylamine
+bond,159,C=C(C)C,2-methylpropene
+delocalized region,61,c1ccoc1,furan
+atom group,39,NN,hydrazine
+transferable H group,137,[BH4-],tetrahydroborate

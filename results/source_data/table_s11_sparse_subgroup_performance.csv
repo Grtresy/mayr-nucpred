@@ -1,0 +1,7 @@
+subgroup_family,subgroup,context_count,connectivity_count,top1_accuracy,automatic_site_mae,known_site_mae
+nucleophile class,P nucleophiles,18,16,0.888888888889,2.85024582616,2.75983652963
+nucleophile class,halide nucleophiles,7,3,1,2.29696597236,2.29696597236
+solvent,DMF,15,15,1,1.47612085893,1.47612085893
+solvent,EtOH,3,3,1,2.37647140715,2.37647140715
+solvent,MeOH,4,4,1,1.62760309855,1.62760309855
+solvent,acetone,2,2,1,0.065088857015,0.065088857015

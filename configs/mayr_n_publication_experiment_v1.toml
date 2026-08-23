@@ -1,0 +1,112 @@
+schema_version = "nucpred.mayr-n-publication-experiment-config.v1"
+campaign_id = "mayr-n-publication-20260805-v1"
+experiment_id = "mayr-n-publication-nested-20260805-v1"
+output_directory = "artifacts/campaigns/mayr-n-publication-20260805-v1/modeling"
+device = "cuda:0"
+predict_sn = false
+outer_fold_count = 5
+inner_fold_count = 4
+inner_initialization_seed = 2026072601
+outer_initialization_seeds = [2026072601, 2026072602, 2026072603]
+outer_epoch_rule = "upper_median_of_four_inner_best_epochs"
+selection_metric = "rmse"
+test_used_for_selection = false
+unknown_is_negative = false
+candidate_softmax_used = false
+
+[dataset]
+dataset_id = "mayr-site-n-20260805-v2"
+directory = "data/processed/mayr_site_n/mayr-site-n-20260805-v2"
+manifest_path = "data/processed/mayr_site_n/mayr-site-n-20260805-v2/dataset_manifest.json"
+manifest_sha256 = "936ef1222f0be9ec3c71590724c976a909f9f3b9f17efa0044de00cb3592778c"
+outer_membership_path = "data/processed/mayr_site_n/mayr-site-n-20260805-v2/outer_fold_membership.csv"
+outer_membership_sha256 = "8eed41340703a55c78377757e711f235cb6be587192b49be5ac54f90559dffcb"
+nested_membership_path = "data/processed/mayr_site_n/mayr-site-n-20260805-v2/nested_split_membership.csv"
+nested_membership_sha256 = "890117d05e2e2b009db4da5a9c8e70f6fe0b0225de0cae36caff48ac947bedee"
+
+[lineage]
+base_config_path = "configs/mayr_site_n_experiment.toml"
+base_config_sha256 = "5a1e3a5d5e0e80e3c68b88e0b7cea4f1e398ecebef4fb23303388e77f890160a"
+formal_config_path = "configs/mayr_site_n_formal.toml"
+formal_config_sha256 = "1e1299d3ebd4d4c856ec5ee90d14fcae664f91aeb982027753997af379518fa1"
+stage_c_config_path = "configs/mayr_nextgen_stage_c.toml"
+stage_c_config_sha256 = "2ee0555783dc093cea9f469994d62479ebae5ac188dd9d5f5c1737eb5993c1b9"
+stage_e_b_config_path = "configs/mayr_nextgen_stage_e_b.toml"
+stage_e_b_config_sha256 = "d77ee94e3252ec97ff28bcb8fe8828e70a301251712ef6b26c0d0a8c9ca88a33"
+stage_e_c_config_path = "configs/mayr_nextgen_stage_e_c.toml"
+stage_e_c_config_sha256 = "84e871c825841839c52329fa73bbeeec94d406f42b63411e8ac51b8330d5a4e2"
+base_arm = "c2_h2_high_n_weighting"
+stage_e_b_arm = "e_b_n1_bond_region_masked_solvent_residual"
+stage_e_c_arm = "e_c_n3_coordination_region_expert"
+pretraining_population = "ESNUEL_47915_zero_Mayr_connectivity_overlap"
+pretraining_mayr_labels_used = false
+pretraining_config_path = "configs/mayr_explicit_h_node_xtb_pretraining.toml"
+pretraining_config_sha256 = "77312759aac56b13b8803697bdc41398acca1c9dbaad3d578a0f6bf4f134e9ec"
+pretraining_protocol_path = "docs/protocols/mayr-explicit-h-node-xtb-pretraining.md"
+pretraining_protocol_sha256 = "75b9b2a25f407ec75d850fb0ca511d2e7655a5edf5741f8643a15be70bcf3d91"
+pretraining_aggregate_path = "artifacts/campaigns/mayr-explicit-h-node-xtb-pretraining-20260726-v1/full/aggregate/aggregate_summary.json"
+pretraining_aggregate_sha256 = "dec061f496b7b3bcca7866a7bd94cbb531a604bd9e052bf92f2d6398393b2688"
+
+[[pretraining.checkpoints]]
+downstream_initialization_seed = 2026072601
+pretraining_seed = 31001
+path = "artifacts/campaigns/mayr-explicit-h-node-xtb-pretraining-20260726-v1/full/seed-31001/best.pt"
+sha256 = "d75d7dcb502684b609d4b7553bd4fe441a1b997baba8b0c4def91e5c83392735"
+
+[[pretraining.checkpoints]]
+downstream_initialization_seed = 2026072602
+pretraining_seed = 31002
+path = "artifacts/campaigns/mayr-explicit-h-node-xtb-pretraining-20260726-v1/full/seed-31002/best.pt"
+sha256 = "34bde8fecde2fa44c4b41b3ee3e7f1f1deb2aff152e1d4365d6828a4effb3b01"
+
+[[pretraining.checkpoints]]
+downstream_initialization_seed = 2026072603
+pretraining_seed = 31003
+path = "artifacts/campaigns/mayr-explicit-h-node-xtb-pretraining-20260726-v1/full/seed-31003/best.pt"
+sha256 = "59ac746aedc571dadea4c307235befe61209da3cd1fea85584ee614cae902aa7"
+
+[training]
+batch_size_contexts = 64
+ranking_weight = 0.10
+gradient_clip_norm = 5.0
+maximum_target_weight = 3.0
+residual_shrinkage_weight = 0.01
+
+[training.base]
+maximum_epochs = 300
+minimum_epochs = 40
+early_stopping_patience = 35
+minimum_validation_metric_delta = 0.001
+learning_rate = 0.0003
+weight_decay = 0.0001
+
+[training.stage_e_b]
+maximum_epochs = 220
+minimum_epochs = 30
+early_stopping_patience = 25
+minimum_validation_metric_delta = 0.0001
+learning_rate = 0.0005
+weight_decay = 0.0001
+pair_aware_batching = true
+paired_solvent_weight = 0.10
+center_penalty_weight = 1.0
+
+[training.stage_e_c]
+maximum_epochs = 220
+minimum_epochs = 30
+early_stopping_patience = 25
+minimum_validation_metric_delta = 0.0001
+learning_rate = 0.0005
+weight_decay = 0.0001
+paired_solvent_weight = 0.0
+center_penalty_weight = 0.0
+
+[phase_separation]
+inner_jobs_may_read_outer_test_targets = false
+outer_training_may_read_outer_test_targets = false
+outer_test_prediction_requires_frozen_checkpoint = true
+oracle_site_prediction_is_diagnostic_only = true
+automatic_candidate_prediction_is_primary = true
+outer_test_metrics_after_prediction_freeze_only = true
+final_refit_after_outer_evaluation = true
+external_search_after_final_registry_freeze_only = true

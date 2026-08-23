@@ -1,0 +1,11 @@
+diagnostic,source_column,quintile,quintile_label,direction_label,lower_edge,upper_edge,edge_assignment,context_count,connectivity_count,correct_count,top1_accuracy,ci95_low,ci95_high,bootstrap_unit,bootstrap_replicates,bootstrap_seed,quintiles_are_decision_thresholds
+neural gap disagreement,u_gap,1,Q1,low disagreement,0,0.0103544042814,internal cutpoints assigned to upper quintile,204,191,181,0.887254901961,0.842930067315,0.928238209159,connectivity,5000,20260819,False
+neural gap disagreement,u_gap,2,Q2,,0.0103544042814,0.0184375610167,internal cutpoints assigned to upper quintile,204,192,196,0.960784313725,0.932038834951,0.985294117647,connectivity,5000,20260819,False
+neural gap disagreement,u_gap,3,Q3,,0.0184375610167,0.0291610853352,internal cutpoints assigned to upper quintile,203,182,188,0.926108374384,0.884422110553,0.962962962963,connectivity,5000,20260819,False
+neural gap disagreement,u_gap,4,Q4,,0.0291610853352,0.0522592245025,internal cutpoints assigned to upper quintile,204,189,192,0.941176470588,0.906976744186,0.97191011236,connectivity,5000,20260819,False
+neural gap disagreement,u_gap,5,Q5,high disagreement,0.0522592245025,0.202988150842,internal cutpoints assigned to upper quintile,204,173,191,0.936274509804,0.899038461538,0.968085106383,connectivity,5000,20260819,False
+ranking separation,ranking_separation,1,Q1,low separation,0,1.47776237603,internal cutpoints assigned to upper quintile,204,178,149,0.730392156863,0.666666666667,0.79274611399,connectivity,5000,20260819,False
+ranking separation,ranking_separation,2,Q2,,1.47776237603,2.64307452595,internal cutpoints assigned to upper quintile,204,187,192,0.941176470588,0.903666814139,0.973687655001,connectivity,5000,20260819,False
+ranking separation,ranking_separation,3,Q3,,2.64307452595,3.6582088735,internal cutpoints assigned to upper quintile,203,193,202,0.995073891626,0.984210526316,1,connectivity,5000,20260819,False
+ranking separation,ranking_separation,4,Q4,,3.6582088735,4.69925563539,internal cutpoints assigned to upper quintile,204,191,201,0.985294117647,0.967289719626,1,connectivity,5000,20260819,False
+ranking separation,ranking_separation,5,Q5,high separation,4.69925563539,10.3159822173,internal cutpoints assigned to upper quintile,204,177,204,1,1,1,connectivity,5000,20260819,False

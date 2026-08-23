@@ -1,0 +1,10 @@
+{
+  "schema_version": "mayr-nucpred.source-snapshot.v1",
+  "source_repository": "Grtresy/nucleophilicity-prediction-using-ml",
+  "source_git_head": "2627f49857fc2a7629fe54048888495493ed1b7e",
+  "source_worktree_clean": false,
+  "snapshot_date": "2026-08-23",
+  "release_repository": "Grtresy/mayr-nucpred",
+  "release_version": "1.0.0",
+  "note": "Files were selected from the current working tree by a strict public-release allowlist. Manuscript sources, plotting sources, curated datasets, curation/review tooling, portals, and unrelated research campaigns were excluded. The source Git commit alone does not identify this snapshot."
+}

@@ -1,0 +1,26 @@
+schema_version = "nucpred.mayr-n-publication-site-ablation-config.v1"
+parent_config_path = "configs/mayr_n_publication_site_v1.toml"
+parent_config_sha256 = "abd0c35505cb5ba2ab5c5b274b4eb01df11ba24372f435b8942b05a3812059b3"
+campaign_id = "mayr-n-publication-component-ablations-20260815-v1"
+experiment_id = "mayr-n-publication-automatic-site-no_pretraining-20260815-v1"
+output_directory = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/modeling/automatic_site/no_pretraining"
+device = "cuda:0"
+
+[lineage_overrides]
+conditional_n_config_path = "configs/mayr_n_publication_ablation_no_pretraining_v1.toml"
+conditional_n_config_sha256 = "acd9d84fb51a01399a651bd33b49862fa963c96d2376994ecb7cb6de2e70ed84"
+inner_conditional_checkpoint_root = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/modeling/conditional/no_pretraining/nested_inner"
+outer_conditional_checkpoint_root = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/modeling/conditional/no_pretraining/outer_refit"
+
+[ablation]
+name = "no_pretraining"
+interpretation = "the complete transferred backbone starts from deterministic random initialization with zero ESNUEL optimization steps"
+conditional_n_component_contract_matched = true
+ranker_architecture_and_optimization_matched = true
+frozen_candidate_universe_and_mining_retained = true
+true_metadata_retained_only_outside_predictor = true
+outer_test_used_for_selection = false
+model_facing_site_type = "frozen_true_metadata"
+type_dependent_region_residual_enabled = true
+type_dependent_calibration_enabled = true
+type_router_supervision = "frozen_true_metadata"

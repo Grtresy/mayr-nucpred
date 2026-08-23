@@ -1,0 +1,38 @@
+schema_version = "nucpred.mayr-n-publication-no-xtb-pretraining.v1"
+campaign_id = "mayr-n-publication-ablations-20260805-v1"
+variant = "without_xtb"
+records = "data/processed/esnuel_d_node_xtb_pretraining/esnuel-d-node-xtb-pretraining-20260726-v1-full/records.parquet"
+atom_features = "data/processed/esnuel_d_node_xtb_pretraining/esnuel-d-node-xtb-pretraining-20260726-v1-full/atom_features.parquet"
+molecule_features = "data/processed/esnuel_d_node_xtb_pretraining/esnuel-d-node-xtb-pretraining-20260726-v1-full/molecule_features.parquet"
+output_root = "artifacts/campaigns/mayr-n-publication-ablations-20260805-v1/pretraining/without_xtb"
+device = "cuda:0"
+seeds = [31001, 31002, 31003]
+epochs = 60
+minimum_epochs = 10
+early_stopping_patience = 8
+minimum_validation_delta = 0.0001
+batch_size = 128
+learning_rate = 0.0003
+weight_decay = 0.0001
+audit_test_used_for_selection = false
+mayr_labels_used = false
+
+[input_ablation]
+node_local4_values = "zero"
+node_local4_availability = "all_false"
+molecule_global6_values = "zero"
+molecule_global6_availability = "all_false"
+local_mask_probability = 0.0
+global_mask_probability = 0.0
+local_reconstruction_weight = 0.0
+global_reconstruction_weight = 0.0
+
+[retained_tasks]
+names = [
+  "masked_node_categorical_reconstruction_all_atoms",
+  "masked_edge_categorical_reconstruction",
+  "heavy_atom_mca_scalar",
+  "heavy_atom_gcs_53d",
+  "heavy_atom_mca_soft_site",
+  "heavy_atom_mca_within_molecule_ranking",
+]

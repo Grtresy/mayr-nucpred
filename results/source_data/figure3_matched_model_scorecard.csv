@@ -1,0 +1,43 @@
+model_key,display_label,model_order,metric_family,metric,metric_label,metric_order,source_value_unit,figure_display_unit,context_count,connectivity_count,estimate,ci95_low,ci95_high,bootstrap_replicates,bootstrap_seed,bootstrap_unit
+joint model,Joint model,0,site ranking,top-1 accuracy,Top-1 exact hit,0,fraction,percent,1026,866,0.930799220273,0.91369047619,0.947013646978,10000,20260815,connectivity
+joint model,Joint model,0,site ranking,top-3 accuracy,Top-3 recovery,1,fraction,percent,1026,866,0.980506822612,0.971484712361,0.988439306358,10000,20260815,connectivity
+joint model,Joint model,0,automatic-site N,R2,Automatic-site R2,2,unitless,unitless,1026,866,0.937429558769,0.922888682506,0.94942667264,10000,20260815,connectivity
+joint model,Joint model,0,automatic-site N,MAE,Automatic-site MAE,3,N units,N units,1026,866,1.21999993166,1.12897851033,1.31474495292,10000,20260815,connectivity
+joint model,Joint model,0,known-site N,R2,Known-site R2,4,unitless,unitless,1026,866,0.950221420758,0.941131772406,0.958020189815,10000,20260815,connectivity
+joint model,Joint model,0,known-site N,MAE,Known-site MAE,5,N units,N units,1026,866,1.15061174781,1.07458206747,1.22960672455,10000,20260815,connectivity
+without transferable pretraining,No transferable pretraining,1,site ranking,top-1 accuracy,Top-1 exact hit,0,fraction,percent,1026,866,0.924951267057,0.906812570185,0.942141192543,10000,2010134096,connectivity
+without transferable pretraining,No transferable pretraining,1,site ranking,top-3 accuracy,Top-3 recovery,1,fraction,percent,1026,866,0.980506822612,0.970999661509,0.988506022109,10000,2010134096,connectivity
+without transferable pretraining,No transferable pretraining,1,automatic-site N,R2,Automatic-site R2,2,unitless,unitless,1026,866,0.903313095005,0.879647665997,0.923576653859,10000,2010134096,connectivity
+without transferable pretraining,No transferable pretraining,1,automatic-site N,MAE,Automatic-site MAE,3,N units,N units,1026,866,1.51353997608,1.39296617192,1.64402207818,10000,2010134096,connectivity
+without transferable pretraining,No transferable pretraining,1,known-site N,R2,Known-site R2,4,unitless,unitless,1026,866,0.930610229354,0.913594428421,0.943220756877,10000,2010134096,connectivity
+without transferable pretraining,No transferable pretraining,1,known-site N,MAE,Known-site MAE,5,N units,N units,1026,866,1.36466942228,1.26941604375,1.46969390516,10000,2010134096,connectivity
+without local electronic inputs,No local electronic inputs,2,site ranking,top-1 accuracy,Top-1 exact hit,0,fraction,percent,1026,866,0.932748538012,0.9160137851,0.948792936209,10000,120199568,connectivity
+without local electronic inputs,No local electronic inputs,2,site ranking,top-3 accuracy,Top-3 recovery,1,fraction,percent,1026,866,0.981481481481,0.972789115646,0.989299610895,10000,120199568,connectivity
+without local electronic inputs,No local electronic inputs,2,automatic-site N,R2,Automatic-site R2,2,unitless,unitless,1026,866,0.929933415026,0.913987991269,0.942905476583,10000,120199568,connectivity
+without local electronic inputs,No local electronic inputs,2,automatic-site N,MAE,Automatic-site MAE,3,N units,N units,1026,866,1.29634468602,1.19745012557,1.40107254827,10000,120199568,connectivity
+without local electronic inputs,No local electronic inputs,2,known-site N,R2,Known-site R2,4,unitless,unitless,1026,866,0.944731428961,0.931922059238,0.954785390627,10000,120199568,connectivity
+without local electronic inputs,No local electronic inputs,2,known-site N,MAE,Known-site MAE,5,N units,N units,1026,866,1.19980766078,1.11414506239,1.29251187623,10000,120199568,connectivity
+without global electronic inputs,No global electronic inputs,3,site ranking,top-1 accuracy,Top-1 exact hit,0,fraction,percent,1026,866,0.926900584795,0.908113126355,0.944111923212,10000,2100580813,connectivity
+without global electronic inputs,No global electronic inputs,3,site ranking,top-3 accuracy,Top-3 recovery,1,fraction,percent,1026,866,0.985380116959,0.977517106549,0.992233198045,10000,2100580813,connectivity
+without global electronic inputs,No global electronic inputs,3,automatic-site N,R2,Automatic-site R2,2,unitless,unitless,1026,866,0.935603648409,0.919722481136,0.948947325283,10000,2100580813,connectivity
+without global electronic inputs,No global electronic inputs,3,automatic-site N,MAE,Automatic-site MAE,3,N units,N units,1026,866,1.22902863886,1.13422946763,1.33026519236,10000,2100580813,connectivity
+without global electronic inputs,No global electronic inputs,3,known-site N,R2,Known-site R2,4,unitless,unitless,1026,866,0.951945752576,0.943009017183,0.959742180218,10000,2100580813,connectivity
+without global electronic inputs,No global electronic inputs,3,known-site N,MAE,Known-site MAE,5,N units,N units,1026,866,1.12255783124,1.04570385714,1.20277795879,10000,2100580813,connectivity
+without explicit solvent inputs,No explicit solvent inputs,4,site ranking,top-1 accuracy,Top-1 exact hit,0,fraction,percent,1026,866,0.924951267057,0.906219151037,0.942100098135,10000,2535727268,connectivity
+without explicit solvent inputs,No explicit solvent inputs,4,site ranking,top-3 accuracy,Top-3 recovery,1,fraction,percent,1026,866,0.987329434698,0.979371316306,0.994152046784,10000,2535727268,connectivity
+without explicit solvent inputs,No explicit solvent inputs,4,automatic-site N,R2,Automatic-site R2,2,unitless,unitless,1026,866,0.914064156602,0.89530177055,0.929545896819,10000,2535727268,connectivity
+without explicit solvent inputs,No explicit solvent inputs,4,automatic-site N,MAE,Automatic-site MAE,3,N units,N units,1026,866,1.39593459147,1.29639279615,1.5048515253,10000,2535727268,connectivity
+without explicit solvent inputs,No explicit solvent inputs,4,known-site N,R2,Known-site R2,4,unitless,unitless,1026,866,0.940964714583,0.929831131316,0.950481989131,10000,2535727268,connectivity
+without explicit solvent inputs,No explicit solvent inputs,4,known-site N,MAE,Known-site MAE,5,N units,N units,1026,866,1.24299593993,1.16162372547,1.3302822202,10000,2535727268,connectivity
+without context-level molecular formal charge,No context-level charge,5,site ranking,top-1 accuracy,Top-1 exact hit,0,fraction,percent,1026,866,0.940545808967,0.924302397098,0.95538357979,10000,326123121,connectivity
+without context-level molecular formal charge,No context-level charge,5,site ranking,top-3 accuracy,Top-3 recovery,1,fraction,percent,1026,866,0.987329434698,0.979227972501,0.994152189139,10000,326123121,connectivity
+without context-level molecular formal charge,No context-level charge,5,automatic-site N,R2,Automatic-site R2,2,unitless,unitless,1026,866,0.935740892239,0.921603591082,0.947719673405,10000,326123121,connectivity
+without context-level molecular formal charge,No context-level charge,5,automatic-site N,MAE,Automatic-site MAE,3,N units,N units,1026,866,1.22202065017,1.13414297232,1.3141732952,10000,326123121,connectivity
+without context-level molecular formal charge,No context-level charge,5,known-site N,R2,Known-site R2,4,unitless,unitless,1026,866,0.950798261548,0.9422952579,0.958182938835,10000,326123121,connectivity
+without context-level molecular formal charge,No context-level charge,5,known-site N,MAE,Known-site MAE,5,N units,N units,1026,866,1.14186637918,1.06753682013,1.21978701214,10000,326123121,connectivity
+without xTB-derived electronic inputs,No xTB electronic inputs,6,site ranking,top-1 accuracy,Top-1 exact hit,0,fraction,percent,1026,866,0.93469785575,0.91796875,0.95067731641,10000,1446449755,connectivity
+without xTB-derived electronic inputs,No xTB electronic inputs,6,site ranking,top-3 accuracy,Top-3 recovery,1,fraction,percent,1026,866,0.979532163743,0.970334715261,0.987712955476,10000,1446449755,connectivity
+without xTB-derived electronic inputs,No xTB electronic inputs,6,automatic-site N,R2,Automatic-site R2,2,unitless,unitless,1026,866,0.908173630226,0.887426604162,0.925599072974,10000,1446449755,connectivity
+without xTB-derived electronic inputs,No xTB electronic inputs,6,automatic-site N,MAE,Automatic-site MAE,3,N units,N units,1026,866,1.4605226965,1.35443654987,1.57445722245,10000,1446449755,connectivity
+without xTB-derived electronic inputs,No xTB electronic inputs,6,known-site N,R2,Known-site R2,4,unitless,unitless,1026,866,0.936433119139,0.926353396674,0.945498735498,10000,1446449755,connectivity
+without xTB-derived electronic inputs,No xTB electronic inputs,6,known-site N,MAE,Known-site MAE,5,N units,N units,1026,866,1.31255065155,1.22732844416,1.39930752455,10000,1446449755,connectivity

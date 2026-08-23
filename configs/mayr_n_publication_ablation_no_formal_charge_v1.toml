@@ -1,0 +1,14 @@
+schema_version = "nucpred.mayr-n-publication-ablation-config.v1"
+parent_config_path = "configs/mayr_n_publication_experiment_v1.toml"
+parent_config_sha256 = "5fea43db14f6f6fdf77d0ef28746afe7da80f8c6458369fa2a26488939888a43"
+campaign_id = "mayr-n-publication-component-ablations-20260815-v1"
+experiment_id = "mayr-n-publication-no_formal_charge-20260815-v1"
+output_directory = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/modeling/conditional/no_formal_charge"
+device = "cuda:0"
+
+[ablation]
+name = "no_formal_charge"
+interpretation = "the separate molecular formal-charge scalar is fixed to zero; atom-level categorical charge remains part of the molecular graph"
+outer_test_used_for_selection = false
+same_architecture_and_optimization = true
+true_metadata_retained_only_for_post_freeze_analysis = true

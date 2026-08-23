@@ -1,0 +1,7 @@
+stage,count,unit,role
+raw Mayr records,1136,measurements,retained source records
+context aggregation,1122,molecule-solvent contexts,target-independent representative selection
+formal supervised set,1038,context-site targets,N and site supervision
+formal site inventory,888,site objects,typed reaction-center identities
+grouping inventory,872,connectivity groups,outer-fold grouping units
+unresolved assignments,70,targets,excluded from N and site supervision

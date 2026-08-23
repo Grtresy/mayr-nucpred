@@ -1,0 +1,31 @@
+{
+  "schema_version": "mayr-nucpred.xtb-runtime.v1",
+  "program": "xTB",
+  "version": "6.7.0",
+  "build_identifier": "08769fc",
+  "platform": "Linux x86-64",
+  "runtime_banner": "xtb version 6.7.0 (08769fc) compiled by 'albert@albert-system' on 2024-03-04",
+  "method_used": "GFN1-xTB",
+  "geometry_protocol": "frozen input geometry; no xTB geometry optimization",
+  "archive": {
+    "filename": "xtb-6.7.0-linux-x86_64.tar.xz",
+    "sha256": "612c09f6bf85ffccb0e1ee4a62730de9032f64786b799525304eaa77a23d0dfe",
+    "official_release_url": "https://github.com/grimme-lab/xtb/releases/tag/v6.7.0",
+    "official_download_url": "https://github.com/grimme-lab/xtb/releases/download/v6.7.0/xtb-6.7.0-linux-x86_64.tar.xz",
+    "official_checksum_url": "https://github.com/grimme-lab/xtb/releases/download/v6.7.0/xtb-6.7.0-linux-x86_64.tar.xz.sha256",
+    "official_checksum_verified_on": "2026-08-22"
+  },
+  "executable": {
+    "relative_path_in_archive": "xtb-dist/bin/xtb",
+    "sha256": "9eb042e6e4a9c22af3d82d52be60e411ed263a4eacb5606c4f41e4e40a460c2a"
+  },
+  "runtime_environment": {
+    "container_image_identifier": null,
+    "note": "No separate container image identifier was captured; the runtime is bound by its banner, distribution checksum, and executable checksum."
+  },
+  "license": "LGPL-3.0-or-later",
+  "redistribution": {
+    "binary_included": false,
+    "reason": "The public release records the exact third-party build and official source but does not rehost the binary or imply that the repository's MIT or Apache-2.0 licences cover it."
+  }
+}

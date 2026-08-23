@@ -1,0 +1,210 @@
+schema_version = "nucpred.mayr-joint-site-n-prototype-config.v1"
+experiment_id = "mayr-joint-site-n-prototype-20260810-v1"
+output_directory = "artifacts/campaigns/mayr-joint-model-component-ablations-20260815-v1/no_local_electronic"
+device = "auto"
+outer_fold_count = 5
+inner_fold_count = 4
+initialization_seeds = [2026081001, 2026081002, 2026081003]
+conditional_teacher_seeds = [2026072601, 2026072602, 2026072603]
+unknown_is_negative = false
+candidate_softmax_used = false
+outer_test_used_for_selection = false
+v3_review_permitted_before_prototype_gate = false
+
+[dataset]
+dataset_id = "mayr-site-n-20260805-v2-ablation-no-local-electronic"
+directory = "data/processed/mayr_site_n/mayr-site-n-20260805-v2-ablation-no-local-electronic"
+manifest_path = "data/processed/mayr_site_n/mayr-site-n-20260805-v2-ablation-no-local-electronic/dataset_manifest.json"
+manifest_sha256 = "85ce52a789e8cd3b4ead0079c40536661c49fae66637d4ebe4631c157b9d7a3d"
+contexts_path = "data/processed/mayr_site_n/mayr-site-n-20260805-v2-ablation-no-local-electronic/contexts.parquet"
+contexts_sha256 = "70658063077273be22009e5c0b9a2b57e52e3251de4a1468f9d6507e0795aaaa"
+targets_path = "data/processed/mayr_site_n/mayr-site-n-20260805-v2-ablation-no-local-electronic/targets.parquet"
+targets_sha256 = "e6f76b8ce8ab92d7f8914ba91d8d420d9c8e57682cee1da67ec3564a628ec563"
+candidates_path = "data/processed/mayr_site_n/mayr-site-n-20260805-v2-ablation-no-local-electronic/candidate_sites.parquet"
+candidates_sha256 = "ac02230e4cbe1eaf8bbfbcf8b81346cd6fcb95382af0e90bfae58e19a4411737"
+species_path = "data/processed/mayr_site_n/mayr-site-n-20260805-v2-ablation-no-local-electronic/species.parquet"
+species_sha256 = "39fbfbb4123efc4a2d09c963b0aec101e29537d21c6535045c38176cb0c10873"
+outer_membership_path = "data/processed/mayr_site_n/mayr-site-n-20260805-v2-ablation-no-local-electronic/outer_fold_membership.csv"
+outer_membership_sha256 = "8eed41340703a55c78377757e711f235cb6be587192b49be5ac54f90559dffcb"
+nested_membership_path = "data/processed/mayr_site_n/mayr-site-n-20260805-v2-ablation-no-local-electronic/nested_split_membership.csv"
+nested_membership_sha256 = "890117d05e2e2b009db4da5a9c8e70f6fe0b0225de0cae36caff48ac947bedee"
+
+[prototype_evidence]
+path = "artifacts/campaigns/mayr-nextgen-site-identification-20260731-v7/preflight/combined_reviewed_evidence.parquet"
+sha256 = "59e8ca0ab2063c85faed3365868ea1d714b40de2b0c63b68d38dd1d4e220cc60"
+role = "prototype_train_and_diagnostic_only"
+may_enter_v3_formal_calibration_or_test = false
+required_negative_count = 3538
+required_positive_count = 541
+unknown_loss_weight = 0.0
+ontology_out_of_scope_loss_weight = 0.0
+
+[baseline]
+publication_protocol_path = "configs/mayr_n_publication_v1.toml"
+publication_protocol_sha256 = "88700723ab16efbdaec0a3ada81dbf6b37634b1c3c4e0b0db8479e0eff4ca629"
+automatic_site_config_path = "configs/mayr_n_publication_site_ablation_no_local_electronic_v1.toml"
+automatic_site_config_sha256 = "6e3a78ae532fa3ea226db3162c256ea2b1404e9869d4ab15c781e7cf2ded3a1a"
+runtime_registry_path = "artifacts/campaigns/mayr-n-publication-20260805-v1/modeling/automatic_site/deployment/runtime_registry.json"
+runtime_registry_sha256 = "52c5d606523b8a4a544b03f9fc8b1588cbe370b71b2f90e25e2517690a2d94aa"
+evaluation_summary_path = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/modeling/automatic_site/no_local_electronic/outer_evaluation/summary.json"
+evaluation_summary_sha256 = "f36b6e58a0e77dcbef564e56403282cc66b76b295593d2d2d6cc11ff6b88858a"
+single_target_evaluation_path = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/modeling/automatic_site/no_local_electronic/outer_evaluation/single_target_evaluation.parquet"
+single_target_evaluation_sha256 = "c08ddacecd1b6db17488672c86e69de485e4632daca04a96518d0b98ab9ade20"
+site_type_metrics_path = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/modeling/automatic_site/no_local_electronic/outer_evaluation/site_type_metrics.csv"
+site_type_metrics_sha256 = "c162253922cd13f94d64acbd2080aba0fa63a829103066d488dcc47e2dcca3e8"
+outer_fold_metrics_path = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/modeling/automatic_site/no_local_electronic/outer_evaluation/outer_fold_metrics.csv"
+outer_fold_metrics_sha256 = "76997f8d116de75ecba7cad3cf647e35746d3ea91840fc1140410a7d63582726"
+paired_comparisons_path = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/modeling/automatic_site/no_local_electronic/outer_evaluation/paired_comparisons.csv"
+paired_comparisons_sha256 = "d2edd88d56e66117edb32b1ff09c2ee73ea0df740115043f12385956a0400f1f"
+inner_checkpoint_root = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/modeling/conditional/no_local_electronic/nested_inner"
+outer_checkpoint_root = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/modeling/conditional/no_local_electronic/outer_refit"
+inner_site_ranker_root = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/modeling/automatic_site/no_local_electronic/nested_inner"
+outer_site_ranker_root = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/modeling/automatic_site/no_local_electronic/outer_refit"
+outer_development_oof_root = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/modeling/automatic_site/no_local_electronic/outer_refit"
+outer_development_oof_sha256 = [
+  "9fdb5589d06b08a6bd825a86bc50920522e904bb09c4691b05cd96cd27132416",
+  "32ed43b34713ab8079520ec2e3aba10c2755712e12f92d00a7874e42904a5299",
+  "289cee23fa51b6133e431b0bcce1f2d6e7480d2169d385b01500144095655767",
+  "d6a2b48b79022ad30bb2d939664fcc790e235c405da3d2d0eb13e4d57d077d00",
+  "0cc9d7bdbdbc9da5959dc88799fd9b09588655692753e1be394da832d1760024",
+]
+outer_development_summary_sha256 = [
+  "6fbee459743be946f14e2713508ea73d04e48da02c1f71ec6c5bfc77e86d036d",
+  "df528c3028f183c67798f24cb232381a97e78b9d6448351c4d912ceef1da29da",
+  "a2a365c5846d47a5ecd1a2a6e8818340b9c9c097f6c325115ebd4c386b1bce52",
+  "9f7b3216178ddb4f971a78fbb2ada7eb1ce17b142f09fe957646355e894aaae0",
+  "b7bfb9133014ad66e7ef0c74884264bc2452caedaf02907ed10ab333b994deb8",
+]
+outer_score_freeze_root = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/modeling/automatic_site/no_local_electronic/outer_score_freeze"
+outer_score_candidate_sha256 = [
+  "0b0e658f918f398b1b22112b8ac30654de866ce5dd8cdfb8cf4a950f9e3229a6",
+  "3df90f18b9be2f70f9e415e4c9b0a541020aedef8e8e46197f3afb046eaf0df2",
+  "3739b384908f1185dd24781f86a530f6ac29e5f4f66af3c0303dbb104e2ef2a4",
+  "6351fb147cddf9fd909811ec8deb64d040a0c5bd1bbadbea5995dfeb87fd7827",
+  "6df3ab9501a5f70a6a8c99bf5895500b5b51908078004c453942dc62821bde13",
+]
+outer_score_summary_sha256 = [
+  "442e95a83158f329e860addfc12acd5e6a531a9d110fcf0dabd231d4dbd36efa",
+  "1619762ff18f86ba66c825301f61736c5f8c072e49c37659a408cdb917e4b296",
+  "758f273bd370c9f840dd21088d97e82dd96a55f17dd626963baf10c9900511ad",
+  "693e6e6b35c55e2d4bb3fb4a837156b72f2259a33c5fca09a65160458a1995bb",
+  "4ac965677108e70c29249be043c306cc34023ad4498ef59ec78c52151bd47769",
+]
+
+[model]
+conditional_n_lineage = "publication_C2_to_E-B-N1_to_E-C-N3"
+site_types = ["atom", "bond", "delocalized_region", "atom_group", "transferable_h_group"]
+hidden_dim = 128
+message_passing_layers = 4
+node_embedding_dim = 16
+edge_embedding_dim = 16
+solvent_embedding_dim = 16
+type_embedding_dim = 16
+router_hidden_dim = 64
+router_logit_weight = 1.0
+router_base_adapter = "positive_per_type_affine_plus_context_residual_identity_initialized"
+router_candidate_set_context = "typed_fused_mean_max_logmeanexp_count_base_max_topk.v1"
+set_top_k = 3
+dropout = 0.10
+candidate_set_complexity = "O(n)_memory"
+candidate_set_residual_contract = "context_type_internal_reordering_with_frozen_type_maximum"
+direct_outputs = ["canonical_logit", "conditional_N"]
+site_logit_design = "frozen_split_safe_v2_base_plus_trainable_joint_residual"
+inner_base_source = "materialized_split_safe_publication_inner_ranker_plus_region_residual"
+outer_development_base_source = "four_inner_oof_outer_selected_validity_logit"
+outer_test_base_source = "label_blind_frozen_v2_canonical_logit"
+site_ranker_projection = "forbidden_for_outer_three_member_ensemble"
+
+[training]
+batch_size_contexts = 8
+maximum_epochs = 80
+minimum_epochs = 16
+early_stopping_patience = 12
+minimum_validation_top1_delta = 0.0001
+head_learning_rate = 0.00001
+backbone_learning_rate_multiplier = 0.1
+weight_decay = 0.0002
+heads_only_warmup_epochs = 3
+gradient_clip_norm = 5.0
+outer_epoch_rule = "upper_median_of_four_inner_best_epochs"
+site_type_context_balance_exponent = 0.5
+
+[loss]
+listwise_weight = 1.0
+pairwise_weight = 1.0
+evidence_bce_weight = 0.25
+type_router_weight = 0.5
+type_router_loss = "exact_endpoint_type_listwise_plus_balanced_reviewed_bce_pairwise.v1"
+n_regression_weight = 1.0
+pairwise_margin = 0.75
+n_harm_multiplier = 1.0
+n_harm_cap_quantile = 0.95
+
+[type_router]
+enabled = true
+fit_role = "outer_development_inner_oof_only"
+feature_contract = "morgan1024_context_physical_typed_candidate_set_structural.v3"
+excluded_model_derived_features = ["conditional_n_seed_std"]
+feature_range_clipping_contract = "per_feature_training_min_max_before_standardization.v1"
+morgan_radius = 2
+morgan_bits = 1024
+regularization_c_grid = [0.005, 0.01, 0.03, 0.1]
+pre_router_type_max_weight_grid = [0.0, 0.02, 0.05, 0.1, 0.2]
+atom_group_bias_grid = [0.0, 0.25, 0.5, 0.625, 0.75, 0.875, 1.0]
+delocalized_region_bias_grid = [0.0, 0.25, 0.5, 0.625, 0.75]
+weak_type_minimum = 0.75
+canonical_composition = "type_router_plus_weighted_pre_router_type_max_plus_within_type_relative.v1"
+candidate_unknown_used_as_binary_negative = false
+
+[inner_artifact_compatibility]
+legacy_config_path = "configs/mayr_joint_site_n_v1_router_v2_failed.toml"
+legacy_config_sha256 = "0eb1e26cf6839c12a156e69ae01b4df5d22a33acb77beea9da6da3c5d8ec1165"
+reuse_scope = "joint_inner_and_router_independent_outer_epoch_selection_only"
+reason = "router_only_feature_lineage_and_range_clipping_fix"
+
+[ablations]
+required = [
+  "without_set_pooling",
+]
+
+[prototype_gate]
+exact_top1_minimum = 0.930
+automatic_n_mae_maximum = 1.23
+atom_group_top1_minimum = 0.75
+delocalized_region_top1_minimum = 0.75
+paired_bootstrap_confidence_level = 0.95
+top1_delta_ci_low_must_exceed = 0.0
+automatic_n_mae_reduction_ci_low_must_exceed = 0.0
+known_site_n_mae_maximum_degradation = 0.02
+candidate_recall_required = 1.0
+unknown_direct_loss_required = 0.0
+
+[bootstrap]
+unit = "connectivity_id"
+replicates = 5000
+seed = 20260810
+
+[phase_separation]
+inner_training_reads_outer_test_targets = false
+outer_training_reads_outer_test_targets = false
+outer_test_used_for_model_selection = false
+outer_test_used_for_calibration = false
+outer_test_scored_only_after_checkpoint_freeze = true
+v3_review_starts_only_after_all_prototype_gates_pass = true
+
+[component_ablation]
+schema_version = "nucpred.mayr-joint-model-component-ablation-preparation.v1"
+name = "no_local_electronic"
+public_label = "without local electronic inputs"
+base_model_internal_variant = "without_set_pooling"
+reporting_baseline_summary_path = "artifacts/campaigns/mayr-wsp-reporting-baseline-20260811-v1/baseline_freeze/summary.json"
+reporting_baseline_summary_sha256 = "bf61b9074279b78afd698983cfa43b7d4d41b402d85c04d6f44bb9210bff029e"
+reporting_baseline_manifest_path = "artifacts/campaigns/mayr-wsp-reporting-baseline-20260811-v1/baseline_freeze/manifest.json"
+reporting_baseline_manifest_sha256 = "9b0e43f9533f85438e60602a8c0c1bcf19321cf0aaff7eb99a21cece68e39b87"
+same_outer_folds = true
+same_initialization_seeds = true
+same_joint_architecture_and_optimization = true
+matched_upstream_conditional_n_and_site_models = true
+conditional_n_config_path = "configs/mayr_n_publication_ablation_no_local_electronic_v1.toml"
+conditional_n_config_sha256 = "95a57ec0ef954ef4583aca207ec529d3727d7e82d8e3f1e51635bfaa7ea26703"
+base_runtime_registry_role = "candidate-policy contract only; its model weights are not transferred"

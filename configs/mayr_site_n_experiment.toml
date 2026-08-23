@@ -1,0 +1,93 @@
+schema_version = "nucpred.mayr-site-n-experiment-config.v1"
+experiment_id = "mayr-site-n-independent-20260726-v1"
+dataset_id = "mayr-site-n-20260726-v1"
+dataset_directory = "data/processed/mayr_site_n/mayr-site-n-20260726-v1"
+output_root = "artifacts/campaigns/mayr-site-n-independent-20260726-v1"
+split_seeds = [20241220, 20241221, 20241222, 20241223, 20241224]
+initialization_seeds = [2026072601, 2026072602, 2026072603]
+maximum_parallel_gpu_processes = 3
+stage_gate_required_before_full_pretraining = true
+site_probability_normalization = false
+unmeasured_candidates_are_negative = false
+
+[model]
+hidden_dim = 128
+message_passing_layers = 4
+node_embedding_dim = 16
+edge_embedding_dim = 16
+solvent_embedding_dim = 16
+dropout = 0.10
+hydrogen_policy = "ordinary_element_in_shared_vocabulary"
+site_types = [
+  "atom",
+  "bond",
+  "delocalized_region",
+  "atom_group",
+  "transferable_h_group",
+]
+site_pooling = "mean_max_log_size_plus_typed_residual_adapter"
+site_output = "independent_scalar_N_per_query"
+local_feature_dim = 4
+global_feature_dim = 6
+spatial_edges = false
+
+[optimization]
+epochs = 300
+batch_size_contexts = 64
+learning_rate = 0.0003
+weight_decay = 0.0001
+ranking_weight = 0.10
+gradient_clip_norm = 5.0
+minimum_epochs = 40
+early_stopping_patience = 35
+
+[tiny_overfit]
+context_count = 32
+epochs = 800
+batch_size_contexts = 32
+learning_rate = 0.001
+weight_decay = 0.0
+maximum_N_MAE = 0.25
+initialization_seed = 2026072601
+
+[pretraining]
+pilot1024_directory = "data/processed/esnuel_d_node_xtb_pretraining/esnuel-d-node-xtb-pretraining-20260726-v1-pilot1024"
+pilot4096_directory = "data/processed/esnuel_d_node_xtb_pretraining/esnuel-d-node-xtb-pretraining-20260726-v1-pilot4096"
+full_directory = "data/processed/esnuel_d_node_xtb_pretraining/esnuel-d-node-xtb-pretraining-20260726-v1-full"
+initialization_seeds = [31001, 31002, 31003]
+epochs_pilot1024 = 20
+epochs_pilot4096 = 30
+batch_size = 64
+learning_rate = 0.0003
+weight_decay = 0.0001
+minimum_epochs = 5
+early_stopping_patience = 5
+minimum_validation_delta = 0.0001
+full_pretraining_forbidden_before_stage_gate_approval = true
+
+[pretraining.masking]
+node_categorical_probability = 0.15
+edge_categorical_probability = 0.15
+local_probability = 0.15
+global_probability = 0.15
+
+[pretraining.loss]
+node_categorical_weight = 1.0
+edge_categorical_weight = 1.0
+local_weight = 1.0
+global_weight = 1.0
+mca_weight = 1.0
+gcs_weight = 1.0
+ranking_weight = 0.25
+ranking_margin = 0.0
+
+[stage_gate]
+require_database_verification = true
+require_candidate_coverage_fraction = 1.0
+require_zero_connectivity_overlap = true
+require_tiny_overfit = true
+require_all_pretraining_gradient_paths = true
+require_strict_checkpoint_transfer = true
+minimum_improved_pretraining_seeds = 2
+minimum_relative_validation_improvement = 0.01
+require_finite_audit_metrics = true

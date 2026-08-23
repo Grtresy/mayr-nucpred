@@ -1,0 +1,25 @@
+{
+  "component": "no_xtb",
+  "config_path": "configs/mayr_joint_model_ablation_no_xtb_v2.toml",
+  "config_sha256": "d0bff48390ef21b09d2339f24409a521bb0e9ad147497b9d1375683c99fa86ce",
+  "dataset_manifest_sha256": "b72a72f3e5d8daf7d10ee807ec3501c7b210dd3a2d4cd4870d9f07aba7f0caaa",
+  "dataset_path": "data/processed/mayr_site_n/mayr-site-n-20260805-v2-ablation-no-xtb",
+  "matched_upstream": {
+    "automatic_site_config_path": "configs/mayr_n_publication_site_ablation_without_xtb_v1.toml",
+    "automatic_site_config_sha256": "4fb1b11386e5b131808e02be6639ed9916b8785206d54be92e0f22bca6fc95f6",
+    "conditional_config_path": "configs/mayr_n_publication_ablation_without_xtb_v1.toml",
+    "conditional_config_sha256": "1cd62b00e730ba0ada1464c348f3045d53a893605bf24e23e08199098efe3054"
+  },
+  "public_label": "without xTB-derived electronic inputs",
+  "ready_for_diagnostic_training": true,
+  "reporting_model": {
+    "manifest_path": "artifacts/campaigns/mayr-wsp-reporting-baseline-20260811-v1/baseline_freeze/manifest.json",
+    "manifest_sha256": "9b0e43f9533f85438e60602a8c0c1bcf19321cf0aaff7eb99a21cece68e39b87",
+    "summary_path": "artifacts/campaigns/mayr-wsp-reporting-baseline-20260811-v1/baseline_freeze/summary.json",
+    "summary_sha256": "bf61b9074279b78afd698983cfa43b7d4d41b402d85c04d6f44bb9210bff029e",
+    "variant": "without_set_pooling"
+  },
+  "schema_version": "nucpred.mayr-joint-model-component-ablation-preparation.v1",
+  "status": "pass",
+  "verified_joint_input_binding_count": 18
+}

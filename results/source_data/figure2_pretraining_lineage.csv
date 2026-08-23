@@ -1,0 +1,7 @@
+stage,count,unit,role
+parent reactivity corpus,47921,molecules,connectivity audit input
+Mayr connectivity overlaps,6,molecules,excluded before feature generation
+eligible pretraining corpus,47915,molecules,pretraining population
+training split,33475,molecules,normalization and fitting
+validation split,8243,molecules,checkpoint selection
+audit split,6197,molecules,read once after checkpoint selection

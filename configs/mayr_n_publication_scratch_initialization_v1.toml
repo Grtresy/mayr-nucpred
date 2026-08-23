@@ -1,0 +1,9 @@
+schema_version = "nucpred.mayr-n-publication-scratch-initialization.v1"
+campaign_id = "mayr-n-publication-component-ablations-20260815-v1"
+component = "no_pretraining"
+output_root = "artifacts/campaigns/mayr-n-publication-component-ablations-20260815-v1/pretraining/no_pretraining_v2"
+downstream_initialization_seeds = [2026072601, 2026072602, 2026072603]
+reference_checkpoint = "artifacts/campaigns/mayr-explicit-h-node-xtb-pretraining-20260726-v1/full/seed-31001/best.pt"
+reference_checkpoint_sha256 = "d75d7dcb502684b609d4b7553bd4fe441a1b997baba8b0c4def91e5c83392735"
+esnuel_optimization_steps = 0
+mayr_labels_used = false

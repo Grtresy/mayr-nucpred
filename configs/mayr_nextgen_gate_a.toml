@@ -1,0 +1,130 @@
+schema_version = "nucpred.mayr-nextgen-gate-a-config.v1"
+campaign_id = "mayr-nextgen-gate-a-20260727-v1"
+anchor_commit = "da558d97f0a0d8531b5b042e38d00b142933a01f"
+goal_thread_id = "019f9253-3f58-73c3-9d1c-6f6523828c4e"
+output_root = "artifacts/campaigns/mayr-nextgen-gate-a-20260727-v1"
+maximum_parallel_gpu_processes = 3
+formal_feature_scope = "strict_no_dft_rdkit_xtb"
+deployment_population = "mayr_like_molecules_not_arbitrary_molecules"
+test_used_for_selection = false
+
+[authorization]
+path = "artifacts/campaigns/mayr-nextgen-gate-a-20260727-v1/authorization/decision.json"
+sha256 = "bbb0999879776366fdda210b6c1d78381e46f865552b8dbbe42e8c09b03788e9"
+
+[parent_site_n]
+dataset_id = "mayr-site-n-20260726-v1"
+directory = "data/processed/mayr_site_n/mayr-site-n-20260726-v1"
+manifest_path = "data/processed/mayr_site_n/mayr-site-n-20260726-v1/dataset_manifest.json"
+manifest_sha256 = "e509e06a3514a41ce16627846615fb07dd3b1b40fb6824e572c6043f8333c4dd"
+formal_config_path = "configs/mayr_site_n_formal.toml"
+formal_config_sha256 = "1e1299d3ebd4d4c856ec5ee90d14fcae664f91aeb982027753997af379518fa1"
+canonical_run_id = "mayr-site-n-independent-canonical-20260726-v2"
+expected_measurement_count = 1136
+expected_target_count = 1108
+expected_site_object_count = 958
+expected_species_count = 964
+expected_candidate_count = 204516
+
+[parent_confidence]
+dataset_id = "mayr-site-confidence-formal-20260727-v1"
+directory = "data/processed/mayr_site_confidence_formal_dataset/mayr-site-confidence-formal-20260727-v1"
+manifest_path = "data/processed/mayr_site_confidence_formal_dataset/mayr-site-confidence-formal-20260727-v1/dataset_manifest.json"
+manifest_sha256 = "5a5271269e7e9c5bac807dc5b39020ab7d2b51facb537ce5f5218185c8da5446"
+canonical_run_id = "mayr-site-confidence-formal-canonical-20260727-v1"
+
+[candidate_policy]
+policy_id = "mayr-multitype-deployment-candidates-v1"
+audit_population = "all_frozen_target_independent_candidates"
+deployment_population = "chemically_structured_candidates_with_full_known_site_recall"
+all_atom_candidates_deploy = true
+all_bond_candidates_deploy = true
+all_transferable_h_group_candidates_deploy = true
+region_audit_only_when_origins_exactly = ["heavy_shortest_path"]
+atom_group_strong_origins = [
+  "rdkit_symmetry",
+  "same_element_neighbours",
+  "ring_same_element",
+  "conjugated_same_element",
+]
+atom_group_maximum_pairwise_graph_distance = 2
+known_site_coverage_required = 1.0
+selection_reads_target_columns = false
+
+[candidate_relations]
+exact_same_members = "cross_type_equivalent_representation"
+strict_containment = "parent_child_not_automatic_equivalence"
+partial_overlap = "related_not_automatic_equivalence"
+minimum_reported_jaccard_overlap = 0.5
+transitive_collapse_before_scoring = false
+
+[evidence]
+supported_site_types = [
+  "atom",
+  "bond",
+  "delocalized_region",
+  "atom_group",
+  "transferable_h_group",
+]
+gate_a_review_scope = [
+  "bond",
+  "delocalized_region",
+  "atom_group",
+  "transferable_h_group",
+]
+formal_positive_tier = "all_sources_literature_verified"
+weak_positive_tiers = ["mixed_literature_and_rule", "rule_only"]
+weak_positive_use = "training_only_downweighted_after_gate_a"
+formal_calibration_test_weak_labels_forbidden = true
+unknown_is_negative = false
+unmeasured_candidate_is_negative = false
+negative_semantics = "not_the_reported_endpoint_for_exact_source_molecule_solvent_context"
+
+[review]
+review_mode = "single_operator_two_isolated_passes"
+independent_second_reviewer_available = false
+claim_two_independent_reviewers = false
+ambiguous_or_conflicting_status = "unknown"
+model_scores_forbidden_during_gate_a_queue_construction = true
+minimum_disjoint_candidates_for_feasible_context = 2
+
+[r2]
+output_directory = "artifacts/campaigns/mayr-nextgen-gate-a-20260727-v1/r2"
+arms = ["legacy_rmse", "matched_encoder_only_rmse"]
+split_seeds = [20241220, 20241221, 20241222, 20241223, 20241224]
+initialization_seeds = [2026072601, 2026072602, 2026072603]
+selection_metric = "rmse"
+minimum_validation_metric_delta = 0.001
+test_used_for_selection = false
+matched_encoder_transfer_surface = "legacy_aligned_encoder_only"
+maximum_parallel_gpu_processes = 3
+
+[r2.optimization]
+maximum_epochs = 300
+minimum_epochs = 40
+early_stopping_patience = 35
+batch_size_contexts = 64
+learning_rate = 0.0003
+weight_decay = 0.0001
+ranking_weight = 0.10
+gradient_clip_norm = 5.0
+
+[r2.success]
+primary_metric = "five_split_three_seed_ensemble_macro_r2"
+minimum_r2 = 0.95
+mae_must_not_worsen = true
+rmse_must_not_worsen = true
+paired_connectivity_bootstrap_required = true
+single_split_success_is_insufficient = true
+
+[gate_a]
+run_id = "mayr-nextgen-gate-a-canonical-20260727-v1"
+candidate_census_required = true
+deployment_known_site_coverage_required = 1.0
+positive_evidence_census_required = true
+negative_pool_feasibility_required = true
+multi_site_gap_census_required = true
+r2_low_cost_matrix_required = true
+user_approval_required_to_continue = true
+status_after_completion = "awaiting_user_approval"
+dft_or_cdft_computation_forbidden = true

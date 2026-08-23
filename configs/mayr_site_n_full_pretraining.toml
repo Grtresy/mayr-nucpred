@@ -1,0 +1,35 @@
+schema_version = "nucpred.mayr-site-n-full-pretraining-config.v1"
+experiment_id = "mayr-site-n-independent-20260726-v1"
+base_config = "configs/mayr_site_n_experiment.toml"
+scope = "full"
+dataset_id = "esnuel-d-node-xtb-pretraining-20260726-v1-full"
+dataset_directory = "data/processed/esnuel_d_node_xtb_pretraining/esnuel-d-node-xtb-pretraining-20260726-v1-full"
+output_directory = "artifacts/campaigns/mayr-site-n-independent-20260726-v1/pretraining/full"
+initialization_seeds = [31001, 31002, 31003]
+maximum_parallel_gpu_processes = 3
+
+[authorization]
+stage_gate_run_id = "mayr-site-n-stage-gate-20260726-v1"
+approval_artifact = "artifacts/campaigns/mayr-site-n-independent-20260726-v1/authorization/approval.json"
+required_approval_statement = "批准进入下一阶段"
+required_goal_thread_id = "019f9253-3f58-73c3-9d1c-6f6523828c4e"
+
+[expected_counts]
+total = 47915
+train = 33475
+validation = 8243
+audit_test = 6197
+
+[optimization]
+# Full epochs are not copied from the 4,096-record pilot.  With 33,475
+# training molecules, 20 epochs already provide about 10,460 optimizer
+# updates versus about 1,560 updates in the 30-epoch pilot.
+maximum_epochs = 20
+minimum_epochs = 8
+early_stopping_patience = 4
+minimum_validation_delta = 0.0001
+batch_size = 64
+learning_rate = 0.0003
+weight_decay = 0.0001
+gradient_clip_norm = 5.0
+minimum_relative_validation_improvement = 0.01

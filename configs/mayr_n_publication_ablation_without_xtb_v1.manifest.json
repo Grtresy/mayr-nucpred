@@ -1,0 +1,42 @@
+{
+  "config_path": "configs/mayr_n_publication_ablation_without_xtb_v1.toml",
+  "config_sha256": "1cd62b00e730ba0ada1464c348f3045d53a893605bf24e23e08199098efe3054",
+  "matched_pretraining": {
+    "aggregate_path": "artifacts/campaigns/mayr-n-publication-ablations-20260805-v1/pretraining/without_xtb/aggregate/aggregate_summary.json",
+    "aggregate_sha256": "65957199c5f1db03c25fdefe4e010aca791ca19e08efc8f6c11f9f4c543cf944",
+    "checkpoints": [
+      {
+        "downstream_initialization_seed": 2026072601,
+        "path": "artifacts/campaigns/mayr-n-publication-ablations-20260805-v1/pretraining/without_xtb/seed-31001/best.pt",
+        "pretraining_seed": 31001,
+        "sha256": "cf6b2560c45b792cf70b47230f0b7f2bd4a51364a43e3f5018cc80e50c8b35c4"
+      },
+      {
+        "downstream_initialization_seed": 2026072602,
+        "path": "artifacts/campaigns/mayr-n-publication-ablations-20260805-v1/pretraining/without_xtb/seed-31002/best.pt",
+        "pretraining_seed": 31002,
+        "sha256": "2d07a232e9ba8a45625c89e447add53c8251ca65a8225314476432ed3fa60ce0"
+      },
+      {
+        "downstream_initialization_seed": 2026072603,
+        "path": "artifacts/campaigns/mayr-n-publication-ablations-20260805-v1/pretraining/without_xtb/seed-31003/best.pt",
+        "pretraining_seed": 31003,
+        "sha256": "402169aade61a0e3fb07b3491c3a3af37bea78f0d46f1c98e6b85640cf2ccd59"
+      }
+    ],
+    "expected_pretraining_tasks": [
+      "masked_node_categorical_reconstruction_all_atoms",
+      "masked_edge_categorical_reconstruction",
+      "heavy_atom_mca_scalar",
+      "heavy_atom_gcs_53d",
+      "heavy_atom_mca_soft_site",
+      "heavy_atom_mca_within_molecule_ranking"
+    ],
+    "matched_pretraining_config_path": "configs/mayr_n_publication_no_xtb_pretraining_v1.toml",
+    "matched_pretraining_config_sha256": "867332303e774079caa55a3c0bd8366941c1c91982cd150871ac799bb9350f8a"
+  },
+  "parent_config_path": "configs/mayr_n_publication_experiment_v1.toml",
+  "parent_config_sha256": "5fea43db14f6f6fdf77d0ef28746afe7da80f8c6458369fa2a26488939888a43",
+  "schema_version": "nucpred.mayr-n-no-xtb-ablation-config-manifest.v1",
+  "status": "pass"
+}

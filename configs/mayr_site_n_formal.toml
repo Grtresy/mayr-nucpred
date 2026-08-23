@@ -1,0 +1,63 @@
+schema_version = "nucpred.mayr-site-n-formal-config.v1"
+experiment_id = "mayr-site-n-independent-20260726-v1"
+base_config = "configs/mayr_site_n_experiment.toml"
+full_pretraining_config = "configs/mayr_site_n_full_pretraining.toml"
+dataset_id = "mayr-site-n-20260726-v1"
+dataset_directory = "data/processed/mayr_site_n/mayr-site-n-20260726-v1"
+output_directory = "artifacts/campaigns/mayr-site-n-independent-20260726-v1/formal"
+approval_artifact = "artifacts/campaigns/mayr-site-n-independent-20260726-v1/authorization/approval.json"
+split_seeds = [20241220, 20241221, 20241222, 20241223, 20241224]
+initialization_seeds = [2026072601, 2026072602, 2026072603]
+pretraining_seeds = [31001, 31002, 31003]
+arms = ["scratch", "legacy_encoder", "matched_pretraining"]
+maximum_parallel_gpu_processes = 3
+test_used_for_selection = false
+
+[optimization]
+maximum_epochs = 300
+minimum_epochs = 40
+early_stopping_patience = 35
+minimum_validation_mae_delta = 0.001
+batch_size_contexts = 64
+learning_rate = 0.0003
+weight_decay = 0.0001
+ranking_weight = 0.10
+gradient_clip_norm = 5.0
+
+[uncertainty]
+ensemble_axis = "three_initialization_seeds_within_split_and_arm"
+interval_method = "validation_absolute_residual_finite_sample_diagnostic"
+coverage_levels = [0.50, 0.80, 0.95]
+
+[[legacy_checkpoints]]
+pretraining_seed = 31001
+downstream_initialization_seed = 2026072601
+path = "artifacts/campaigns/mayr-explicit-h-node-xtb-pretraining-20260726-v1/full/seed-31001/best.pt"
+sha256 = "d75d7dcb502684b609d4b7553bd4fe441a1b997baba8b0c4def91e5c83392735"
+
+[[legacy_checkpoints]]
+pretraining_seed = 31002
+downstream_initialization_seed = 2026072602
+path = "artifacts/campaigns/mayr-explicit-h-node-xtb-pretraining-20260726-v1/full/seed-31002/best.pt"
+sha256 = "34bde8fecde2fa44c4b41b3ee3e7f1f1deb2aff152e1d4365d6828a4effb3b01"
+
+[[legacy_checkpoints]]
+pretraining_seed = 31003
+downstream_initialization_seed = 2026072603
+path = "artifacts/campaigns/mayr-explicit-h-node-xtb-pretraining-20260726-v1/full/seed-31003/best.pt"
+sha256 = "59ac746aedc571dadea4c307235befe61209da3cd1fea85584ee614cae902aa7"
+
+[[matched_checkpoints]]
+pretraining_seed = 31001
+downstream_initialization_seed = 2026072601
+path = "artifacts/campaigns/mayr-site-n-independent-20260726-v1/pretraining/full/seed-31001/checkpoint.pt"
+
+[[matched_checkpoints]]
+pretraining_seed = 31002
+downstream_initialization_seed = 2026072602
+path = "artifacts/campaigns/mayr-site-n-independent-20260726-v1/pretraining/full/seed-31002/checkpoint.pt"
+
+[[matched_checkpoints]]
+pretraining_seed = 31003
+downstream_initialization_seed = 2026072603
+path = "artifacts/campaigns/mayr-site-n-independent-20260726-v1/pretraining/full/seed-31003/checkpoint.pt"

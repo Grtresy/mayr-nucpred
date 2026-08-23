@@ -1,0 +1,9 @@
+output,pathway,context_count,connectivity_count,unit,mean,median,mean_absolute,median_absolute
+site-ranking logit contrast,local electronic inputs,1019,863,logit,0.0394201796077,0.0217904313734,0.172429668636,0.137632969486
+site-ranking logit contrast,global electronic inputs,1019,863,logit,0.00649910793294,0.000542912218306,0.100463588318,0.0591420017498
+site-ranking logit contrast,explicit solvent context,1019,863,logit,0.0241483822919,0.00507402420044,0.0768359615929,0.0459107388438
+site-ranking logit contrast,molecular formal charge,1019,863,logit,-0.00804816608485,-0.00852894886259,0.0591656853397,0.0470174122198
+conditional N,local electronic inputs,1026,866,N,0.163024018873,0.308780060874,3.11585518378,2.3458782302
+conditional N,global electronic inputs,1026,866,N,0.017029740089,-0.53251524104,2.26236445813,2.05895631843
+conditional N,explicit solvent context,1026,866,N,-0.062806447631,-0.143608252207,1.37164634,1.09850460291
+conditional N,molecular formal charge,1026,866,N,-0.17163574458,-0.206973817613,1.15962355989,1.08497310347

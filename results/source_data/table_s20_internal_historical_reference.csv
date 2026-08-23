@@ -1,0 +1,3 @@
+model,role,context_count,connectivity_count,top1_accuracy,top3_accuracy,top5_accuracy,mean_reciprocal_rank,automatic_site_mae,known_site_mae
+Internal historical baseline,development history only,1026,866,0.909356725146,0.96783625731,0.982456140351,0.940801711078,1.28091227234,1.16428134244
+Joint model (proposed),frozen reporting model,1026,866,0.930799220273,0.980506822612,0.987329434698,0.95687120425,1.21999993166,1.15061174781
